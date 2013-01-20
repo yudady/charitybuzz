@@ -49,6 +49,8 @@ public class Article {
 	private BidLevel nextBid;
 	private int bidLevelValue;
 
+
+
 	/**
 	 * 有多個2級目錄
 	 */
@@ -137,7 +139,13 @@ public class Article {
 	public void setNextBid(BidLevel nextBid) {
 		this.nextBid = nextBid;
 	}
+	public int getBidLevelValue() {
+		return bidLevelValue;
+	}
 
+	public void setBidLevelValue(int bidLevelValue) {
+		this.bidLevelValue = bidLevelValue;
+	}
 	public List<CatalogItem> getCatalogItems() {
 		return catalogItems;
 	}
