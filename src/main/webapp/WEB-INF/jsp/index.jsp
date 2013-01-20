@@ -20,7 +20,7 @@
 	<div id="container">
 		<div id="header">
 			<span id="logo">
-				<a href="<c:url value="/"/>"><img width="470" height="67" src='<c:url value="/resources/pic/logo-high-res-retina.png"/>' alt="Charitybuzz Logo"/></a>
+				<a href='<c:url value="/"/>'><img width="470" height="67" src='<c:url value="/resources/pic/logo-high-res-retina.png"/>' alt="Charitybuzz Logo"/></a>
 			</span>
 			<span id="logIn">
 				<input type="button" id="btnLogin" value="btnLogin"/>
@@ -32,12 +32,12 @@
 			<div id="boxContent">
 				<div id="nav">
 					<ul>
-						<li>Home</li>
-						<li>Auctions</li>
-						<li>Blog</li>
-						<li>Testimonials</li>
-						<li>Contact Us</li>
-						<li>Dream Big NEW</li>
+						<li><a href='<c:url value="/"/>'>Home</a> |</li>
+						<li><a href='<c:url value="/"/>'>Auctions</a> |</li>
+						<li><a href='<c:url value="/"/>'>Blog</a> |</li>
+						<li><a href='<c:url value="/"/>'>Testimonials</a> |</li>
+						<li><a href='<c:url value="/contact_us"/>'>Contact Us</a></li>
+						<li><a href='<c:url value="/"/>'>Dream Big NEW</a></li>
 					</ul>
 				</div>
 				<div id="social">
