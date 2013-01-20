@@ -10,12 +10,6 @@
 <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.9.0.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery.log.js"/>'></script>
 <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/base.css"/>'/>
-<script type="text/javascript">
-	$(function(){
-		$.log("222");
-	});
-
-</script>
 <title>charitybuzz</title>
 </head>
 <body>
