@@ -14,7 +14,7 @@ public class ContactUsController {
 	@RequestMapping()
 	public String contactUs() {
 		log.debug("[LOG]contactUs");
-		return "contactus/contact_us";
+		return "contactus";
 	}
 
 }

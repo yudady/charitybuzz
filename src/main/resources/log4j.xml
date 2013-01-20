@@ -16,23 +16,26 @@
 	</logger>
 	
 	
-	<!-- 3rdparty Loggers -->
 	
+	<!-- apache title -->
+	<logger name="org.apache.commons.digester">
+		<level value="info" />
+	</logger>	
+	<!-- springframework -->
 	<logger name="org.springframework.core">
 		<level value="info" />
 	</logger>	
-	
 	<logger name="org.springframework.beans">
 		<level value="info" />
 	</logger>
-	
 	<logger name="org.springframework.context">
 		<level value="info" />
 	</logger>
-
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
+
+
 
 	<!-- Root Logger -->
 	<root>

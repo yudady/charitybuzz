@@ -53,8 +53,90 @@
 	<context:component-scan base-package="com.charitybuzz"></context:component-scan>
 
 	
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/"></property>
-		<property name="suffix" value=".jsp"></property>
+	<!-- i18n start -->
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+	<!-- Application Message Bundle -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/messages/messages" />
+		<property name="cacheSeconds" value="0" />
 	</bean>
+	<!-- i18n end -->
+
+	<!-- Theme start -->
+	<bean id="themeSource"
+		class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+			<property name="basenamePrefix" value="theme-" />
+	</bean>
+	<!-- Theme Change Interceptor and Resolver definition -->
+	<bean id="themeChangeInterceptor"
+		class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+		<property name="paramName" value="theme" />
+	</bean>
+	<bean id="themeResolver"
+		class="org.springframework.web.servlet.theme.CookieThemeResolver">
+		<property name="defaultThemeName" value="default" />
+	</bean>
+	<!-- Theme end -->
+	
+	<mvc:interceptors>
+		<!-- Changes the locale when a 'locale' request parameter is sent; e.g. /?locale=de -->
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+		<bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+			<property name="paramName" value="theme" />
+		</bean>
+	</mvc:interceptors>
+	
+	<!-- need view name in tiles-definitions.xml -->
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/jsp/tiles-definitions.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 視圖解析	開始 -->
+	<bean id="contentNegotiatingViewResolver"
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<!-- 設置為true以忽略對Accept Header的支持 -->
+        <property name="ignoreAcceptHeader" value="true" />
+		<!-- 在沒有擴展名時即: "/blog/1" 時的默認展現形式 -->
+        <property name="defaultContentType" value="text/html" />
+		<!-- 擴展名至mimeType的映射,即 /blog.json => application/json -->
+		<property name="mediaTypes">
+			<map>
+				<entry key="html" value="text/html" />
+				<entry key="json" value="application/json" />
+			</map>
+		</property>
+		<!-- 用於開啟 /blog/123?format=json 的支持 -->
+        <property name="favorParameter" value="false" />
+		<property name="defaultViews">
+			<list>
+				<!-- JSON View -->
+				<bean id="jsonViewResolver"
+					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+				</bean>
+			</list>
+		</property>
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+				<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+					<property name="viewClass"
+						value="org.springframework.web.servlet.view.tiles2.TilesView" />
+				</bean>
+				<!-- url 視圖解析器 -->
+				<bean id="urlBasedViewRewsolver"
+					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="viewClass"
+						value="org.springframework.web.servlet.view.JstlView" />
+					<property name="prefix" value="/WEB-INF/jsp/" />
+					<property name="suffix" value=".jsp"></property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<!-- 視圖解析	結速 -->
 </beans>
