@@ -11,10 +11,10 @@ public class ContactUsController {
 	/** logger. */
 	Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@RequestMapping("/")
-	public String index() {
-		log.debug("[LOG]contact_us");
-		return "contact_us";
+	@RequestMapping()
+	public String contactUs() {
+		log.debug("[LOG]contactUs");
+		return "contactus/contact_us";
 	}
 
 }
