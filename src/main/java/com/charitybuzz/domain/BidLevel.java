@@ -11,14 +11,14 @@ package com.charitybuzz.domain;
 public class BidLevel {
 
 	private Long id ;
-	private Double lev1 ;
-	private Double lev2 ;
-	private Double lev3 ;
-	private Double lev4 ;
-	private Double lev5 ;
-	private Double lev6 ;
-	private Double lev7 ;
-	private Double lev8 ;
-	private Double lev9 ;
-	private Double lev10 ;
+	private int lev1 ;
+	private int lev2 ;
+	private int lev3 ;
+	private int lev4 ;
+	private int lev5 ;
+	private int lev6 ;
+	private int lev7 ;
+	private int lev8 ;
+	private int lev9 ;
+	private int lev10 ;
 }

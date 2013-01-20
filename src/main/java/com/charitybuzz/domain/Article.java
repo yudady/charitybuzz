@@ -47,6 +47,7 @@ public class Article {
 	 * Minimum Next Bid: $2,500
 	 */
 	private BidLevel nextBid;
+	private int bidLevelValue;
 
 	/**
 	 * 有多個2級目錄

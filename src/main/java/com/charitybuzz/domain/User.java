@@ -2,19 +2,21 @@ package com.charitybuzz.domain;
 
 import java.io.Serializable;
 
-public class User implements Serializable{
-	
+public class User implements Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2763623236690502422L;
-	
-	private Long id;
-	private String userName;
-	private String passWord;
 
-	
-	
+	private Long id;
+	private String firstName;
+	private String lastName;
+	private String screenName;
+	private String passWord;
+	private String email;
+	private String promoCode;
+
 	public Long getId() {
 		return id;
 	}
@@ -23,20 +25,52 @@ public class User implements Serializable{
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
 	public String getPassWord() {
 		return passWord;
 	}
 
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getScreenName() {
+		return screenName;
+	}
+
+	public void setScreenName(String screenName) {
+		this.screenName = screenName;
+	}
+
+	public String getPromoCode() {
+		return promoCode;
+	}
+
+	public void setPromoCode(String promoCode) {
+		this.promoCode = promoCode;
 	}
 
 }

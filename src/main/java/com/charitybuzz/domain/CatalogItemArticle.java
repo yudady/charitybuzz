@@ -8,7 +8,7 @@ import java.util.List;
  * @author Administrator
  *
  */
-public class CatalogItem_Commodity {
+public class CatalogItemArticle {
 
 	private Long id;
 	/**
