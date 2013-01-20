@@ -59,7 +59,15 @@
 					<div id="itemsClosing">itemsClosing</div>
 				</div>
 			</div>
-			<div id="footer">footer</div>
+			<div id="footer">
+				<dl>
+					<dd>Charitybuzz 101</dd>
+					<dd>Want to Donate?</dd>
+					<dd>About Us</dd>
+					<dd>Management Team</dd>
+					<dd>FAQs</dd>
+				</dl>
+			</div>
 		</div>
 	</div>
 </body>
