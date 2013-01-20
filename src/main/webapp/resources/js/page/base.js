@@ -6,9 +6,10 @@
 		type : "POST",
 		url : "sidebar",
 		data : {}
-	}).done(function(msg) {
+	}).done(function(categories) {
+		$.log(categories);
 		var sidebarHtml = $("<dl />");
-		$(msg.headlines).each(function(){
+		$(categories).each(function(){
 			sidebarHtml.wrapInner("<dd>" + this.title +"("+this.count+")</dd>");
 		});
 		$("#sidebar").empty().html(sidebarHtml);

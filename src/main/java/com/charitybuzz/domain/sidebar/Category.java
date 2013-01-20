@@ -1,14 +1,18 @@
 package com.charitybuzz.domain.sidebar;
-
-public class Headline {
+/**
+ * 第一級目錄
+ * @author Administrator
+ *
+ */
+public class Category {
 
 	private String title;
 	private int count;
 
-	public Headline() {
+	public Category() {
 	}
 
-	public Headline(String title, int count) {
+	public Category(String title, int count) {
 		this.title = title;
 		this.count = count;
 	}

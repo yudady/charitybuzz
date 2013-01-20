@@ -1,10 +1,20 @@
 package com.charitybuzz.domain;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2763623236690502422L;
+	
 	private Long id;
 	private String userName;
 	private String passWord;
 
+	
+	
 	public Long getId() {
 		return id;
 	}
