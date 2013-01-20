@@ -9,25 +9,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.9.0.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery.log.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/page/base.js"/>'></script>
 <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/base.css"/>'/>
-<title>charitybuzz</title>
+<title><tiles:getAsString name="title" /></title>
 </head>
 <body>
 	<div id="container">
-		<div id="header" class="ui-layout-north">
+		<div id="header">
 			<tiles:insertAttribute name="header" />
 		</div>
 		<div id="page">
 			<div id="boxContent">
-				<div id="menu-tiles" class="inner-west" style="background-color:red">
-					<tiles:insertAttribute name="menu" />
-				</div>
-		<div id="content-tiles" class="inner-center">
-			<tiles:insertAttribute name="body" />
-		</div>
-
+				<tiles:insertAttribute name="menu" />
+				<tiles:insertAttribute name="body" />
 			</div>
-			<div id="footer" class="ui-layout-south">
+			<div id="footer">
 				<tiles:insertAttribute name="footer" />
 			</div>
 		</div>

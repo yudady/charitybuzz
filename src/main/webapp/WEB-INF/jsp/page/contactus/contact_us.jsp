@@ -8,19 +8,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript" src='<c:url value="/resources/js/page/contact_us.js" />'></script>
-<title>contact_us</title>
 </head>
 <body>
-<h1>contact_us</h1>
-<h1>contact_us</h1>
-<h1>contact_us</h1>
-<h1>contact_us</h1>
-<h1>contact_us</h1>
-<h1>contact_us</h1>
-<h1>contact_us</h1>
-<h1>contact_us</h1>
-<h1>contact_us</h1>
-<h1>contact_us</h1>
-<h1>contact_us</h1>
+	<div id="HomePageOnly-top">
+		<div id="sidebar">sidebar</div>
+		<div id="mainRight">mainRight</div>
+	</div>
 </body>
 </html>
