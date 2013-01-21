@@ -13,3 +13,4 @@ tommytest
 rebel.xml
 
 /src/main/webapp/WEB-INF/classes
+*.bak
