@@ -21,7 +21,7 @@ public class CatalogItem {
 	/**
 	 * 全部商品
 	 */
-	private List<Article> commodities;
+	private List<Article> articles;
 	/**
 	 * 底下有幾個數量
 	 */
@@ -59,12 +59,12 @@ public class CatalogItem {
 		this.descript = descript;
 	}
 
-	public List<Article> getCommodities() {
-		return commodities;
+	public List<Article> getArticles() {
+		return articles;
 	}
 
-	public void setCommodities(List<Article> commodities) {
-		this.commodities = commodities;
+	public void setArticles(List<Article> articles) {
+		this.articles = articles;
 	}
 
 	public int getCount() {
