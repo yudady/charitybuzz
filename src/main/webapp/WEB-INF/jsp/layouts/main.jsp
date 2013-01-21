@@ -7,6 +7,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+	var charitybuzz = (function(){
+		var obj = {
+			url : '<c:url value="/"/>'
+		};
+		return obj;
+	})();
+</script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.9.0.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery.log.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/page/base.js"/>'></script>

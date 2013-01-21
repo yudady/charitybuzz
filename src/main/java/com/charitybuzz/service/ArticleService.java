@@ -1,10 +1,10 @@
-package com.charitybuzz.dao;
+package com.charitybuzz.service;
 
 import java.util.List;
 
 import com.charitybuzz.domain.Article;
 
-public interface ArticleDao extends BaseDao<Article> {
+public interface ArticleService {
 
 	public List<Article> findByCategoryId(Long id);
 

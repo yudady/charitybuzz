@@ -21,7 +21,7 @@ public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport {
 
 	@SuppressWarnings("unchecked")
 	public List<T> findAll() {
-		String sql = "select * from " + getTableName();
+		String sql = "select * from " + getTableName() + " order by id desc";
 		BeanPropertyRowMapper<T> rm = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
 		return this.getSimpleJdbcTemplate().query(sql, rm,

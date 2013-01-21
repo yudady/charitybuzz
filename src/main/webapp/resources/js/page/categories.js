@@ -1,0 +1,3 @@
+$(function() {
+	$.log("categories.js");
+});

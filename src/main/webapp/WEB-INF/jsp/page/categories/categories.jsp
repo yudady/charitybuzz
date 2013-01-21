@@ -7,12 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<script type="text/javascript" src='<c:url value="/resources/js/page/contact_us.js" />'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/page/categories.js" />'></script>
 </head>
 <body>
 	<div id="HomePageOnly-top">
 		<div id="sidebar"></div>
-		<div id="mainRight">contact_us.jsp</div>
+		<div id="mainRight">categories.jsp</div>
 	</div>
 </body>
 </html>

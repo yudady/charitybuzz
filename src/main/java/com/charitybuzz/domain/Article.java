@@ -18,6 +18,10 @@ public class Article {
 	 */
 	// ID
 	private Long id;
+	/**
+	 * 第一級目錄
+	 */
+	private Long categoryId;
 	// LOTDETAILS
 	private String lotDetails;
 	// LEGALTERMS
@@ -73,11 +77,12 @@ public class Article {
 	public Article() {
 	}
 
-	public Article(Long id, String lotDetails, String legalTerms,
-			String shipping, Double currentBid, Date startDate, Date endDate,
-			Long userId, Double estimatedValue) {
+	public Article(Long id, Long categoryId, String lotDetails,
+			String legalTerms, String shipping, Double currentBid,
+			Date startDate, Date endDate, Long userId, Double estimatedValue) {
 		super();
 		this.id = id;
+		this.categoryId = categoryId;
 		this.lotDetails = lotDetails;
 		this.legalTerms = legalTerms;
 		this.shipping = shipping;
@@ -94,6 +99,14 @@ public class Article {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public String getLotDetails() {
@@ -191,6 +204,7 @@ public class Article {
 	public void setCommodityHistories(List<ArticleHistory> commodityHistories) {
 		this.commodityHistories = commodityHistories;
 	}
+
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this,

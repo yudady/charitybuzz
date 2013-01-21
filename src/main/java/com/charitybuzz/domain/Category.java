@@ -2,6 +2,9 @@ package com.charitybuzz.domain;
 
 import java.util.List;
 
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 /**
  * 第一級目錄
  * 
@@ -75,4 +78,9 @@ public class Category {
 		this.count = count;
 	}
 
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this,
+				ToStringStyle.SIMPLE_STYLE);
+	}
 }

@@ -43,7 +43,7 @@ public class ArticleDaoImplTest {
 	@Test
 	@Rollback(true)
 	public void insert() {
-		Article domain = new Article(2L, "lotDetails", "legalTerms",
+		Article domain = new Article(2L, 1L,"lotDetails", "legalTerms",
 				"shipping", 1d, new Date(), new Date(), 1L, 100d);
 		log.debug("[LOG]" + dao.insert(domain));
 	}
