@@ -3,6 +3,9 @@ package com.charitybuzz.domain;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 /**
  * 商品
  * 
@@ -10,46 +13,53 @@ import java.util.List;
  * 
  */
 public class Article {
-
 	/**
 	 * Lot Number:
 	 */
+	// ID
 	private Long id;
-
+	// LOTDETAILS
 	private String lotDetails;
+	// LEGALTERMS
 	private String legalTerms;
+	// SHIPPING
 	private String shipping;
 
 	/**
 	 * Current Bid: $2,250
 	 */
+	// CURRENTBID
 	private Double currentBid;
 	/**
 	 * 開始日期
 	 */
+	// STARTDATE
 	private Date startDate;
 	/**
 	 * Lot Closes 結速日期
 	 */
+	// ENDDATE
 	private Date endDate;
 
 	/**
 	 * 當前贏家
 	 */
-	private User winning;
+	// USERID
+	private Long userId;
 
 	/**
 	 * 直購價 Estimated Value: $9,500
 	 */
+	// ESTIMATEDVALUE
 	private Double estimatedValue;
 
 	/**
 	 * Minimum Next Bid: $2,500
 	 */
+	// BIDLEVELID
 	private BidLevel nextBid;
+	// NEXTBID
 	private int bidLevelValue;
-
-
 
 	/**
 	 * 有多個2級目錄
@@ -59,6 +69,24 @@ public class Article {
 	 * 歷史紀錄 Number of Bids: 2
 	 */
 	private List<ArticleHistory> commodityHistories;
+
+	public Article() {
+	}
+
+	public Article(Long id, String lotDetails, String legalTerms,
+			String shipping, Double currentBid, Date startDate, Date endDate,
+			Long userId, Double estimatedValue) {
+		super();
+		this.id = id;
+		this.lotDetails = lotDetails;
+		this.legalTerms = legalTerms;
+		this.shipping = shipping;
+		this.currentBid = currentBid;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.userId = userId;
+		this.estimatedValue = estimatedValue;
+	}
 
 	public Long getId() {
 		return id;
@@ -116,12 +144,12 @@ public class Article {
 		this.endDate = endDate;
 	}
 
-	public User getWinning() {
-		return winning;
+	public Long getUserId() {
+		return userId;
 	}
 
-	public void setWinning(User winning) {
-		this.winning = winning;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 	public Double getEstimatedValue() {
@@ -139,6 +167,7 @@ public class Article {
 	public void setNextBid(BidLevel nextBid) {
 		this.nextBid = nextBid;
 	}
+
 	public int getBidLevelValue() {
 		return bidLevelValue;
 	}
@@ -146,6 +175,7 @@ public class Article {
 	public void setBidLevelValue(int bidLevelValue) {
 		this.bidLevelValue = bidLevelValue;
 	}
+
 	public List<CatalogItem> getCatalogItems() {
 		return catalogItems;
 	}
@@ -161,5 +191,9 @@ public class Article {
 	public void setCommodityHistories(List<ArticleHistory> commodityHistories) {
 		this.commodityHistories = commodityHistories;
 	}
-
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this,
+				ToStringStyle.SIMPLE_STYLE);
+	}
 }

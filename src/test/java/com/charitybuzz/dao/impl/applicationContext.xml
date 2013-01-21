@@ -56,4 +56,7 @@
   	<bean id="userJdbcDao" class="com.charitybuzz.dao.impl.UserDaoImpl">
 		<constructor-arg ref="dataSource"/>
 	</bean>
+  	<bean id="articleJdbcDao" class="com.charitybuzz.dao.impl.ArticleDaoImpl">
+		<constructor-arg ref="dataSource"/>
+	</bean>
 </beans>

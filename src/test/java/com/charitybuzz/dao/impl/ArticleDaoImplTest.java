@@ -1,5 +1,6 @@
 package com.charitybuzz.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -13,55 +14,56 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.charitybuzz.dao.UserDao;
-import com.charitybuzz.domain.User;
+import com.charitybuzz.dao.ArticleDao;
+import com.charitybuzz.domain.Article;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/com/charitybuzz/dao/impl/applicationContext.xml" })
-public class UserDaoImplTest {
+public class ArticleDaoImplTest {
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name = "userJdbcDao")
-	private UserDao userDao;
+	@Resource(name = "articleJdbcDao")
+	private ArticleDao dao;
 
 	@Test
-	public void findTotalUserCount() {
-		log.debug("[LOG]" + userDao.findTotalCount());
+	public void findTotalCount() {
+		log.debug("[LOG]" + dao.findTotalCount());
 	}
 
 	@Test
 	public void findAll() {
-		List<User> users = userDao.findAll();
-		for (int i = 0; i < users.size(); i++) {
-			log.debug("[LOG]" + users.get(i));
+		List<Article> domains = dao.findAll();
+		for (int i = 0; i < domains.size(); i++) {
+			log.debug("[LOG]" + domains.get(i));
 		}
 	}
 
 	@Test
 	@Rollback(true)
 	public void insert() {
-		User user = new User(2L, "lin", "tommy", "yudady", "123456",
-				"yu_dady@yahoo.com.tw", "123456");
-		log.debug("[LOG]" + userDao.insert(user));
+		Article domain = new Article(1L, "lotDetails", "legalTerms",
+				"shipping", 1d, new Date(), new Date(), 1L, 100d);
+		log.debug("[LOG]" + dao.insert(domain));
 	}
+
 	@Test
 	@Rollback(true)
 	public void update() {
-		User user = new User(1L, "lin", "kevin", "yudady", "123456",
-				"yu_dady@yahoo.com.tw", "123456");
-		log.debug("[LOG]" + userDao.update(user));
+		Article domain = new Article();
+		log.debug("[LOG]" + dao.update(domain));
 	}
+
 	@Test
 	@Rollback(true)
 	public void delete() {
-		log.debug("[LOG]" + userDao.delete(1L));
+		log.debug("[LOG]" + dao.delete(1L));
 	}
 
 	@Test
 	public void findByUserId() {
-		User u = userDao.findById(1L);
+		Article u = dao.findById(1L);
 		log.debug("[LOG]" + u);
 	}
 

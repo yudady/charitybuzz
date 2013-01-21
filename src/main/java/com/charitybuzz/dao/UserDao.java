@@ -12,10 +12,10 @@ public interface UserDao {
 	
 	public int delete(Long userId);
 	
-	public User findByUserId(Long userId);
+	public User findById(Long userId);
 
 	public List<User> findAll();
 	
-	public int findTotalUserCount();
+	public int findTotalCount();
 
 }
