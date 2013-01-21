@@ -29,7 +29,7 @@ public class ArticleHistoryDaoImpl extends BaseDaoImpl<ArticleHistory>
 
 	@Override
 	public String getTableName() {
-		return "t_article";
+		return "t_articlehistory";
 	}
 
 	@Override

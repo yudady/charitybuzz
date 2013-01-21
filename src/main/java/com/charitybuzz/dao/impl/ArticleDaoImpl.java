@@ -1,7 +1,5 @@
 package com.charitybuzz.dao.impl;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
