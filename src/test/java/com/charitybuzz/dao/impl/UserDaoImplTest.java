@@ -27,13 +27,15 @@ public class UserDaoImplTest {
 	
 	@Test
 	public void test01() {
-		System.out.println("test01");
-		System.out.println(userDao.findTotalUser());
+		log.debug("[LOG]"+userDao.findTotalUser());
 	}
 	@Test
 	public void test02() {
 		List<User> users = userDao.findAll();
 		log.debug("[LOG]"+users.size());
+		for(int i = 0 ; i < users.size() ; i ++){
+			log.debug("[LOG]"+users.get(i));
+		}
 		
 	}
 

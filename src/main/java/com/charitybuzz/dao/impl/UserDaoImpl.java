@@ -27,7 +27,7 @@ public class UserDaoImpl extends SimpleJdbcDaoSupport implements UserDao {
 
 	@Override
 	public void insert(User user) {
-		// TODO Auto-generated method stub
+		String sql = "insert into t_user name() value";
 		
 	}
 

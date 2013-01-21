@@ -2,6 +2,9 @@ package com.charitybuzz.domain;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 public class User implements Serializable {
 
 	/**
@@ -73,4 +76,13 @@ public class User implements Serializable {
 		this.promoCode = promoCode;
 	}
 
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this,ToStringStyle.SIMPLE_STYLE);
+	}
+
+	
+	
+	
+	
 }
