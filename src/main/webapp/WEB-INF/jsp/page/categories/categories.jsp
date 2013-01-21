@@ -14,10 +14,9 @@
 	<div id="HomePageOnly-top">
 		<div id="sidebar"></div>
 		<div id="mainRight">
-		<h1>categories.jsp</h1>
 
 <%
-for(int i = 0 ; i < 3 ; i ++){
+for(int i = 0 ; i < 10 ; i ++){
 %>
 
 			<div class="lotDetail clearfix">
