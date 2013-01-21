@@ -1,7 +1,5 @@
 package com.charitybuzz.dao.impl;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
@@ -22,17 +20,15 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	public UserDaoImpl(DataSource dataSource) {
 		setDataSource(dataSource);
 	}
-	
+
 	@Override
 	public Class<User> getClazz() {
 		return User.class;
 	}
-	
-	
+
 	@Override
-	public List<User> findAll() {
-		String sql = "select * from t_user";
-		return super.findAll(sql);
+	public String getTableName() {
+		return "t_user";
 	}
 
 	@Override
@@ -44,19 +40,6 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	}
 
 	@Override
-	public User findById(Long userId) {
-		String sql = "SELECT * FROM T_USER WHERE ID = ?";
-		return super.findById(sql, userId);
-
-	}
-
-	@Override
-	public int findTotalCount() {
-		String sql = " select count(id) from t_user ";
-		return super.findTotalCount(sql);
-	}
-
-	@Override
 	public int update(User user) {
 		String sql = " update T_USER set FIRSTNAME=:firstName, LASTNAME=:lastName, "
 				+ "SCREENNAME=:screenName, PASSWORD=:passWord, EMAIL=:email, "
@@ -64,13 +47,5 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 		return super.update(sql, user);
 
 	}
-
-	@Override
-	public int delete(Long userId) {
-		String sql = "delete from t_user where id=:id";
-		return super.delete(sql, userId);
-	}
-
-
 
 }

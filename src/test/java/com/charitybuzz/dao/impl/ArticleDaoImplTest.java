@@ -43,7 +43,7 @@ public class ArticleDaoImplTest {
 	@Test
 	@Rollback(true)
 	public void insert() {
-		Article domain = new Article(1L, "lotDetails", "legalTerms",
+		Article domain = new Article(2L, "lotDetails", "legalTerms",
 				"shipping", 1d, new Date(), new Date(), 1L, 100d);
 		log.debug("[LOG]" + dao.insert(domain));
 	}
@@ -52,6 +52,7 @@ public class ArticleDaoImplTest {
 	@Rollback(true)
 	public void update() {
 		Article domain = new Article();
+		domain.setId(2L);
 		log.debug("[LOG]" + dao.update(domain));
 	}
 

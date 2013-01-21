@@ -27,7 +27,10 @@ public class ArticleDaoImpl extends BaseDaoImpl<Article> implements ArticleDao {
 	public Class<Article> getClazz() {
 		return Article.class;
 	}
-
+	@Override
+	public String getTableName() {
+		return "t_article";
+	}
 	@Override
 	public int insert(Article article) {
 		String sql = "INSERT INTO t_article (ID,LOTDETAILS,LEGALTERMS,SHIPPING,CURRENTBID,STARTDATE,ENDDATE,USERID,ESTIMATEDVALUE) "
@@ -37,34 +40,11 @@ public class ArticleDaoImpl extends BaseDaoImpl<Article> implements ArticleDao {
 
 	@Override
 	public int update(Article article) {
-		String sql = " UPDATE T_ARTICLE SET LOTDETAILS=:LOTDETAILS, LEGALTERMS=:LEGALTERMS,"
-				+ "SHIPPING=:SHIPPING,CURRENTBID=:CURRENTBID,STARTDATE=:STARTDATE,ENDDATE=:ENDDATE,"
-				+ "USERID=:USERID,ESTIMATEDVALUE=:ESTIMATEDVALUE,BIDLEVELID=:BIDLEVELID,NEXTBID=:NEXTBID WHERE ID=:ID ";
+		String sql = " UPDATE T_ARTICLE SET LOTDETAILS=:lotDetails, LEGALTERMS=:legalTerms,"
+				+ "SHIPPING=:shipping,CURRENTBID=:currentBid,STARTDATE=:startDate,ENDDATE=:endDate,"
+				+ "USERID=:userId,ESTIMATEDVALUE=:estimatedValue WHERE ID=:id ";
 		return super.update(sql, article);
 	}
 
-	@Override
-	public int delete(Long articleId) {
-		String sql = "delete from t_article where id=:id";
-		return super.delete(sql, articleId);
-	}
-
-	@Override
-	public Article findById(Long articleId) {
-		String sql = "SELECT * FROM t_article WHERE ID = ?";
-		return super.findById(sql, articleId);
-	}
-
-	@Override
-	public List<Article> findAll() {
-		String sql = "select * from t_article";
-		return super.findAll(sql);
-	}
-
-	@Override
-	public int findTotalCount() {
-		String sql = " select count(id) from t_article ";
-		return super.findTotalCount(sql);
-	}
 
 }

@@ -17,8 +17,11 @@ public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport {
 	@SuppressWarnings("rawtypes")
 	public abstract Class getClazz();
 
+	public abstract String getTableName();
+
 	@SuppressWarnings("unchecked")
-	public List<T> findAll(String sql) {
+	public List<T> findAll() {
+		String sql = "select * from " + getTableName();
 		BeanPropertyRowMapper<T> rm = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
 		return this.getSimpleJdbcTemplate().query(sql, rm,
@@ -33,7 +36,8 @@ public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport {
 	}
 
 	@SuppressWarnings("unchecked")
-	public T findById(String sql, Long userId) {
+	public T findById(Long userId) {
+		String sql = "SELECT * FROM " + getTableName() + " WHERE ID = ?";
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id", userId);
 		return this.getSimpleJdbcTemplate().queryForObject(sql,
@@ -41,7 +45,8 @@ public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport {
 
 	}
 
-	public int findTotalCount(String sql) {
+	public int findTotalCount() {
+		String sql = " select count(id) from " + getTableName();
 		return this.getSimpleJdbcTemplate().queryForInt(sql,
 				new HashMap<String, Object>());
 	}
@@ -51,7 +56,8 @@ public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport {
 		return this.getSimpleJdbcTemplate().update(sql, sp);
 	}
 
-	public int delete(String sql, Long userId) {
+	public int delete(Long userId) {
+		String sql = "delete from " + getTableName() + " where id=:id";
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("id", userId);
 		return this.getSimpleJdbcTemplate().getNamedParameterJdbcOperations()
