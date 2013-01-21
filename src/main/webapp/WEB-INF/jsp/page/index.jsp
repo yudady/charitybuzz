@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript" src='<c:url value="/resources/js/page/index.js" />'></script>
+<link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/index.css"/>'/>
 </head>
 <body>
 	<div id="HomePageOnly-top">

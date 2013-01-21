@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/contact_us.css"/>'/>
 <script type="text/javascript" src='<c:url value="/resources/js/page/contact_us.js" />'></script>
 </head>
 <body>

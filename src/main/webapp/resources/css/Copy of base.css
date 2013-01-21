@@ -76,6 +76,38 @@ ul {
 #social ul li a:hover {
 	color:#f60;
 }
+#HomePageOnly {
+	clear: both;
+	background-color: #BBB;
+}
+
+
+
+
+#sidebar {
+	height:300px;
+	width: 300px;
+	float:left;
+	background-color: #CCC;
+}
+#mainRight {
+	height:300px;
+	width: 650px;
+	float:right;
+	background-color: #CCC;
+}
+#liveAuctions {
+	height:300px;
+	width: 650px;
+	float:left;
+	background-color: #CCC;
+}
+#itemsClosing {
+	height:300px;
+	width: 300px;
+	float:right;
+	background-color: #CCC;
+}
 
 #footer {
 	clear: both;
