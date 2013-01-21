@@ -43,37 +43,51 @@ public class UserDaoImpl extends SimpleJdbcDaoSupport implements UserDao {
 	}
 
 	@Override
-	public void insert(User user) {
+	public int insert(User user) {
 		String sql = "INSERT INTO T_USER (ID,FIRSTNAME,LASTNAME,SCREENNAME,PASSWORD,EMAIL,PROMOCODE) "
 				+ " VALUES (:id, :firstName, :lastName, :screenName, :passWord, :email, :promoCode) ";
 
 		SqlParameterSource ps = new BeanPropertySqlParameterSource(user);
 		KeyHolder keyHolder = new GeneratedKeyHolder();
-		this.getSimpleJdbcTemplate().getNamedParameterJdbcOperations()
+		return this.getSimpleJdbcTemplate().getNamedParameterJdbcOperations()
 				.update(sql, ps, keyHolder);
 	}
 
 	@Override
-	public User findByUserId(Long custId) {
+	public User findByUserId(Long userId) {
 		String sql = "SELECT * FROM T_USER WHERE ID = ?";
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("id", custId);
+		params.put("id", userId);
 		return this.getSimpleJdbcTemplate().queryForObject(sql,
-				new BeanPropertyRowMapper<User>(User.class), custId);
+				new BeanPropertyRowMapper<User>(User.class), userId);
 
 	}
 
 	@Override
 	public int findTotalUserCount() {
-		String sql = " SELECT count(id) from t_user ";
+		String sql = " select count(id) from t_user ";
 		return this.getSimpleJdbcTemplate().queryForInt(sql,
 				new HashMap<String, Object>());
 	}
 
 	@Override
-	public User update(User user) {
-		// TODO Auto-generated method stub
-		return null;
+	public int update(User user) {
+		String sql = " update T_USER set FIRSTNAME=:firstName, LASTNAME=:lastName, " +
+				"SCREENNAME=:screenName, PASSWORD=:passWord, EMAIL=:email, " +
+				"PROMOCODE=:promoCode where ID=:id ";
+		SqlParameterSource sp = new BeanPropertySqlParameterSource(user);
+		return this.getSimpleJdbcTemplate().update(sql, sp);
+		
+	}
+
+
+
+	@Override
+	public int delete(Long userId) {
+		String sql = "delete from t_user where id=:id";
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("id", userId);
+		return this.getSimpleJdbcTemplate().getNamedParameterJdbcOperations().update(sql, paramMap);
 	}
 
 }

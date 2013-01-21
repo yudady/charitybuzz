@@ -6,11 +6,13 @@ import com.charitybuzz.domain.User;
 
 public interface UserDao {
 	
-	public void insert(User user);
+	public int insert(User user);
 	
-	public User update(User user);
+	public int update(User user);
 	
-	public User findByUserId(Long custId);
+	public int delete(Long userId);
+	
+	public User findByUserId(Long userId);
 
 	public List<User> findAll();
 	

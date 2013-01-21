@@ -11,12 +11,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.charitybuzz.dao.UserDao;
 import com.charitybuzz.domain.User;
 
+@Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/applicationContext.xml" })
+@ContextConfiguration(locations = { "classpath:/com/charitybuzz/dao/impl/applicationContext.xml" })
 public class UserDaoImplTest {
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());
@@ -38,13 +40,23 @@ public class UserDaoImplTest {
 	}
 
 	@Test
-	@Rollback(false)
+	@Rollback(true)
 	public void insert() {
 		User user = new User(2L, "lin", "tommy", "yudady", "123456",
 				"yu_dady@yahoo.com.tw", "123456");
-
-		userDao.insert(user);
-		// log.debug("[LOG]"+userDao.findTotalUserCount());
+		log.debug("[LOG]" + userDao.insert(user));
+	}
+	@Test
+	@Rollback(true)
+	public void update() {
+		User user = new User(1L, "lin", "kevin", "yudady", "123456",
+				"yu_dady@yahoo.com.tw", "123456");
+		log.debug("[LOG]" + userDao.update(user));
+	}
+	@Test
+	@Rollback(true)
+	public void delete() {
+		log.debug("[LOG]" + userDao.delete(1L));
 	}
 
 	@Test
