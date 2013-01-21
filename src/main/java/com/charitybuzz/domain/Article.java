@@ -22,6 +22,10 @@ public class Article {
 	 * 第一級目錄
 	 */
 	private Long categoryId;
+	
+	private String title;
+	
+	
 	// LOTDETAILS
 	private String lotDetails;
 	// LEGALTERMS
@@ -107,6 +111,14 @@ public class Article {
 
 	public void setCategoryId(Long categoryId) {
 		this.categoryId = categoryId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getLotDetails() {

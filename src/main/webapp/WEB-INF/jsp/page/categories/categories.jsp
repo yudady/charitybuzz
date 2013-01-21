@@ -15,10 +15,10 @@
 		<div id="sidebar"></div>
 		<div id="mainRight">
 
-<%
-for(int i = 0 ; i < 10 ; i ++){
-%>
 
+
+
+<c:forEach items="${articles}" var="article">
 			<div class="lotDetail clearfix">
 				<div class="lotPhoto">
 					<a href="/categories/14/catalog_items/314327?ref=14"> <img
@@ -28,15 +28,13 @@ for(int i = 0 ; i < 10 ; i ++){
 				</div>
 				<!-- /lotPhoto -->
 				<h3>
-					<a href="/categories/14/catalog_items/314327?ref=14"> Sit In on
-						<i>The Howard Stern Show</i> in NYC and Meet the Staff!
-					</a>
+					<a href="/categories/14/catalog_items/314327?ref=14">${article.title}</a>
 				</h3>
 				<table cellspacing="0" cellpadding="0" border="0">
 					<tbody>
 						<tr>
 							<th>Current Bid:</th>
-							<td>$5,250</td>
+							<td>${article.currentBid}</td>
 						</tr>
 						<tr>
 							<th>Number of Bids:</th>
@@ -48,15 +46,15 @@ for(int i = 0 ; i < 10 ; i ++){
 						</tr>
 						<tr>
 							<th>Estimated Value:</th>
-							<td>$25,000</td>
+							<td>${article.estimatedValue}</td>
 						</tr>
 						<tr>
 							<th>Lot Number:</th>
-							<td>314327</td>
+							<td>${article.id}</td>
 						</tr>
 						<tr>
 							<th>Lot Closes:</th>
-							<td>Fri, 8 Feb 2013 1:12:00 PM EST</td>
+							<td>${article.endDate}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -64,18 +62,14 @@ for(int i = 0 ; i < 10 ; i ++){
 					href="/categories/14/catalog_items/314327"> <span>Bid
 						now</span>
 				</a>
-				<div class="clear">
-					<!-- -->
-				</div>
-				<!-- HORIZONTAL SOCIAL BUTTON CALL -->
-				<!-- /SOCIAL BUTTON CALL -->
-				<div class="clear">
-					<!-- -->
-				</div>
 			</div>
-<%
-} 
-%>
+</c:forEach>
+
+
+
+
+
+
 
 
 		</div>
