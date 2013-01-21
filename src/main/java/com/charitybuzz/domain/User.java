@@ -20,6 +20,22 @@ public class User implements Serializable {
 	private String email;
 	private String promoCode;
 
+	public User() {
+		super();
+	}
+
+	public User(Long id, String firstName, String lastName, String screenName,
+			String passWord, String email, String promoCode) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.screenName = screenName;
+		this.passWord = passWord;
+		this.email = email;
+		this.promoCode = promoCode;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -78,11 +94,8 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return ReflectionToStringBuilder.toString(this,ToStringStyle.SIMPLE_STYLE);
+		return ReflectionToStringBuilder.toString(this,
+				ToStringStyle.SIMPLE_STYLE);
 	}
 
-	
-	
-	
-	
 }

@@ -8,10 +8,12 @@ public interface UserDao {
 	
 	public void insert(User user);
 	
-	public User findByUserId(int custId);
+	public User update(User user);
+	
+	public User findByUserId(Long custId);
 
 	public List<User> findAll();
 	
-	public int findTotalUser();
+	public int findTotalUserCount();
 
 }

@@ -44,6 +44,11 @@
 		<property name="timeBetweenEvictionRunsMillis" value="3600000" />
 		<property name="minEvictableIdleTimeMillis" value="3600000" />
 	</bean>
-
-
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<!-- 用註解來實現事務管理 --> 
+	<tx:annotation-driven transaction-manager="transactionManager"/>  
+  
 </beans>
