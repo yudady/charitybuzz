@@ -38,7 +38,7 @@ public class CatalogItemDaoImpl extends BaseDaoImpl<CatalogItem> implements
 
 	@Override
 	public String getTableName() {
-		return "t_catalogitem";
+		return "t_catalog_item";
 	}
 
 	@Override

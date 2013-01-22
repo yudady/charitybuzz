@@ -28,12 +28,12 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
 	@Override
 	public String getTableName() {
-		return "t_user";
+		return " t_user ";
 	}
 
 	@Override
 	public int insert(User user) {
-		String sql = "INSERT INTO T_USER (ID,FIRSTNAME,LASTNAME,SCREENNAME,PASSWORD,EMAIL,PROMOCODE) "
+		String sql = "INSERT INTO t_user (id,firstName,lastName,screenName,passWord,email,promoCode) "
 				+ " VALUES (:id, :firstName, :lastName, :screenName, :passWord, :email, :promoCode) ";
 		return super.insert(sql, user);
 
@@ -41,9 +41,9 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
 	@Override
 	public int update(User user) {
-		String sql = " update T_USER set FIRSTNAME=:firstName, LASTNAME=:lastName, "
-				+ "SCREENNAME=:screenName, PASSWORD=:passWord, EMAIL=:email, "
-				+ "PROMOCODE=:promoCode where ID=:id ";
+		String sql = " update t_user set firstName=:firstName, lastName=:lastName, "
+				+ "screenName=:screenName, passWord=:passWord, email=:email, "
+				+ "promoCode=:promoCode where id=:id ";
 		return super.update(sql, user);
 
 	}

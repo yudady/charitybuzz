@@ -50,7 +50,7 @@ public class ArticleDaoImpl extends BaseDaoImpl<Article> implements ArticleDao {
 
 	@Override
 	public int update(Article article) {
-		String sql = " UPDATE T_ARTICLE SET LOTDETAILS=:lotDetails, LEGALTERMS=:legalTerms,"
+		String sql = " UPDATE t_article SET LOTDETAILS=:lotDetails, LEGALTERMS=:legalTerms,"
 				+ "SHIPPING=:shipping,CURRENTBID=:currentBid,STARTDATE=:startDate,ENDDATE=:endDate,"
 				+ "USERID=:userId,ESTIMATEDVALUE=:estimatedValue WHERE ID=:id ";
 		return super.update(sql, article);

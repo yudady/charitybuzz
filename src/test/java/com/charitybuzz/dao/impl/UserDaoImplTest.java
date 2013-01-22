@@ -42,15 +42,15 @@ public class UserDaoImplTest {
 	@Test
 	@Rollback(true)
 	public void insert() {
-		User user = new User(2L, "lin", "tommy", "yudady", "123456",
-				"yu_dady@yahoo.com.tw", "123456");
+		User user = new User();
+		user.setId(3L);
 		log.debug("[LOG]" + userDao.insert(user));
 	}
 	@Test
 	@Rollback(true)
 	public void update() {
-		User user = new User(1L, "lin", "kevin", "yudady", "123456",
-				"yu_dady@yahoo.com.tw", "123456");
+		User user = new User();
+		user.setId(3L);
 		log.debug("[LOG]" + userDao.update(user));
 	}
 	@Test

@@ -24,17 +24,6 @@ public class User implements Serializable {
 		super();
 	}
 
-	public User(Long id, String firstName, String lastName, String screenName,
-			String passWord, String email, String promoCode) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.screenName = screenName;
-		this.passWord = passWord;
-		this.email = email;
-		this.promoCode = promoCode;
-	}
 
 	public Long getId() {
 		return id;

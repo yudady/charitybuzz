@@ -48,7 +48,7 @@ public class Article {
 	 */
 	private Date startDate;
 	/**
-	 * Lot Closes 商品 結速日期 ENDDATE
+	 * Lot Closes 商品結束日期 ENDDATE
 	 */
 	private Date endDate;
 
@@ -66,6 +66,7 @@ public class Article {
 	 * Bidding_Rule_ID 使用哪個id來當規則
 	 */
 	private int biddingRuleId;
+	
 	/**
 	 * 下次最小標價 Minimum Next Bid: $2,500
 	 */
