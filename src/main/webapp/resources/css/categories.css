@@ -5,13 +5,9 @@
 	background-color: #BBB;
 }
 
-#sidebar {
-	width: 300px;
+#mainRight {
+	width: 730px;
 	float:left;
 	background-color: #CCC;
-}
-#mainRight {
-	width: 650px;
-	float:right;
-	background-color: #CCC;
+	margin-top: 10px;
 }

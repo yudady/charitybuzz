@@ -33,4 +33,9 @@ public class ArticleServiceImpl implements ArticleService {
 		return new ArrayList<Article>();
 	}
 
+	@Override
+	public Article findById(Long articleId) {
+		return articleDao.findById(articleId);
+	}
+
 }

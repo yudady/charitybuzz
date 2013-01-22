@@ -1,7 +1,5 @@
 package com.charitybuzz.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
@@ -13,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.charitybuzz.domain.Article;
-import com.charitybuzz.domain.Picture;
 import com.charitybuzz.service.ArticleService;
-import com.charitybuzz.service.CategoryService;
 import com.charitybuzz.service.PictureService;
 
 @Controller
@@ -23,12 +19,6 @@ import com.charitybuzz.service.PictureService;
 public class ArticleController {
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
-
-	/**
-	 * 第一級目錄
-	 */
-	@Resource(name = "categoryService")
-	private CategoryService categoryService;
 	/**
 	 * 全部商品
 	 */
@@ -43,6 +33,8 @@ public class ArticleController {
 	@RequestMapping(value = "/{articleId}", method = RequestMethod.GET)
 	public String index(@PathVariable Long articleId, Model model) {
 		log.debug("[LOG][articleId]=" + articleId);
+		Article article = articleService.findById(articleId);
+		log.debug("[LOG][article]" + article);
 		return "article";
 	}
 

@@ -5,17 +5,12 @@
 	background-color: #BBB;
 }
 
-#sidebar {
-	height:300px;
-	width: 300px;
-	float:left;
-	background-color: #CCC;
-}
 #mainRight {
 	height:300px;
-	width: 650px;
-	float:right;
+	width: 730px;
+	float:left;
 	background-color: #CCC;
+	margin-top: 10px;
 }
 #liveAuctions {
 	height:300px;

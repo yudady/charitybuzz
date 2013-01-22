@@ -8,4 +8,6 @@ public interface ArticleService {
 
 	public List<Article> findByCategoryId(Long id);
 
+	public Article findById(Long articleId);
+
 }

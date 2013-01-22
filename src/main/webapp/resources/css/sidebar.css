@@ -1,1 +1,7 @@
 @CHARSET "UTF-8";
+#sidebar {
+	width: 220px;
+	float:left;
+	background-color: #CCC;
+	margin: 10px 10px ;
+}

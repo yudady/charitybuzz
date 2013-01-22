@@ -5,13 +5,16 @@
 	background-color: #BBB;
 }
 
-#sidebar {
+#articleDetail {
+	width: 430px;
+	float:left;
+	background-color: #CCC;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+#bidDetail {
 	width: 300px;
 	float:left;
 	background-color: #CCC;
-}
-#mainRight {
-	width: 650px;
-	float:right;
-	background-color: #CCC;
+	margin-top: 10px;
 }
