@@ -1,3 +1,5 @@
 $(function() {
-	$.log("article.js");
+	$(function() {
+		$("#tabs").tabs();
+	});
 });

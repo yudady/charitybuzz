@@ -36,78 +36,18 @@
 					alt="LotPhoto" /></a>
 			</div>
 
-			<div id="lot-detail-tab-wrapper">
-				<ul class="nav">
-					<li class="nav-one"><a class="current" href="#lotDetails">Lot Details </a></li>
-					<li class="nav-two"><a href="#legalTerms">Legal Terms</a></li>
-					<li class="nav-three"><a href="#shipping">Shipping</a></li>
+
+
+			<div id="tabs">
+				<ul>
+					<li><a href="#lotDetails">Lot Details </a></li>
+					<li><a href="#legalTerms">Legal Terms</a></li>
+					<li><a href="#shipping">Shipping</a></li>
 				</ul>
-
-
-				<div class="list-wrap">
-					<ul id="lotDetails" class="lotDetailTab">
-						<li>
-							<h1>Lot Details</h1>
-							<p class="expandme">
-								Howard fans rejoice, this is your unbelievable chance for you
-								and a guest to see <a target="_blank"
-									href="http://www.howardstern.com/"> <i>The Howard Stern
-										Show</i>
-								</a> and meet the staff in person!
-							</p>
-							<p>This unforgettable experience includes the opportunity to
-								meet the staff, watch the last hour of the show live and then
-								also watch the ‘Wrap Up Show’ in studio, uncensored broadcast of
-								The Howard Stern Show from the SIRIUS XM Radio Studio in New
-								York City. Put your headset on and take part as broadcast
-								history unfolds before your very eyes with your favorite Howard
-								Stern Show regulars: Robin Quivers, Fred Norris, Gary "Baba
-								Booey" Dell'Abate, and more.</p>
-							<p>
-								The net proceeds for this item benefit <a target="_blank"
-									href="http://www.gardenofdreamsfoundation.org/">The Garden
-									of Dreams Foundation</a> .
-							</p>
-						</li>
-					</ul>
-					<ul id="legalTerms">
-						<li>
-							<h1>Legal Terms</h1>
-							<ul>
-								<li>To be scheduled at a mutually convenient date.</li>
-								<li>Valid for two people over the age of 18.</li>
-								<li>Visit will be for the last hour of the show and the
-									wrap up show.</li>
-								<li>Must be redeemed within one year of the close of the
-									auction.</li>
-								<li>Pending the Howard Stern Show schedule and based on
-									availability. Certain blackout days may apply.</li>
-								<li>Meeting specific staff members is based on their
-									availability on the days of the show.</li>
-								<li>Interaction on the air is not guaranteed.</li>
-							</ul> Cannot be returned or exchanged. Travel and accommodations are
-							not included. Winning bidder and guest(s) subject to security
-							screening. We expect all winning bidders and their guests to
-							conduct themselves appropriately when attending an experience won
-							at Charitybuzz. Polite manners and respect for the generous donor
-							and adherence to any rules or parameters are a must.
-							<p></p>
-						</li>
-					</ul>
-					<ul id="shipping">
-						<li>
-							<h1>Shipping</h1>
-							<p class="excerptMe">The minimum shipping, handling and
-								applicable insurance for this item is $9.95. Additional shipping
-								charges may apply based upon the location of the winner. Hard
-								copies of tickets, travel certificates and merchandise are
-								shipped via FedEx or professional shipping service. Detailed
-								redemption information for non-tangible items will be emailed to
-								the winning bidder.</p>
-						</li>
-					</ul>
-				</div>
-				<!-- END List Wrap -->
+				
+				<div id="lotDetails">${article.lotDetails}</div>
+				<div id="legalTerms">${article.legalTerms}</div>
+				<div id="shipping">${article.shipping}</div>
 			</div>
 		</div>
 <!-- bidding_left_column -->
