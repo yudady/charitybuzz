@@ -14,6 +14,10 @@
 		};
 		return obj;
 	})();
+	
+	function getSafeUrl(path){
+		return "" + '<c:url value="/"/>' + path ;
+	}
 </script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.9.0.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery.log.js"/>'></script>

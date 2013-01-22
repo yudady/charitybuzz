@@ -21,14 +21,14 @@
 <c:forEach items="${articles}" var="article">
 			<div class="lotDetail clearfix">
 				<div class="lotPhoto">
-					<a href="/categories/14/catalog_items/314327?ref=14"> <img
-						src="https://s3.amazonaws.com/images.charitybuzz.com/images/85732/large_list.jpeg?1358201435"
+					<a href='<c:url value="/article/${article.id}" />'><img
+						src="${article.mainPictureLocation}"
 						alt="Large_list" />
 					</a>
 				</div>
 				<!-- /lotPhoto -->
 				<h3>
-					<a href="/categories/14/catalog_items/314327?ref=14">${article.title}</a>
+					<a href='<c:url value="/article/${article.id}" />'>${article.title}</a>
 				</h3>
 				<table cellspacing="0" cellpadding="0" border="0">
 					<tbody>
@@ -38,11 +38,11 @@
 						</tr>
 						<tr>
 							<th>Number of Bids:</th>
-							<td>2</td>
+							<td>${article.articleHistorySize}</td>
 						</tr>
 						<tr>
 							<th>Minimum Next Bid:</th>
-							<td>$5,750</td>
+							<td>${article.minNextBid}</td>
 						</tr>
 						<tr>
 							<th>Estimated Value:</th>

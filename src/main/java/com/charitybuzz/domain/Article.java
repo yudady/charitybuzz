@@ -66,7 +66,7 @@ public class Article {
 	 * Bidding_Rule_ID 使用哪個id來當規則
 	 */
 	private int biddingRuleId;
-	
+
 	/**
 	 * 下次最小標價 Minimum Next Bid: $2,500
 	 */
@@ -81,9 +81,20 @@ public class Article {
 	 */
 	private List<ArticleHistory> articleHistories;
 	/**
-	 * (6 bids)umber of Bids: 2 已經有幾標 commodityHistories.size()
+	 * (6 bids)umber of Bids: 2 已經有幾標 articleHistories.size()
 	 */
-	private int commodityHistorySize;
+	private int articleHistorySize;
+
+	/**
+	 * 圖片
+	 */
+	private List<Picture> pictures;
+
+	/**
+	 * 第一章圖片路徑
+	 */
+	@SuppressWarnings("unused")
+	private String mainPictureLocation;
 
 	public Article() {
 	}
@@ -208,17 +219,36 @@ public class Article {
 		this.articleHistories = articleHistories;
 	}
 
-	public int getCommodityHistorySize() {
-		return commodityHistorySize;
+	public int getArticleHistorySize() {
+		return articleHistorySize;
 	}
 
-	public void setCommodityHistorySize(int commodityHistorySize) {
-		this.commodityHistorySize = commodityHistorySize;
+	public void setArticleHistorySize(int articleHistorySize) {
+		this.articleHistorySize = articleHistorySize;
 	}
 
+	public List<Picture> getPictures() {
+		return pictures;
+	}
+
+
+
+	public void setPictures(List<Picture> pictures) {
+		this.pictures = pictures;
+	}
+
+	public String getMainPictureLocation() {
+		if (pictures.size() > 0) {
+			return pictures.get(0).getLocation();
+		}
+		return "";
+	}
+	
+	
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this,
 				ToStringStyle.SIMPLE_STYLE);
 	}
+
 }

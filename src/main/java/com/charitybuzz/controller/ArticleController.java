@@ -19,8 +19,8 @@ import com.charitybuzz.service.CategoryService;
 import com.charitybuzz.service.PictureService;
 
 @Controller
-@RequestMapping("/categories")
-public class CategoriesController {
+@RequestMapping("/article")
+public class ArticleController {
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -40,29 +40,10 @@ public class CategoriesController {
 	@Resource(name = "pictureService")
 	private PictureService pictureService;
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public String index(@PathVariable Long id, Model model) {
-		log.debug("[LOG][categories][id]=" + id);
-
-		// Category category = categoryService.findById(id);
-		/**
-		 * 全部商品
-		 */
-		List<Article> articles = articleService.findByCategoryId(id);
-
-		for (Article article : articles) {
-
-			Long articleId = article.getId();
-			List<Picture> pictures = pictureService
-					.findPictureByArticleId(articleId);
-			article.setPictures(pictures);
-			log.debug("[LOG][pic]" + article.getMainPictureLocation());
-		}
-		// pictureService
-		model.addAttribute("articles", articles);
-
-		log.debug(articles.toString());
-		return "categories";
+	@RequestMapping(value = "/{articleId}", method = RequestMethod.GET)
+	public String index(@PathVariable Long articleId, Model model) {
+		log.debug("[LOG][articleId]=" + articleId);
+		return "article";
 	}
 
 }
