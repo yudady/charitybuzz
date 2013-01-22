@@ -35,6 +35,7 @@ public class ArticleController {
 		log.debug("[LOG][articleId]=" + articleId);
 		Article article = articleService.findById(articleId);
 		log.debug("[LOG][article]" + article);
+		model.addAttribute("article", article);
 		return "article";
 	}
 

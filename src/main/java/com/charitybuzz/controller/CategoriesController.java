@@ -58,7 +58,6 @@ public class CategoriesController {
 			article.setPictures(pictures);
 			log.debug("[LOG][pic]" + article.getMainPictureLocation());
 		}
-		// pictureService
 		model.addAttribute("articles", articles);
 
 		log.debug(articles.toString());

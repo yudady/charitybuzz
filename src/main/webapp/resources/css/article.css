@@ -1,18 +1,16 @@
 @CHARSET "UTF-8";
-
 #HomePageOnly {
 	clear: both;
 	background-color: #BBB;
 }
-
-#articleDetail {
+#bidding_left_column {
 	width: 430px;
 	float:left;
 	background-color: #CCC;
 	margin-top: 10px;
 	margin-right: 10px;
 }
-#bidDetail {
+#bidding_right_column {
 	width: 300px;
 	float:left;
 	background-color: #CCC;
