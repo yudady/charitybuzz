@@ -14,87 +14,77 @@ import org.apache.commons.lang.builder.ToStringStyle;
  */
 public class Article {
 	/**
-	 * Lot Number:
+	 * ID Lot Number:
 	 */
-	// ID
 	private Long id;
 	/**
-	 * 第一級目錄
+	 * 第一級目錄id
 	 */
 	private Long categoryId;
-	
+	/**
+	 * 商品訊息
+	 */
 	private String title;
-	
-	
-	// LOTDETAILS
+
+	/**
+	 * LOTDETAILS訊息
+	 */
 	private String lotDetails;
-	// LEGALTERMS
+	/**
+	 * LEGALTERMS訊息
+	 */
 	private String legalTerms;
-	// SHIPPING
+	/**
+	 * SHIPPING訊息
+	 */
 	private String shipping;
 
 	/**
-	 * Current Bid: $2,250
+	 * CURRENTBID 當前標價 Current Bid: $2,250
 	 */
-	// CURRENTBID
 	private Double currentBid;
 	/**
-	 * 開始日期
+	 * 商品 開始日期 STARTDATE
 	 */
-	// STARTDATE
 	private Date startDate;
 	/**
-	 * Lot Closes 結速日期
+	 * Lot Closes 商品 結速日期 ENDDATE
 	 */
-	// ENDDATE
 	private Date endDate;
 
 	/**
-	 * 當前贏家
+	 * 當前贏家id USER_ID
 	 */
-	// USERID
 	private Long userId;
 
 	/**
-	 * 直購價 Estimated Value: $9,500
+	 * ESTIMATED_VALUE 直購價 Estimated Value: $9,500
 	 */
-	// ESTIMATEDVALUE
 	private Double estimatedValue;
 
 	/**
-	 * Minimum Next Bid: $2,500
+	 * Bidding_Rule_ID 使用哪個id來當規則
 	 */
-	// BIDLEVELID
-	private BidLevel nextBid;
-	// NEXTBID
-	private int bidLevelValue;
+	private int biddingRuleId;
+	/**
+	 * 下次最小標價 Minimum Next Bid: $2,500
+	 */
+	private Double minNextBid;
 
 	/**
 	 * 有多個2級目錄
 	 */
 	private List<CatalogItem> catalogItems;
 	/**
-	 * 歷史紀錄 Number of Bids: 2
+	 * 歷史紀錄
 	 */
-	private List<ArticleHistory> commodityHistories;
+	private List<ArticleHistory> articleHistories;
+	/**
+	 * (6 bids)umber of Bids: 2 已經有幾標 commodityHistories.size()
+	 */
+	private int commodityHistorySize;
 
 	public Article() {
-	}
-
-	public Article(Long id, Long categoryId, String lotDetails,
-			String legalTerms, String shipping, Double currentBid,
-			Date startDate, Date endDate, Long userId, Double estimatedValue) {
-		super();
-		this.id = id;
-		this.categoryId = categoryId;
-		this.lotDetails = lotDetails;
-		this.legalTerms = legalTerms;
-		this.shipping = shipping;
-		this.currentBid = currentBid;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.userId = userId;
-		this.estimatedValue = estimatedValue;
 	}
 
 	public Long getId() {
@@ -185,20 +175,20 @@ public class Article {
 		this.estimatedValue = estimatedValue;
 	}
 
-	public BidLevel getNextBid() {
-		return nextBid;
+	public int getBiddingRuleId() {
+		return biddingRuleId;
 	}
 
-	public void setNextBid(BidLevel nextBid) {
-		this.nextBid = nextBid;
+	public void setBiddingRuleId(int biddingRuleId) {
+		this.biddingRuleId = biddingRuleId;
 	}
 
-	public int getBidLevelValue() {
-		return bidLevelValue;
+	public Double getMinNextBid() {
+		return minNextBid;
 	}
 
-	public void setBidLevelValue(int bidLevelValue) {
-		this.bidLevelValue = bidLevelValue;
+	public void setMinNextBid(Double minNextBid) {
+		this.minNextBid = minNextBid;
 	}
 
 	public List<CatalogItem> getCatalogItems() {
@@ -209,12 +199,20 @@ public class Article {
 		this.catalogItems = catalogItems;
 	}
 
-	public List<ArticleHistory> getCommodityHistories() {
-		return commodityHistories;
+	public List<ArticleHistory> getArticleHistories() {
+		return articleHistories;
 	}
 
-	public void setCommodityHistories(List<ArticleHistory> commodityHistories) {
-		this.commodityHistories = commodityHistories;
+	public void setArticleHistories(List<ArticleHistory> articleHistories) {
+		this.articleHistories = articleHistories;
+	}
+
+	public int getCommodityHistorySize() {
+		return commodityHistorySize;
+	}
+
+	public void setCommodityHistorySize(int commodityHistorySize) {
+		this.commodityHistorySize = commodityHistorySize;
 	}
 
 	@Override

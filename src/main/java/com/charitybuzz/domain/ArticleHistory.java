@@ -3,7 +3,7 @@ package com.charitybuzz.domain;
 import java.util.Date;
 
 /**
- * 商品歷史紀錄
+ * 商品投標的歷史紀錄
  * 
  * @author Administrator
  * 
