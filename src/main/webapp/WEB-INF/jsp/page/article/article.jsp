@@ -57,15 +57,20 @@
 				<h2>
 					Sit In on <i>The Howard Stern Show</i> in NYC and Meet the Staff!
 				</h2>
+				
+				
+				
 				<div class="bread_crumbs">
 					<a href="/"> <i class="icon-home"> <span
 							class="hideThis504Text">Home</span>
 					</i>
 					</a> » <a href="/categories/14/catalog_items">Celebrity</a>
 				</div>
+				
+				
+<!-- bidInfo -->
 				<div id="bidInfo">
 					<div id="placeBid">
-						<div style="height: 10px;"></div>
 						<div id="currentBidWrap">
 							<div id="currentBid">
 								Current Bid: <span id="currentPrice">$5,250</span> <span
@@ -190,6 +195,9 @@
 							</a>
 						</div>
 					</div>
+					
+					
+<!-- Proceeds Benefit -->			
 					<div class="watch-question-grid clearfix removeBottomborder">
 						<div class="benifit-full-width">
 							<i class="icon-heart"></i> Proceeds Benefit: <a class="turnred"
@@ -201,25 +209,19 @@
 							<!-- %div.proceeds -->
 						</div>
 					</div>
-					<div class="watch-question-grid clearfix">
-						<a class="wqgLeft ie7-hack-for-first-child-icon"
-							href="/catalog_items/314327/toggle_watch"> <i
-							class="icon-eye-open"></i> Watch This Item
-						</a> <a class="wqgRight" title="Ask a question about this item"
-							href="/contacts/new?lot=314327"> <i class="icon-comments-alt">
-						</i> Ask a Question
-						</a>
+<!-- Proceeds Benefit -->
+
+
+					<div id="watchQuestion">
+						<ul>
+							<li><a href='<c:url value="/"/>'>Watch This Item</a></li>
+							<li><a href='<c:url value="/contact_us"/>'>Ask a Question</a></li>
+						</ul>
 					</div>
-					<!-- #watchButton.clearfix -->
-					<!-- = watch_lot_link @lot, @watching -->
-					<!-- - if still_time_to_receive_last_cron_notification? -->
-					<!-- = link_to t('whats_this'), "#watchLotPop", :class => "showHints icon-question-sign ie7-hack-for-first-child-icon" -->
+<!-- More Details -->
 					<div id="more-details">
-						<a class="toggle"> <i
-							class="icon-chevron-right ie7-hack-for-first-child-icon"></i>
-							More Details
-						</a>
-						<dl class="clearfix" style="height: 80px; display: none;">
+						<a href="#">More Details</a>
+						<dl>
 							<dt class="noBold">Lot Number:</dt>
 							<dd># 314327</dd>
 							<dt class="noBold">Estimated Value:</dt>
@@ -230,7 +232,9 @@
 							<dd>Fri, 8 Feb 2013 1:12:00 PM EST</dd>
 						</dl>
 					</div>
+<!-- More Details -->
 				</div>
+<!-- bidInfo -->
 			</div>
 		</div>
 <!-- bidding_left_column -->

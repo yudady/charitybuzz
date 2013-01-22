@@ -16,3 +16,31 @@
 	background-color: #CCC;
 	margin-top: 10px;
 }
+#more-details dl{
+	height: 80px;
+	display: none;
+}
+
+
+
+#watchQuestion {
+	width: 300px;
+}
+#watchQuestion ul {
+	height:30px;
+	line-height:30px;
+	text-align:center;
+}
+#watchQuestion ul li {
+	display:block;
+	width: 140px;
+	float: left;
+	background-color: white;
+	margin:5px;
+}
+#watchQuestion ul li a {
+	text-decoration:none;
+}
+#watchQuestion ul li a:hover {
+	color:#f60;
+}
