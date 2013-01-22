@@ -19,11 +19,10 @@
 
 
 <c:forEach items="${articles}" var="article">
-			<div class="lotDetail clearfix">
-				<div class="lotPhoto">
-					<a href='<c:url value="/article/${article.id}" />'><img
-						src="${article.mainPictureLocation}"
-						alt="Large_list" />
+			<div>
+				<div>
+					<a href='<c:url value="/article/${article.id}" />'>
+						<img src="${article.mainPictureLocation}" alt="Large_list" />
 					</a>
 				</div>
 				<!-- /lotPhoto -->

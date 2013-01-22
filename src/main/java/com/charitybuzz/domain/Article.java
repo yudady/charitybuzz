@@ -58,7 +58,9 @@ public class Article {
 	private Long userId;
 
 	/**
-	 * ESTIMATED_VALUE 直購價 Estimated Value: $9,500
+	 * ESTIMATED_VALUE 
+	 * 直購價 
+	 * Estimated Value: $9,500
 	 */
 	private Double estimatedValue;
 

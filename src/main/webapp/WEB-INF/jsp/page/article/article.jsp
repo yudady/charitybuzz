@@ -51,193 +51,220 @@
 			</div>
 		</div>
 <!-- bidding_left_column -->
-<!-- bidding_left_column -->
+<!-- bidding_right_column -->
 		<div id="bidding_right_column">
 			<div id="bidding_right_column">
 				<h2>
-					Sit In on <i>The Howard Stern Show</i> in NYC and Meet the Staff!
+					${article.title}
 				</h2>
-				
-				
-				
-				<div class="bread_crumbs">
-					<a href="/"> <i class="icon-home"> <span
-							class="hideThis504Text">Home</span>
-					</i>
-					</a> » <a href="/categories/14/catalog_items">Celebrity</a>
+				<div>
+					<a href='<c:url value="/" />'><i><span>Home</span></i></a> » <a href='<c:url value="/categories/${article.categoryId}" />'>Celebrity</a>
 				</div>
-				
-				
 <!-- bidInfo -->
 				<div id="bidInfo">
 					<div id="placeBid">
-						<div id="currentBidWrap">
-							<div id="currentBid">
-								Current Bid: <span id="currentPrice">$5,250</span> <span
-									id="bidcounter"> ( <a id="BiddingIncrementsPop"
-									href="/catalog_items/314327/bids">2 bids</a> )
-								</span>
+						<div>
+							<div>Current Bid: 
+								<span id="currentPrice">${article.currentBid}</span> 
+								<span> ( <a href='<c:url value="/article/${article.id}/BiddingHistory" />'>${article.articleHistorySize}</a> )</span>
 							</div>
-							<div class="clearfix"></div>
 							<div id="placedBy">
 								placed by: <b>jaimervelasco</b>
 							</div>
-							<div class="estimated_price">
-								Estimated Value: <b> $25,000 </b>
+							<div>
+								Estimated Value: <b> ${article.estimatedValue} </b>
 							</div>
 						</div>
-						<div id="timeLeft">
-							17 days left to bid
-							<div id="closingTime">
-								Fri, 8 Feb 1:12PM EST <a class="showHints icon-question-sign"
-									href="#closingTimePop"> <span class="hideThis504Text">What's
-										this?</span>
-								</a>
+						<div>
+							${article.endDate} - ${article.startDate}     days left to bid
+							<div>
+								${article.endDate} - ${article.startDate}  Fri, 8 Feb 1:12PM EST 
+								<a id="closingTimePop" href="#"><span>What's this?</span></a>
+								<div id="closingTimePopDialog" title="Closing Time">
+									This is the time the auction will end, but "Popcorn Bidding" could add 10 minutes to the closing time. If a bid is placed within 10 minutes of the closing time, the auction will extend by 10 minutes. This allows competing bidders a chance to stay in the race.
+								</div>
 							</div>
 						</div>
-						<form id="new_bid" class="clearfix" method="post"
-							action="https://www.charitybuzz.com/catalog_items/314327/bids"
+						<form method="post" action="https://www.charitybuzz.com/catalog_items/314327/bids"
 							accept-charset="UTF-8">
 							<div style="margin: 0; padding: 0; display: inline">
-								<input type="hidden" value="✓" name="utf8" /> <input
-									type="hidden"
-									value="1mhRLTV5BE5YtSr77p9R5JrcKI/KrqlPTWLMtsSlNKg="
-									name="authenticity_token" />
+								<input type="hidden" value="✓" name="utf8" /> 
+								<input type="hidden" value="1mhRLTV5BE5YtSr77p9R5JrcKI/KrqlPTWLMtsSlNKg=" name="authenticity_token" />
 							</div>
 							<!-- ============== CURRENCY CONVERTER CODE begin =============== -->
 							<div id="currencyConverter">
 								<a id="link-currency" href="#"> $ <small>▾</small>
 								</a>
-								<div id="popup-currency">
-									<h4>Conversions Approximate</h4>
-									<table cellspacing="0" cellpadding="0" border="0">
-										<thead>
-											<tr>
-												<th class="country"></th>
-												<th class="current">current bid</th>
-												<th class="minNext">min next bid</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td class="country"><img width="21" height="13"
-													src="http://assets2.charitybuzz.com/assets/0e1feffb2/images/lot_detail/flag-usd.png"
-													alt="USD" /> USD</td>
-												<td class="current">5,250</td>
-												<td class="minNext">5,750</td>
-											</tr>
-											<tr>
-												<td class="country"><img width="21" height="13"
-													src="http://assets2.charitybuzz.com/assets/dc8326984/images/lot_detail/flag-eur.png"
-													alt="EUR" /> EUR</td>
-												<td class="current">3,933.38</td>
-												<td class="minNext">4,307.99</td>
-											</tr>
-											<tr>
-												<td class="country"><img width="21" height="13"
-													src="http://assets2.charitybuzz.com/assets/b2d4a6216/images/lot_detail/flag-gbp.png"
-													alt="GBP" /> GBP</td>
-												<td class="current">3,309.54</td>
-												<td class="minNext">3,624.73</td>
-											</tr>
-											<tr>
-												<td class="country"><img width="21" height="14"
-													src="http://assets2.charitybuzz.com/assets/a0086ec5a/images/lot_detail/flag-chf.png"
-													alt="CHF" /> CHF</td>
-												<td class="current">4,875.68</td>
-												<td class="minNext">5,340.03</td>
-											</tr>
-											<tr>
-												<td class="country"><img width="21" height="13"
-													src="http://assets2.charitybuzz.com/assets/12bb4b56e/images/lot_detail/flag-jpy.png"
-													alt="JPY" /> JPY</td>
-												<td class="current">465,833</td>
-												<td class="minNext">510,198</td>
-											</tr>
-											<tr>
-												<td class="country"><img width="21" height="14"
-													src="http://assets2.charitybuzz.com/assets/58b3ecd7f/images/lot_detail/flag-hkd.png"
-													alt="HKD" /> HKD</td>
-												<td class="current">40,703.51</td>
-												<td class="minNext">44,580.04</td>
-											</tr>
-											<tr>
-												<td class="country"><img width="21" height="15"
-													src="http://assets2.charitybuzz.com/assets/4dc1ad336/images/lot_detail/flag-rub.png"
-													alt="RUB" /> RUB</td>
-												<td class="current">158,662.88</td>
-												<td class="minNext">173,773.63</td>
-											</tr>
-											<tr>
-												<td class="country"><img width="21" height="13"
-													src="http://assets2.charitybuzz.com/assets/b83f5d43a/images/lot_detail/flag-cny.png"
-													alt="CNY" /> CNY</td>
-												<td class="current">32,680.20</td>
-												<td class="minNext">35,792.60</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<!-- /popup-currency -->
+								<input id="bid_amount" type="text" size="30" />
+								<button id="bid_submit" type="submit">Bid now</button>
 							</div>
 							<!-- /currencyConverter -->
-							<input id="bid_amount" type="text" size="30" name="bid[amount]" />
-							<input id="ref" type="hidden" value="14" name="ref" />
-							<button id="bid_submit" class="submit cssButton" type="submit"
-								name="commit">Bid now</button>
 						</form>
-						<div id="inlineErrors" style="font-size: 11px;"></div>
-						<div id="minimumBid" style="font-size: 11px;">
-							you must bid at least <span id="minimumBidAmount">$5,750</span> <a
-								class="showHints icon-question-sign"
-								href="#maxBidAndBidIncrementsPop"> <span
-								class="hideThis504Text">What's this?</span>
-							</a>
+						<div id="popup-currency">
+							<h4>Conversions Approximate</h4>
+							<table cellspacing="0" cellpadding="0" border="0">
+								<thead>
+									<tr>
+										<th class="country"></th>
+										<th class="current">current bid</th>
+										<th class="minNext">min next bid</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="country"><img width="21" height="13"
+											src="http://assets2.charitybuzz.com/assets/0e1feffb2/images/lot_detail/flag-usd.png"
+											alt="USD" /> USD</td>
+										<td class="current">5,250</td>
+										<td class="minNext">5,750</td>
+									</tr>
+									<tr>
+										<td class="country"><img width="21" height="13"
+											src="http://assets2.charitybuzz.com/assets/dc8326984/images/lot_detail/flag-eur.png"
+											alt="EUR" /> EUR</td>
+										<td class="current">3,933.38</td>
+										<td class="minNext">4,307.99</td>
+									</tr>
+									<tr>
+										<td class="country"><img width="21" height="13"
+											src="http://assets2.charitybuzz.com/assets/b2d4a6216/images/lot_detail/flag-gbp.png"
+											alt="GBP" /> GBP</td>
+										<td class="current">3,309.54</td>
+										<td class="minNext">3,624.73</td>
+									</tr>
+									<tr>
+										<td class="country"><img width="21" height="14"
+											src="http://assets2.charitybuzz.com/assets/a0086ec5a/images/lot_detail/flag-chf.png"
+											alt="CHF" /> CHF</td>
+										<td class="current">4,875.68</td>
+										<td class="minNext">5,340.03</td>
+									</tr>
+									<tr>
+										<td class="country"><img width="21" height="13"
+											src="http://assets2.charitybuzz.com/assets/12bb4b56e/images/lot_detail/flag-jpy.png"
+											alt="JPY" /> JPY</td>
+										<td class="current">465,833</td>
+										<td class="minNext">510,198</td>
+									</tr>
+									<tr>
+										<td class="country"><img width="21" height="14"
+											src="http://assets2.charitybuzz.com/assets/58b3ecd7f/images/lot_detail/flag-hkd.png"
+											alt="HKD" /> HKD</td>
+										<td class="current">40,703.51</td>
+										<td class="minNext">44,580.04</td>
+									</tr>
+									<tr>
+										<td class="country"><img width="21" height="15"
+											src="http://assets2.charitybuzz.com/assets/4dc1ad336/images/lot_detail/flag-rub.png"
+											alt="RUB" /> RUB</td>
+										<td class="current">158,662.88</td>
+										<td class="minNext">173,773.63</td>
+									</tr>
+									<tr>
+										<td class="country"><img width="21" height="13"
+											src="http://assets2.charitybuzz.com/assets/b83f5d43a/images/lot_detail/flag-cny.png"
+											alt="CNY" /> CNY</td>
+										<td class="current">32,680.20</td>
+										<td class="minNext">35,792.60</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-					</div>
-					
-					
-<!-- Proceeds Benefit -->			
-					<div class="watch-question-grid clearfix removeBottomborder">
-						<div class="benifit-full-width">
-							<i class="icon-heart"></i> Proceeds Benefit: <a class="turnred"
-								target="_blank" href="http://www.gardenofdreamsfoundation.org/">The
-								Garden of Dreams Foundation</a>
-							<!-- = link_to "<i class='icon-arrow-down'>&nbsp;</i>Proceeds Info".html_safe, "#Slide", :class => "toProceedsDiv" -->
-							<!-- .bidCount -->
-							<!-- -->
-							<!-- %div.proceeds -->
-						</div>
-					</div>
-<!-- Proceeds Benefit -->
+						<!-- /popup-currency -->
 
 
+
+
+						<div id="minimumBid">
+							you must bid at least 
+							<span>${article.minNextBid} }</span> 
+							<a id="maxBidAndBidIncrementsPop" href="#"><span>What's this?</span></a>
+							<div id="maxBidAndBidIncrementsPopDialog">
+								<h2>Max Bid</h2>
+								<p>This item supports Max Bidding! The bid you enter will
+									automatically be a Max Bid. If your Max Bid is higher than the
+									next Bid Increment, the bid will only be raised to the next Bid
+									Increment. If someone else bids on this item for an amount less
+									than your Max Bid, then you will automatically beat them and
+									your bid will be increased to the Bid Increment necessary to
+									beat them (or increased to your Max Bid itself, if that's
+									lower).</p>
+								<h2>Bid Increment</h2>
+								<p>To keep bidding competitive and interesting, you are
+									required to increase the bid by an amount comparable to the
+									current bid itself. Here's the guide:</p>
+								<table>
+									<thead>
+										<tr>
+											<th>Current Bid Amount</th>
+											<th>Bid Increment</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>250 or less</td>
+											<td>25</td>
+										</tr>
+										<tr>
+											<td>250 - 500</td>
+											<td>50</td>
+										</tr>
+										<tr>
+											<td>500 - 1000</td>
+											<td>100</td>
+										</tr>
+										<tr>
+											<td>1000 - 5000</td>
+											<td>250</td>
+										</tr>
+										<tr>
+											<td>5000 - 10000</td>
+											<td>500</td>
+										</tr>
+										<tr>
+											<td>10000 - 25000</td>
+											<td>1000</td>
+										</tr>
+										<tr>
+											<td>25000 - 50000</td>
+											<td>2500</td>
+										</tr>
+										<tr>
+											<td>50000 - 10000000</td>
+											<td>5000</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div>Proceeds Benefit: 
+						<a target="_blank" href="http://www.gardenofdreamsfoundation.org/">The Garden of Dreams Foundation</a>
+					</div>
 					<div id="watchQuestion">
 						<ul>
 							<li><a href='<c:url value="/"/>'>Watch This Item</a></li>
 							<li><a href='<c:url value="/contact_us"/>'>Ask a Question</a></li>
 						</ul>
 					</div>
-<!-- More Details -->
 					<div id="more-details">
 						<a href="#">More Details</a>
 						<dl>
-							<dt class="noBold">Lot Number:</dt>
-							<dd># 314327</dd>
-							<dt class="noBold">Estimated Value:</dt>
-							<dd>$25,000</dd>
-							<dt class="noBold">Open Date</dt>
-							<dd>Wed, 16 Jan 2013 1:00:00 PM EST</dd>
-							<dt class="noBold">Close Date:</dt>
-							<dd>Fri, 8 Feb 2013 1:12:00 PM EST</dd>
+							<dt>Lot Number:</dt>
+							<dd>${article.id}</dd>
+							<dt>Estimated Value:</dt>
+							<dd>${article.estimatedValue}</dd>
+							<dt>Open Date</dt>
+							<dd>${article.startDate}</dd>
+							<dt>Close Date:</dt>
+							<dd>${article.endDate}</dd>
 						</dl>
 					</div>
-<!-- More Details -->
 				</div>
 <!-- bidInfo -->
 			</div>
 		</div>
-<!-- bidding_left_column -->
+<!-- bidding_right_column -->
 	</div>
 </body>
 </html>
