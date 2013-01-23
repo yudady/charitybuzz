@@ -7,8 +7,6 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
@@ -17,10 +15,7 @@ import com.charitybuzz.dao.PictureDao;
 import com.charitybuzz.domain.Picture;
 
 @Repository("pictureJdbcDao")
-public class PictureDaoImpl extends BaseDaoImpl<Picture>
-		implements PictureDao {
-	/** logger. */
-	private Logger log = LoggerFactory.getLogger(this.getClass());
+public class PictureDaoImpl extends BaseDaoImpl<Picture> implements PictureDao {
 	/**
 	 * 注入DataSource
 	 * 
@@ -55,7 +50,6 @@ public class PictureDaoImpl extends BaseDaoImpl<Picture>
 
 	@Override
 	public List<Picture> findPictureByArticleId(Long articleId) {
-		log.debug("[LOG][articleId]" + articleId);
 		String sql = "select * from " + getTableName()
 				+ " where articleId=:articleId";
 		BeanPropertyRowMapper<Picture> rm = ParameterizedBeanPropertyRowMapper

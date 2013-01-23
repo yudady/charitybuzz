@@ -1,12 +1,9 @@
 package com.charitybuzz.operate.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.charitybuzz.domain.Article;
@@ -19,8 +16,6 @@ import com.charitybuzz.service.CategoryService;
 
 @Service("sidebarService")
 public class SidebarServiceImpl implements SidebarService {
-	/** logger. */
-	private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**
 	 * 第一級目錄
@@ -46,8 +41,6 @@ public class SidebarServiceImpl implements SidebarService {
 		for (int i = 0; i < categories.size(); i++) {
 			Category category = categories.get(i);
 			Long categoryId = category.getId();
-			log.debug("[LOG][category][Name]" + category.getName());
-			;
 			/**
 			 * 第二級目錄
 			 */

@@ -22,23 +22,9 @@ public class SidebarController {
 	@Resource(name = "sidebarService")
 	private SidebarService sidebarService;
 
-	// TODO fix (del it 開發用)
-	List<Category> categories;
-
 	@RequestMapping()
-	public @ResponseBody
-	List<Category> getSidebar() {
-		// TODO fix (del it 開發用)
-		{
-			log.debug("[LOG]getSidebar");
-			if (log.isDebugEnabled()) {
-				if (null == categories) {
-					categories = sidebarService.getSidebar();
-				}
-				return categories;
-			}
-		}
-
+	public @ResponseBody List<Category> index() {
+		log.debug("[LOG][sidebar]");
 		return sidebarService.getSidebar();
 	}
 

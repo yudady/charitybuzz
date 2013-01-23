@@ -12,7 +12,7 @@
 <body>
 	<c:choose>
 		<c:when test="${user == null }">
-			<form action="<c:url value="/login" />" method="post">
+			<form action="<c:url value="/login/iframe" />" method="post">
 				<span>Email Address:</span>
 				<input type="text" name="email" /> 
 				<br /> 
@@ -26,7 +26,7 @@
 		<c:otherwise>
 			<span>${user.screenName } ${user.email }| Account info |</span>
 			<form action='<c:url value="/login/logout" />' method="post">
-				<input type="submit" name="submit" value="Logout" />
+				<input type="submit" name="submit" id="logout" value="Logout" />
 			</form>
 		</c:otherwise>
 	</c:choose>

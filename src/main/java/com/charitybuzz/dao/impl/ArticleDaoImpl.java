@@ -7,8 +7,6 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
@@ -18,8 +16,6 @@ import com.charitybuzz.domain.Article;
 
 @Repository("articleJdbcDao")
 public class ArticleDaoImpl extends BaseDaoImpl<Article> implements ArticleDao {
-	/** logger. */
-	private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/**
 	 * 注入DataSource
@@ -58,7 +54,6 @@ public class ArticleDaoImpl extends BaseDaoImpl<Article> implements ArticleDao {
 
 	@Override
 	public List<Article> findByCategoryId(Long id) {
-		log.debug("[LOG][CategoryId]" + id);
 		String sql = "select * from " + getTableName()
 				+ " where CATEGORYID=:categoryId";
 		BeanPropertyRowMapper<Article> rm = ParameterizedBeanPropertyRowMapper

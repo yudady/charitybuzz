@@ -8,14 +8,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript">
+	/**
+	 * 命名空間charitybuzz
+	 */
 	var charitybuzz = (function(){
 		var obj = {
 			url : '<c:url value="/"/>'
 		};
 		return obj;
 	})();
-	
+	/**
+	 * 取得路徑
+	 * @param path
+	 * @returns {String}
+	 */
 	function getSafeUrl(path){
+		path = path || "";
 		return "" + '<c:url value="/"/>' + path ;
 	}
 </script>

@@ -11,7 +11,6 @@ import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.charitybuzz.dao.UserDao;
-import com.charitybuzz.domain.Picture;
 import com.charitybuzz.domain.User;
 
 @Repository("userJdbcDao")
@@ -56,8 +55,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
 	@Override
 	public User findByEmail(String email) {
-		String sql = "select * from " + getTableName()
-				+ " where email=:email";
+		String sql = "select * from " + getTableName() + " where email=:email";
 		BeanPropertyRowMapper<User> rm = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
 		Map<String, Object> args = new HashMap<String, Object>();

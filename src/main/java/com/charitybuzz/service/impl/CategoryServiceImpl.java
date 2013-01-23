@@ -12,9 +12,6 @@ import com.charitybuzz.service.CategoryService;
 
 @Service("categoryService")
 public class CategoryServiceImpl implements CategoryService {
-	/**
-	 * 
-	 */
 	@Resource(name = "categoryJdbcDao")
 	private CategoryDao categoryDao;
 

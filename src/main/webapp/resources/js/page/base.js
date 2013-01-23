@@ -1,3 +1,6 @@
+/**
+ * all page init do
+ */
 ;$(function() {
 	/**
 	 * sidebar

@@ -18,28 +18,36 @@ import com.charitybuzz.service.UserService;
 public class LoginController {
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Resource(name = "userService")
 	private UserService userService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String index(HttpServletRequest request,HttpServletResponse response) {
+	public String index(HttpServletRequest request, HttpServletResponse response) {
 		log.debug("[LOG][login][index]");
 		return "login";
 	}
-	@RequestMapping(method = RequestMethod.POST)
-	public String login(HttpServletRequest request,HttpServletResponse response) {
+	@RequestMapping(value = "/bidLogin", method = RequestMethod.GET)
+	public String bidLogin(HttpServletRequest request, HttpServletResponse response) {
+		log.debug("[LOG][login][bidLogin]");
+		return "login";
+	}
+
+	@RequestMapping(value = "/iframe", method = RequestMethod.POST)
+	public String login(HttpServletRequest request, HttpServletResponse response) {
 		log.debug("[LOG][login][login]");
 		String email = request.getParameter("email");
 		String passWord = request.getParameter("passWord");
 		User user = userService.findByEmail(email);
-		if(user.getPassWord().equalsIgnoreCase(passWord)){
+		if (user.getPassWord().equalsIgnoreCase(passWord)) {
 			request.getSession().setAttribute("user", user);
 		}
 		return "login";
 	}
-	@RequestMapping(value = "/logout" ,method = RequestMethod.POST)
-	public String logout(HttpServletRequest request,HttpServletResponse response) {
+
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+	public String logout(HttpServletRequest request,
+			HttpServletResponse response) {
 		log.debug("[LOG][login][logout]");
 		request.getSession().removeAttribute("user");
 		return "login";

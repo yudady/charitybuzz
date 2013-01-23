@@ -84,16 +84,14 @@
 							</div>
 						</div>
 <!-- currencyConverter -->
-						<form method="post" action="https://www.charitybuzz.com/catalog_items/314327/bids"
-							accept-charset="UTF-8">
-							<div id="currencyConverter">
-								<a id="link-currency" href="#"> $ <small>▾</small>
-								</a>
-								<input id="bid_amount" type="text" size="30" />
-								<button id="bid_submit" type="submit">Bid now</button>
-							</div>
+						<div id="currencyConverter">
+							<a id="link-currency" href="#"> $ <small>▾</small></a>
+							<input id="bid_amount" type="text" size="30" />
+							<input id="bid_articleId" type="hidden" value="${article.id}" />
+							<input id="bid_minNextBid" type="hidden" value="${article.minNextBid}" />
+							<button id="bid_submit" type="button">Bid now</button>
+						</div>
 <!-- /currencyConverter -->
-						</form>
 						<div id="popup-currency">
 							<h4>Conversions Approximate</h4>
 							<table cellspacing="0" cellpadding="0" border="0">
@@ -169,9 +167,9 @@
 
 
 
-						<div id="minimumBid">
+						<div>
 							you must bid at least 
-							<span>${article.minNextBid} }</span> 
+							<span>${article.minNextBid}</span> 
 							<a id="maxBidAndBidIncrementsPop" href="#"><span>What's this?</span></a>
 							<div id="maxBidAndBidIncrementsPopDialog">
 								<h2>Max Bid</h2>
