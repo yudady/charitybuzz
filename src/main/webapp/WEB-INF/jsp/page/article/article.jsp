@@ -18,20 +18,18 @@
 		<div id="sidebar"></div>
 <!-- bidding_left_column -->
 		<div id="bidding_left_column">
-			<div id="photo" style="height: auto;">
-				<div class="time-tag">
-					<div class="rotate-clock">
-						<span class="clock-triangle"> <b> <i class="icon-time"
-								style="margin: 0 !important; padding: 0 !important;"></i> 17
-								days
-						</b>
+			<div>
+				<div>
+					<div>
+						<span>
+							<b><i style="margin: 0 !important; padding: 0 !important;"></i>17 days</b>
 						</span>
 					</div>
 					<!-- rotate-clock -->
 				</div>
 				<!-- time-tag -->
-				<a id="photo-zoomer" class="" title="" href="#"> <img
-					id="photo-zoom" class="smalla zoomdat"
+				<a href="#">
+					<img id="photo-zoom"
 					src="https://s3.amazonaws.com/images.charitybuzz.com/images/85732/detail.jpeg?1358201435"
 					alt="LotPhoto" /></a>
 			</div>
@@ -85,20 +83,16 @@
 								</div>
 							</div>
 						</div>
+<!-- currencyConverter -->
 						<form method="post" action="https://www.charitybuzz.com/catalog_items/314327/bids"
 							accept-charset="UTF-8">
-							<div style="margin: 0; padding: 0; display: inline">
-								<input type="hidden" value="✓" name="utf8" /> 
-								<input type="hidden" value="1mhRLTV5BE5YtSr77p9R5JrcKI/KrqlPTWLMtsSlNKg=" name="authenticity_token" />
-							</div>
-							<!-- ============== CURRENCY CONVERTER CODE begin =============== -->
 							<div id="currencyConverter">
 								<a id="link-currency" href="#"> $ <small>▾</small>
 								</a>
 								<input id="bid_amount" type="text" size="30" />
 								<button id="bid_submit" type="submit">Bid now</button>
 							</div>
-							<!-- /currencyConverter -->
+<!-- /currencyConverter -->
 						</form>
 						<div id="popup-currency">
 							<h4>Conversions Approximate</h4>

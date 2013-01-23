@@ -4,7 +4,6 @@
 	 padding:0;
 }
 body {
-	//background:#cfedcd;
 	font-size:12px;
 }
 ul {
@@ -18,17 +17,24 @@ ul {
 }
 #header {
 	background-color: green;
+	height: 100px;
 	margin-bottom:20px;
 }
-#header #logo {
+#logo {
     width: 500px;
-	//background-color: yellow;
 }
-#header #logIn {
-	//background-color: red;
-	height:150px;
-	margin:0 120px;
+#logo img{
+    width: 470px;
+    height: 67px;
 }
+iframe#logIn{
+	width: 350px;
+	height: 100px;
+    float: right;
+    background-color: red;
+}
+
+
 #page {
 	background-color: blue;
 }

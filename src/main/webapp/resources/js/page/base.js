@@ -12,7 +12,7 @@
 		
 		var sidebarHtml = $("<dl />");
 		$(categories).each(function(){
-			$.log(this);
+			//$.log(this);
 			var sidebarCategory = $("<dd/>").addClass("sidebarCategory").data("catalogItems",this.catalogItems.length).wrapInner("<a href='"+charitybuzz.url+"categories/"+this.id+"'>" + this.name +"("+this.count+")("+this.catalogItems.length+")</a>");
 			sidebarHtml.wrapInner(sidebarCategory);
 			
@@ -33,6 +33,7 @@
 //		});
 	});
 	
+
 	
 	
 	

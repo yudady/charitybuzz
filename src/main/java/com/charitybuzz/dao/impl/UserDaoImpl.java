@@ -1,11 +1,17 @@
 package com.charitybuzz.dao.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.charitybuzz.dao.UserDao;
+import com.charitybuzz.domain.Picture;
 import com.charitybuzz.domain.User;
 
 @Repository("userJdbcDao")
@@ -46,6 +52,17 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 				+ "promoCode=:promoCode where id=:id ";
 		return super.update(sql, user);
 
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		String sql = "select * from " + getTableName()
+				+ " where email=:email";
+		BeanPropertyRowMapper<User> rm = ParameterizedBeanPropertyRowMapper
+				.newInstance(getClazz());
+		Map<String, Object> args = new HashMap<String, Object>();
+		args.put("email", email);
+		return this.getSimpleJdbcTemplate().queryForObject(sql, rm, args);
 	}
 
 }
