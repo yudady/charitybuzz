@@ -35,7 +35,7 @@ public class BidController {
 	ReturnMsg index(ArticleForm form){
 		log.debug("[LOG][articleId]" + form.getArticleId());
 		log.debug("[LOG][currentBid]" + form.getCurrentBid());
-
+//TODO fix article need reload
 		Article article = articleService.findById(form.getArticleId());
 		if (article.getMinNextBid() <= form.getCurrentBid()) {
 			articleService.updateCurrentBidById(form.getArticleId(),form.getCurrentBid());
