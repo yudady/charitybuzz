@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.charitybuzz.dao.UserDao;
 import com.charitybuzz.domain.User;
 import com.charitybuzz.service.UserService;
 
@@ -23,23 +22,15 @@ public class LoginController {
 	@Resource(name = "userService")
 	private UserService userService;
 
-	@Resource(name = "userJdbcDao")
-	private UserDao userDao;
-	
-	Long eee = 5L;
-	
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(HttpServletRequest request, HttpServletResponse response) {
 		log.debug("[LOG][login][index]");
-		eee ++;
-		User user = new User();
-		user.setId(eee);
-		log.debug("[LOG]" + userDao.insert(user));
-		
 		return "login";
 	}
+
 	@RequestMapping(value = "/bidLogin", method = RequestMethod.GET)
-	public String bidLogin(HttpServletRequest request, HttpServletResponse response) {
+	public String bidLogin(HttpServletRequest request,
+			HttpServletResponse response) {
 		log.debug("[LOG][login][bidLogin]");
 		return "login";
 	}
