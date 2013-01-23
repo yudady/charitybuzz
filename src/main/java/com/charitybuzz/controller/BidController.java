@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.charitybuzz.controller.form.ArticleForm;
+import com.charitybuzz.controller.msg.ReturnMsg;
+import com.charitybuzz.domain.Article;
 import com.charitybuzz.service.ArticleService;
 import com.charitybuzz.service.PictureService;
 
@@ -30,27 +32,16 @@ public class BidController {
 
 	@RequestMapping()
 	public @ResponseBody
-	String index(ArticleForm form) {
+	ReturnMsg index(ArticleForm form){
 		log.debug("[LOG][articleId]" + form.getArticleId());
-		log.debug("[LOG][amount]" + form.getAmount());
-		
-		articleService.findById(form.getArticleId());
-		
-		
-		return "bid1111111111111111";
+		log.debug("[LOG][currentBid]" + form.getCurrentBid());
+
+		Article article = articleService.findById(form.getArticleId());
+		if (article.getMinNextBid() <= form.getCurrentBid()) {
+			articleService.updateCurrentBidById(form.getArticleId(),form.getCurrentBid());
+			return new ReturnMsg("success");
+		}
+		return new ReturnMsg("fail", 1);
 	}
-//	@RequestMapping()
-//	public @ResponseBody
-//	String index(HttpServletRequest request, HttpServletResponse response) {
-//		String articleId = request.getParameter("articleId");
-//		String amount = request.getParameter("amount");
-//		log.debug("[LOG][bid_id]" + articleId);
-//		log.debug("[LOG][bid_amount]" + amount);
-//		
-//		articleService.findById(new Long(articleId));
-//		
-//		
-//		return "bid1111111111111111";
-//	}
 
 }

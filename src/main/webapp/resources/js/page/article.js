@@ -36,8 +36,8 @@ $(function() {
 		if ($('#logIn').contents().find("#logout").is(":visible") == true){
 			$.log("login");
 			
-			var bid_articleId = $("#bid_articleId").val();
-			var bid_amount = $("#bid_amount").val() || 0;
+			var articleId = $("#bid_articleId").val();
+			var currentBid = $("#bid_amount").val() || 0;
 			var bid_minNextBid = $("#bid_minNextBid").val() || 0;
 			if((parseInt(bid_minNextBid) - parseInt(bid_amount)) > 0){
 				alert("not enough");
@@ -48,11 +48,12 @@ $(function() {
 				type: "POST",
 				url: getSafeUrl("bid"),
 				data: {
-					articleId : bid_articleId,
-					amount : bid_amount
+					articleId : articleId,
+					currentBid : currentBid
 				},
 				success: function(data){
-					alert("bid ok");
+					$.log(data);
+					alert(data.msg);
 				}
 			});
 		}else{

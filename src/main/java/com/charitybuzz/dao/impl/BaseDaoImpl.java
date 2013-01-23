@@ -12,7 +12,10 @@ import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
-public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport {
+import com.charitybuzz.dao.BaseDao;
+
+public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport implements
+		BaseDao<T> {
 
 	@SuppressWarnings("rawtypes")
 	public abstract Class getClazz();
@@ -64,4 +67,46 @@ public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport {
 				.update(sql, paramMap);
 	}
 
+	public int updateNameById(String column, Long id, Object obj) {
+		StringBuilder sql = new StringBuilder();
+		sql.append(" UPDATE ");
+		sql.append(getTableName());
+		sql.append(" SET ");
+		sql.append(column);
+		sql.append("=:");
+		sql.append(column);
+		sql.append(" WHERE ID=:id ");
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("id", id);
+		paramMap.put(column, obj);
+		System.out.println("[LOG][SQL]" + sql.toString());
+		return this.getSimpleJdbcTemplate().getNamedParameterJdbcOperations()
+				.update(sql.toString(), paramMap);
+	}
+
+	public int updateNamesById(String[] columns, Long id, Object[] objs) {
+		StringBuilder sql = new StringBuilder();
+		sql.append(" UPDATE ");
+		sql.append(getTableName());
+		sql.append(" SET ");
+		for (int i = 0; i < columns.length; i++) {
+			String column = columns[i];
+			sql.append(column);
+			sql.append("=:");
+			sql.append(column);
+			if (i < (columns.length - 1)) {
+				sql.append(" , ");
+			}
+		}
+		sql.append(" WHERE ID=:id ");
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("id", id);
+		for (int i = 0; i < columns.length; i++) {
+			String column = columns[i];
+			Object obj = objs[i];
+			paramMap.put(column, obj);
+		}
+		return this.getSimpleJdbcTemplate().getNamedParameterJdbcOperations()
+				.update(sql.toString(), paramMap);
+	}
 }

@@ -46,6 +46,7 @@ public class UserDaoImplTest {
 		user.setId(3L);
 		log.debug("[LOG]" + userDao.insert(user));
 	}
+
 	@Test
 	@Rollback(true)
 	public void update() {
@@ -53,6 +54,20 @@ public class UserDaoImplTest {
 		user.setId(3L);
 		log.debug("[LOG]" + userDao.update(user));
 	}
+
+	@Test
+	@Rollback(true)
+	public void name() {
+		log.debug("[LOG]" + userDao.updateNameById("email", 1L, "111"));
+	}
+
+	@Test
+	@Rollback(true)
+	public void names() {
+		userDao.updateNamesById(new String[] { "email", "promoCode" }, 1L,
+				new Object[] { "111", "111" });
+	}
+
 	@Test
 	@Rollback(true)
 	public void delete() {

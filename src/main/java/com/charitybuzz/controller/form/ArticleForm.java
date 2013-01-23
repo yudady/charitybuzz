@@ -3,7 +3,7 @@ package com.charitybuzz.controller.form;
 public class ArticleForm {
 
 	private Long articleId;
-	private Double amount;
+	private Double currentBid;
 
 	public Long getArticleId() {
 		return articleId;
@@ -13,12 +13,12 @@ public class ArticleForm {
 		this.articleId = articleId;
 	}
 
-	public Double getAmount() {
-		return amount;
+	public Double getCurrentBid() {
+		return currentBid;
 	}
 
-	public void setAmount(Double amount) {
-		this.amount = amount;
+	public void setCurrentBid(Double currentBid) {
+		this.currentBid = currentBid;
 	}
 
 }

@@ -10,4 +10,6 @@ public interface ArticleService {
 
 	public Article findById(Long articleId);
 
+	public int updateCurrentBidById(Long articleId, Double currentBid);
+
 }
