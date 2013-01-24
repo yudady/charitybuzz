@@ -26,23 +26,15 @@ public class Category {
 	/**
 	 * 第二級目錄
 	 */
-	private List<SubCategory> catalogItems;
+	private List<SubCategory> subCategories;
 	/**
 	 * 全部商品
 	 */
-	private List<Item> commodities;
+	private List<Item> items;
 	/**
 	 * 底下有幾個數量
 	 */
 	private int count;
-
-	public Category() {
-	}
-
-	public Category(String name, int count) {
-		this.name = name;
-		this.count = count;
-	}
 
 	public Long getId() {
 		return id;
@@ -60,20 +52,20 @@ public class Category {
 		this.name = name;
 	}
 
-	public List<SubCategory> getCatalogItems() {
-		return catalogItems;
+	public List<SubCategory> getSubCategories() {
+		return subCategories;
 	}
 
-	public void setCatalogItems(List<SubCategory> catalogItems) {
-		this.catalogItems = catalogItems;
+	public void setSubCategories(List<SubCategory> subCategories) {
+		this.subCategories = subCategories;
 	}
 
-	public List<Item> getCommodities() {
-		return commodities;
+	public List<Item> getItems() {
+		return items;
 	}
 
-	public void setCommodities(List<Item> commodities) {
-		this.commodities = commodities;
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
 
 	public int getCount() {

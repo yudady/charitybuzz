@@ -37,7 +37,7 @@
 						</tr>
 						<tr>
 							<th>Number of Bids:</th>
-							<td>${item.itemHistorySize}</td>
+							<td></td>
 						</tr>
 						<tr>
 							<th>Minimum Next Bid:</th>
@@ -53,7 +53,7 @@
 						</tr>
 						<tr>
 							<th>Lot Closes:</th>
-							<td>${item.endDate}</td>
+							<td>${item.lotClose}</td>
 						</tr>
 					</tbody>
 				</table>

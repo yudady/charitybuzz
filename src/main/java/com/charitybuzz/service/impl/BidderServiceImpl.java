@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.charitybuzz.dao.BidderDao;
@@ -12,6 +15,8 @@ import com.charitybuzz.service.BidderService;
 
 @Service("bidderService")
 public class BidderServiceImpl implements BidderService {
+	/** logger. */
+	private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@Resource(name = "bidderJdbcDao")
 	private BidderDao bidderDao;
@@ -22,7 +27,13 @@ public class BidderServiceImpl implements BidderService {
 
 	@Override
 	public Bidder findByEmail(String email) {
-		return bidderDao.findByEmail(email);
+		Bidder binder = null;
+		try {
+			binder = bidderDao.findByEmail(email);
+		} catch (EmptyResultDataAccessException t) {
+			log.warn("投標者不存在", t);
+		}
+		return binder;
 	};
 
 }

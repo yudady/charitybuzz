@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,26 +36,27 @@ public class LoginController {
 		return "login";
 	}
 
+	/**
+	 * iframe login
+	 * @param request
+	 * @param mav
+	 * @return
+	 */
 	@RequestMapping(value = "/iframe", method = RequestMethod.POST)
 	public ModelAndView login(HttpServletRequest request, ModelAndView mav) {
 		log.debug("[LOG][login][iframe]");
 		String email = request.getParameter("email");
 		String passWord = request.getParameter("passWord");
 
-		try {
-			Bidder bidder = bidderService.findByEmail(email);
-			if (bidder.getPassWord().equalsIgnoreCase(passWord)) {
-				request.getSession().setAttribute("bidder", bidder);
-				mav.setViewName("login");
-			} else {
-				mav.setViewName("login");
-				mav.addObject("loginFail", "login error");
-				log.error("密碼錯誤");
-			}
-		} catch (EmptyResultDataAccessException e) {
-			log.error("使用者不存在", e);
-			mav.setViewName("login");
+		Bidder bidder = bidderService.findByEmail(email);
+		mav.setViewName("login");
+		if (bidder == null) {
 			mav.addObject("loginFail", "login error");
+		} else if (bidder.getPassWord().equalsIgnoreCase(passWord)) {
+			request.getSession().setAttribute("bidder", bidder);
+		} else {
+			mav.addObject("loginFail", "login error");
+			log.warn("密碼錯誤");
 		}
 
 		return mav;

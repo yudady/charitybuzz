@@ -43,9 +43,9 @@
 					<li><a href="#shipping">Shipping</a></li>
 				</ul>
 				
-				<div id="lotDetails">${item.lotDetails}</div>
-				<div id="legalTerms">${item.legalTerms}</div>
-				<div id="shipping">${item.shipping}</div>
+				<div id="lotDetails">${itemDetail.lotDetails}</div>
+				<div id="legalTerms">${itemDetail.legalTerms}</div>
+				<div id="shipping">${itemDetail.shipping}</div>
 			</div>
 		</div>
 <!-- bidding_left_column -->

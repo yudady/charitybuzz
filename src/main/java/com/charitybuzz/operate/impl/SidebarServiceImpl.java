@@ -26,7 +26,7 @@ public class SidebarServiceImpl implements SidebarService {
 	 * 第二級目錄
 	 */
 	@Resource(name = "catalogItemService")
-	private SubCategoryService catalogItemService;
+	private SubCategoryService subCategoryService;
 	/**
 	 * 全部商品
 	 */
@@ -44,9 +44,9 @@ public class SidebarServiceImpl implements SidebarService {
 			/**
 			 * 第二級目錄
 			 */
-			List<SubCategory> catalogItems = catalogItemService
+			List<SubCategory> subCategories = subCategoryService
 					.findItensByCategoryId(categoryId);
-			category.setCatalogItems(catalogItems);
+			category.setSubCategories(subCategories);
 
 			/**
 			 * 全部商品

@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +18,10 @@ import com.charitybuzz.service.ItemService;
 @Service("itemService")
 @Transactional
 public class ItemServiceImpl implements ItemService {
+
+	/** logger. */
+	private Logger log = LoggerFactory.getLogger(this.getClass());
+
 	@Resource(name = "itemJdbcDao")
 	private ItemDao itemDao;
 
@@ -29,7 +36,15 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public Item findById(Long itemId) {
-		return itemDao.findById(itemId);
+		
+		Item item = null;
+		try {
+			item = itemDao.findById(itemId);
+		} catch (EmptyResultDataAccessException t) {
+			log.warn("商品不存在", t);
+		}
+		
+		return item;
 	}
 
 	@Override
