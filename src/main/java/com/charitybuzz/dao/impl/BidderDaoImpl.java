@@ -38,7 +38,7 @@ public class BidderDaoImpl extends BaseDaoImpl<Bidder> implements BidderDao {
 
 	@Override
 	public int insert(Bidder user) {
-		String sql = "INSERT INTO t_user (id,firstName,lastName,screenName,passWord,email,promoCode) "
+		String sql = "INSERT INTO bidder (id,firstName,lastName,screenName,passWord,email,promoCode) "
 				+ " VALUES (:id, :firstName, :lastName, :screenName, :passWord, :email, :promoCode) ";
 		return super.insert(sql, user);
 
@@ -46,7 +46,7 @@ public class BidderDaoImpl extends BaseDaoImpl<Bidder> implements BidderDao {
 
 	@Override
 	public int update(Bidder user) {
-		String sql = " update t_user set firstName=:firstName, lastName=:lastName, "
+		String sql = " update bidder set firstName=:firstName, lastName=:lastName, "
 				+ "screenName=:screenName, passWord=:passWord, email=:email, "
 				+ "promoCode=:promoCode where id=:id ";
 		return super.update(sql, user);

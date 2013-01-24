@@ -11,7 +11,7 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test="${user == null }">
+		<c:when test="${bidder == null}">
 			<form action="<c:url value="/login/iframe" />" method="post">
 				<span>Email Address:</span>
 				<input type="text" name="email" /> 
@@ -20,11 +20,11 @@
 				<input type="password" name="passWord" /> <br />
 				<input type="submit" value="btnLogin" />
 			</form>
-
+			<span>${loginFail}</span>
 			<input type="button" id="Register" value="Register" />
 		</c:when>
 		<c:otherwise>
-			<span>${user.screenName } ${user.email }| Account info |</span>
+			<span>${bidder.screenName } ${bidder.email }| Account info |</span>
 			<form action='<c:url value="/login/logout" />' method="post">
 				<input type="submit" name="submit" id="logout" value="Logout" />
 			</form>
