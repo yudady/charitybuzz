@@ -198,12 +198,22 @@ ruleNumber NUMBER(10) NULL
 ;
 COMMENT ON COLUMN auctionRule.id IS '規則id';
 
+
+INSERT INTO auctionRule VALUES ('1', 1);
+INSERT INTO auctionRule VALUES ('2', 2);
+
+
+
 CREATE TABLE auctionRuleDetail (
 id NUMBER(10) NOT NULL PRIMARY KEY,
 auctionRuleId NUMBER(10) NULL 
 )
 ;
 COMMENT ON COLUMN auctionRuleDetail.id IS '規則明細id';
+COMMENT ON COLUMN auctionRuleDetail.auctionRuleId IS '規則id';
+INSERT INTO auctionRuleDetail VALUES ('1', 1);
+INSERT INTO auctionRuleDetail VALUES ('2', 2);
+
 
 CREATE TABLE bidder (
 id NUMBER(10) NOT NULL PRIMARY KEY,

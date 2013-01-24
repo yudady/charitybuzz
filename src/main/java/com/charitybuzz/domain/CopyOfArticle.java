@@ -1,0 +1,205 @@
+package com.charitybuzz.domain;
+
+import java.util.Date;
+import java.util.List;
+
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
+/**
+ * 商品
+ * 
+ * @author Administrator
+ * 
+ */
+public class CopyOfArticle {
+
+	private Long id;
+	
+	//TODO change domain
+	/**
+	 * ID Lot Number:
+	 */
+	private Long lotNumber;
+	
+//	 Sit In on The Howard Stern Show in NYC and Meet the Staff!
+//	 Current Bid: 	$5,750
+//	 Number of Bids: 	3
+//	 Minimum Next Bid: 	$6,250
+//	 Estimated Value: 	$25,000
+//	 Lot Number: 	314327
+//	 Lot Closes: 	Fri, 8 Feb 2013 1:12:00 PM EST
+	/**
+	 * 第一級目錄id
+	 */
+	private Long categoryId;
+	/**
+	 * 商品訊息
+	 */
+	private String title;
+
+	/**
+	 * CURRENTBID 當前標價 Current Bid: $2,250
+	 */
+	private Double currentBid;
+	/**
+	 * 商品 開始日期 STARTDATE
+	 */
+	private Date lotStart;
+	/**
+	 * Lot Closes 商品結束日期 ENDDATE
+	 */
+	private Date lotClose;
+
+
+
+	/**
+	 * ESTIMATED_VALUE 
+	 * 直購價 
+	 * Estimated Value: $9,500
+	 */
+	private Double estimatedValue;
+
+	/**
+	 * Bidding_Rule_ID 使用哪個id來當規則
+	 */
+	private int biddingRuleId;
+
+	/**
+	 * 下次最小標價 Minimum Next Bid: $2,500
+	 */
+	private Double minNextBid;
+
+	/**
+	 * 有多個2級目錄
+	 */
+	private List<CatalogItem> catalogItems;
+	/**
+	 * 歷史紀錄
+	 */
+	private List<ArticleHistory> articleHistories;
+	/**
+	 * (6 bids)umber of Bids: 2 已經有幾標 articleHistories.size()
+	 */
+	private int articleHistorySize;
+
+	/**
+	 * 圖片
+	 */
+	private List<Picture> pictures;
+
+	/**
+	 * 第一章圖片路徑
+	 */
+	@SuppressWarnings("unused")
+	private String mainPictureLocation;
+
+	public CopyOfArticle() {
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Double getCurrentBid() {
+		return currentBid;
+	}
+
+	public void setCurrentBid(Double currentBid) {
+		this.currentBid = currentBid;
+	}
+
+
+	public Double getEstimatedValue() {
+		return estimatedValue;
+	}
+
+	public void setEstimatedValue(Double estimatedValue) {
+		this.estimatedValue = estimatedValue;
+	}
+
+	public int getBiddingRuleId() {
+		return biddingRuleId;
+	}
+
+	public void setBiddingRuleId(int biddingRuleId) {
+		this.biddingRuleId = biddingRuleId;
+	}
+
+	public Double getMinNextBid() {
+		return minNextBid;
+	}
+
+	public void setMinNextBid(Double minNextBid) {
+		this.minNextBid = minNextBid;
+	}
+
+	public List<CatalogItem> getCatalogItems() {
+		return catalogItems;
+	}
+
+	public void setCatalogItems(List<CatalogItem> catalogItems) {
+		this.catalogItems = catalogItems;
+	}
+
+	public List<ArticleHistory> getArticleHistories() {
+		return articleHistories;
+	}
+
+	public void setArticleHistories(List<ArticleHistory> articleHistories) {
+		this.articleHistories = articleHistories;
+	}
+
+	public int getArticleHistorySize() {
+		return articleHistorySize;
+	}
+
+	public void setArticleHistorySize(int articleHistorySize) {
+		this.articleHistorySize = articleHistorySize;
+	}
+
+	public List<Picture> getPictures() {
+		return pictures;
+	}
+
+
+
+	public void setPictures(List<Picture> pictures) {
+		this.pictures = pictures;
+	}
+
+	public String getMainPictureLocation() {
+		if (pictures.size() > 0) {
+			return pictures.get(0).getLocation();
+		}
+		return "";
+	}
+	
+	
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this,
+				ToStringStyle.SIMPLE_STYLE);
+	}
+
+}
