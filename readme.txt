@@ -24,7 +24,9 @@ tiles		webapp\WEB-INF\jsp\tiles-definitions.xml
 3.apache titles
 
 =========================
-未完成	Article	categories.jsp
+TODO
+Article 分割2個表
+quartz 定時結帳
 
 
 

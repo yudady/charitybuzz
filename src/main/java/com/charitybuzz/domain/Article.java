@@ -13,10 +13,16 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * 
  */
 public class Article {
+
+	private Long id;
+	
+	//TODO change domain
 	/**
 	 * ID Lot Number:
 	 */
-	private Long id;
+	private Long lotNumber;
+	
+	
 	/**
 	 * 第一級目錄id
 	 */
