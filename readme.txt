@@ -26,7 +26,7 @@ tiles		webapp\WEB-INF\jsp\tiles-definitions.xml
 =========================
 TODO
 Article 分割2個表
-quartz 定時結帳
+財務結算
 
 
 

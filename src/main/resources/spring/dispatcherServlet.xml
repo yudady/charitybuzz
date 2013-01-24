@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
@@ -10,6 +11,8 @@
 		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/tx 
         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/task   
+    	http://www.springframework.org/schema/task/spring-task-3.0.xsd
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		">
@@ -48,6 +51,31 @@
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	<tx:annotation-driven/>
+	
+	
+	
+	
+	
+	
+	<!-- spring 3.0 定時調度器-->
+	<task:annotation-driven />
+	<bean id="schedulerArticle" class="com.charitybuzz.scheduler.SchedulerArticle" />
+	<task:scheduled-tasks>
+		<task:scheduled ref="schedulerArticle" method="sayTenSec" cron="*/10 * * * * ?" />
+		<task:scheduled ref="schedulerArticle" method="say5Sec" cron="*/5 * * * * ?" />
+		<task:scheduled ref="schedulerArticle" method="say1Min" cron="0 */1 * * * ?" />
+	</task:scheduled-tasks>
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	<mvc:annotation-driven/>
