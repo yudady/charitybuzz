@@ -1,8 +1,5 @@
 package com.charitybuzz.domain;
 
-import java.util.Date;
-import java.util.List;
-
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
@@ -18,7 +15,7 @@ public class ArticleDetail {
 	 */
 	private Long id;
 	/**
-	 * 第一級目錄id
+	 * parentId
 	 */
 	private Long articleId;
 
@@ -35,9 +32,72 @@ public class ArticleDetail {
 	 */
 	private String shipping;
 
-	
-	
-	
+	/**
+	 * 當前贏家id USER_ID
+	 */
+	private Long userId;
+
+	/**
+	 * Bidding_Rule_ID 使用哪個id來當規則
+	 */
+	private int biddingRuleId;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getArticleId() {
+		return articleId;
+	}
+
+	public void setArticleId(Long articleId) {
+		this.articleId = articleId;
+	}
+
+	public String getLotDetails() {
+		return lotDetails;
+	}
+
+	public void setLotDetails(String lotDetails) {
+		this.lotDetails = lotDetails;
+	}
+
+	public String getLegalTerms() {
+		return legalTerms;
+	}
+
+	public void setLegalTerms(String legalTerms) {
+		this.legalTerms = legalTerms;
+	}
+
+	public String getShipping() {
+		return shipping;
+	}
+
+	public void setShipping(String shipping) {
+		this.shipping = shipping;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public int getBiddingRuleId() {
+		return biddingRuleId;
+	}
+
+	public void setBiddingRuleId(int biddingRuleId) {
+		this.biddingRuleId = biddingRuleId;
+	}
+
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this,

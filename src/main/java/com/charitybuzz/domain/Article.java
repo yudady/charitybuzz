@@ -15,14 +15,12 @@ import org.apache.commons.lang.builder.ToStringStyle;
 public class Article {
 
 	private Long id;
-	
-	//TODO change domain
+
 	/**
 	 * ID Lot Number:
 	 */
 	private Long lotNumber;
-	
-	
+
 	/**
 	 * 第一級目錄id
 	 */
@@ -33,53 +31,42 @@ public class Article {
 	private String title;
 
 	/**
-	 * LOTDETAILS訊息
-	 */
-	private String lotDetails;
-	/**
-	 * LEGALTERMS訊息
-	 */
-	private String legalTerms;
-	/**
-	 * SHIPPING訊息
-	 */
-	private String shipping;
-
-	/**
 	 * CURRENTBID 當前標價 Current Bid: $2,250
 	 */
 	private Double currentBid;
 	/**
-	 * 商品 開始日期 STARTDATE
+	 * (6 bids)umber of Bids:
 	 */
-	private Date startDate;
+	private int numberBids;
 	/**
-	 * Lot Closes 商品結束日期 ENDDATE
+	 * 商品 開始日期 lotStart
 	 */
-	private Date endDate;
+	private Date lotStart;
+	/**
+	 * Lot Closes 商品結束日期 lotClose
+	 */
+	private Date lotClose;
 
 	/**
-	 * 當前贏家id USER_ID
-	 */
-	private Long userId;
-
-	/**
-	 * ESTIMATED_VALUE 
-	 * 直購價 
-	 * Estimated Value: $9,500
+	 * ESTIMATED_VALUE 直購價 Estimated Value: $9,500
 	 */
 	private Double estimatedValue;
-
-	/**
-	 * Bidding_Rule_ID 使用哪個id來當規則
-	 */
-	private int biddingRuleId;
 
 	/**
 	 * 下次最小標價 Minimum Next Bid: $2,500
 	 */
 	private Double minNextBid;
 
+	/**
+	 * 主要圖片路徑
+	 */
+	private String mainPictureLocation;
+	/**
+	 * 是否結標
+	 */
+	private boolean isEnd;
+
+	// =======關聯資料===以下內容沒有資料庫column==========
 	/**
 	 * 有多個2級目錄
 	 */
@@ -89,23 +76,11 @@ public class Article {
 	 */
 	private List<ArticleHistory> articleHistories;
 	/**
-	 * (6 bids)umber of Bids: 2 已經有幾標 articleHistories.size()
-	 */
-	private int articleHistorySize;
-
-	/**
 	 * 圖片
 	 */
 	private List<Picture> pictures;
 
-	/**
-	 * 第一章圖片路徑
-	 */
-	@SuppressWarnings("unused")
-	private String mainPictureLocation;
-
-	public Article() {
-	}
+	// ====================================================
 
 	public Long getId() {
 		return id;
@@ -113,6 +88,14 @@ public class Article {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getLotNumber() {
+		return lotNumber;
+	}
+
+	public void setLotNumber(Long lotNumber) {
+		this.lotNumber = lotNumber;
 	}
 
 	public Long getCategoryId() {
@@ -131,30 +114,6 @@ public class Article {
 		this.title = title;
 	}
 
-	public String getLotDetails() {
-		return lotDetails;
-	}
-
-	public void setLotDetails(String lotDetails) {
-		this.lotDetails = lotDetails;
-	}
-
-	public String getLegalTerms() {
-		return legalTerms;
-	}
-
-	public void setLegalTerms(String legalTerms) {
-		this.legalTerms = legalTerms;
-	}
-
-	public String getShipping() {
-		return shipping;
-	}
-
-	public void setShipping(String shipping) {
-		this.shipping = shipping;
-	}
-
 	public Double getCurrentBid() {
 		return currentBid;
 	}
@@ -163,28 +122,28 @@ public class Article {
 		this.currentBid = currentBid;
 	}
 
-	public Date getStartDate() {
-		return startDate;
+	public int getNumberBids() {
+		return numberBids;
 	}
 
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setNumberBids(int numberBids) {
+		this.numberBids = numberBids;
 	}
 
-	public Date getEndDate() {
-		return endDate;
+	public Date getLotStart() {
+		return lotStart;
 	}
 
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+	public void setLotStart(Date lotStart) {
+		this.lotStart = lotStart;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public Date getLotClose() {
+		return lotClose;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setLotClose(Date lotClose) {
+		this.lotClose = lotClose;
 	}
 
 	public Double getEstimatedValue() {
@@ -195,20 +154,28 @@ public class Article {
 		this.estimatedValue = estimatedValue;
 	}
 
-	public int getBiddingRuleId() {
-		return biddingRuleId;
-	}
-
-	public void setBiddingRuleId(int biddingRuleId) {
-		this.biddingRuleId = biddingRuleId;
-	}
-
 	public Double getMinNextBid() {
 		return minNextBid;
 	}
 
 	public void setMinNextBid(Double minNextBid) {
 		this.minNextBid = minNextBid;
+	}
+
+	public String getMainPictureLocation() {
+		return mainPictureLocation;
+	}
+
+	public void setMainPictureLocation(String mainPictureLocation) {
+		this.mainPictureLocation = mainPictureLocation;
+	}
+
+	public boolean isEnd() {
+		return isEnd;
+	}
+
+	public void setEnd(boolean isEnd) {
+		this.isEnd = isEnd;
 	}
 
 	public List<CatalogItem> getCatalogItems() {
@@ -227,36 +194,17 @@ public class Article {
 		this.articleHistories = articleHistories;
 	}
 
-	public int getArticleHistorySize() {
-		return articleHistorySize;
-	}
-
-	public void setArticleHistorySize(int articleHistorySize) {
-		this.articleHistorySize = articleHistorySize;
-	}
-
 	public List<Picture> getPictures() {
 		return pictures;
 	}
-
-
 
 	public void setPictures(List<Picture> pictures) {
 		this.pictures = pictures;
 	}
 
-	public String getMainPictureLocation() {
-		if (pictures.size() > 0) {
-			return pictures.get(0).getLocation();
-		}
-		return "";
-	}
-	
-	
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this,
 				ToStringStyle.SIMPLE_STYLE);
 	}
-
 }
