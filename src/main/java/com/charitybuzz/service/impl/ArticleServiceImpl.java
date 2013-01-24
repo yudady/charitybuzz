@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.charitybuzz.dao.ArticleDao;
-import com.charitybuzz.domain.Article;
+import com.charitybuzz.domain.Item;
 import com.charitybuzz.service.ArticleService;
 
 @Service("articleService")
@@ -19,16 +19,16 @@ public class ArticleServiceImpl implements ArticleService {
 	private ArticleDao articleDao;
 
 	@Override
-	public List<Article> findByCategoryId(Long id) {
-		List<Article> articles = articleDao.findByCategoryId(id);
+	public List<Item> findByCategoryId(Long id) {
+		List<Item> articles = articleDao.findByCategoryId(id);
 		if (articles.size() > 0) {
 			return articles;
 		}
-		return new ArrayList<Article>();
+		return new ArrayList<Item>();
 	}
 
 	@Override
-	public Article findById(Long articleId) {
+	public Item findById(Long articleId) {
 		return articleDao.findById(articleId);
 	}
 

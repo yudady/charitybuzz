@@ -6,10 +6,10 @@ import javax.sql.DataSource;
 import org.springframework.stereotype.Repository;
 
 import com.charitybuzz.dao.ArticleHistoryDao;
-import com.charitybuzz.domain.ArticleHistory;
+import com.charitybuzz.domain.Bidlog;
 
 @Repository("articleHistoryJdbcDao")
-public class ArticleHistoryDaoImpl extends BaseDaoImpl<ArticleHistory>
+public class ArticleHistoryDaoImpl extends BaseDaoImpl<Bidlog>
 		implements ArticleHistoryDao {
 
 	/**
@@ -23,8 +23,8 @@ public class ArticleHistoryDaoImpl extends BaseDaoImpl<ArticleHistory>
 	}
 
 	@Override
-	public Class<ArticleHistory> getClazz() {
-		return ArticleHistory.class;
+	public Class<Bidlog> getClazz() {
+		return Bidlog.class;
 	}
 
 	@Override
@@ -33,13 +33,13 @@ public class ArticleHistoryDaoImpl extends BaseDaoImpl<ArticleHistory>
 	}
 
 	@Override
-	public int insert(ArticleHistory articleHistory) {
+	public int insert(Bidlog articleHistory) {
 		String sql = "";
 		return super.insert(sql, articleHistory);
 	}
 
 	@Override
-	public int update(ArticleHistory articleHistory) {
+	public int update(Bidlog articleHistory) {
 		String sql = " ";
 		return super.update(sql, articleHistory);
 	}

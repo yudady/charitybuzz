@@ -12,10 +12,10 @@ import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.charitybuzz.dao.ArticleDao;
-import com.charitybuzz.domain.Article;
+import com.charitybuzz.domain.Item;
 
 @Repository("articleJdbcDao")
-public class ArticleDaoImpl extends BaseDaoImpl<Article> implements ArticleDao {
+public class ArticleDaoImpl extends BaseDaoImpl<Item> implements ArticleDao {
 
 	/**
 	 * 注入DataSource
@@ -28,8 +28,8 @@ public class ArticleDaoImpl extends BaseDaoImpl<Article> implements ArticleDao {
 	}
 
 	@Override
-	public Class<Article> getClazz() {
-		return Article.class;
+	public Class<Item> getClazz() {
+		return Item.class;
 	}
 
 	@Override
@@ -38,14 +38,14 @@ public class ArticleDaoImpl extends BaseDaoImpl<Article> implements ArticleDao {
 	}
 
 	@Override
-	public int insert(Article article) {
+	public int insert(Item article) {
 		String sql = "INSERT INTO t_article (ID,LOTDETAILS,LEGALTERMS,SHIPPING,CURRENTBID,STARTDATE,ENDDATE,USERID,ESTIMATEDVALUE) "
 				+ " VALUES (:id, :lotDetails, :legalTerms, :shipping, :currentBid, :startDate, :endDate , :userId, :estimatedValue) ";
 		return super.insert(sql, article);
 	}
 
 	@Override
-	public int update(Article article) {
+	public int update(Item article) {
 		String sql = " UPDATE t_article SET LOTDETAILS=:lotDetails, LEGALTERMS=:legalTerms,"
 				+ "SHIPPING=:shipping,CURRENTBID=:currentBid,STARTDATE=:startDate,ENDDATE=:endDate,"
 				+ "USERID=:userId,ESTIMATEDVALUE=:estimatedValue WHERE ID=:id ";
@@ -53,10 +53,10 @@ public class ArticleDaoImpl extends BaseDaoImpl<Article> implements ArticleDao {
 	}
 
 	@Override
-	public List<Article> findByCategoryId(Long id) {
+	public List<Item> findByCategoryId(Long id) {
 		String sql = "select * from " + getTableName()
 				+ " where CATEGORYID=:categoryId";
-		BeanPropertyRowMapper<Article> rm = ParameterizedBeanPropertyRowMapper
+		BeanPropertyRowMapper<Item> rm = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
 		Map<String, Object> args = new HashMap<String, Object>();
 		args.put("categoryId", id);

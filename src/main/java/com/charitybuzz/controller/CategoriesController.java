@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.charitybuzz.domain.Article;
+import com.charitybuzz.domain.Item;
 import com.charitybuzz.domain.Picture;
 import com.charitybuzz.service.ArticleService;
 import com.charitybuzz.service.CategoryService;
@@ -48,9 +48,9 @@ public class CategoriesController {
 		/**
 		 * 全部商品
 		 */
-		List<Article> articles = articleService.findByCategoryId(id);
+		List<Item> articles = articleService.findByCategoryId(id);
 
-		for (Article article : articles) {
+		for (Item article : articles) {
 
 			Long articleId = article.getId();
 			List<Picture> pictures = pictureService

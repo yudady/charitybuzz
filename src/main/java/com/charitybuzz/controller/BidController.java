@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.charitybuzz.controller.form.ArticleForm;
 import com.charitybuzz.controller.msg.ReturnMsg;
-import com.charitybuzz.domain.Article;
+import com.charitybuzz.domain.Item;
 import com.charitybuzz.service.ArticleService;
 import com.charitybuzz.service.PictureService;
 
@@ -36,7 +36,7 @@ public class BidController {
 		log.debug("[LOG][articleId]" + form.getArticleId());
 		log.debug("[LOG][currentBid]" + form.getCurrentBid());
 //TODO fix article need reload
-		Article article = articleService.findById(form.getArticleId());
+		Item article = articleService.findById(form.getArticleId());
 		if (article.getMinNextBid() <= form.getCurrentBid()) {
 			articleService.updateCurrentBidById(form.getArticleId(),form.getCurrentBid());
 			return new ReturnMsg("success");

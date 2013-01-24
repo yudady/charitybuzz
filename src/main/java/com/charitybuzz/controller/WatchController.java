@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.charitybuzz.domain.Article;
+import com.charitybuzz.domain.Item;
 import com.charitybuzz.service.ArticleService;
 import com.charitybuzz.service.PictureService;
 

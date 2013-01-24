@@ -9,7 +9,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * @author Administrator
  * 
  */
-public class ArticleDetail {
+public class ItemDetail {
 	/**
 	 * ID Lot Number:
 	 */

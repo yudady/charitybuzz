@@ -11,20 +11,29 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * @author Administrator
  * 
  */
-public class CatalogItem {
+public class SubCategory {
 
+	/**
+	 * 第二級目錄id
+	 */
 	private Long id;
 	/**
-	 * 第一級目錄
+	 * 第一級目錄id
 	 */
 	private Long categoryId;
+	/**
+	 * 第二級目錄名稱
+	 */
 	private String name;
+	/**
+	 * 第二級目錄描述
+	 */
 	private String descript;
 
 	/**
 	 * 全部商品
 	 */
-	private List<Article> articles;
+	private List<Item> articles;
 	/**
 	 * 底下有幾個數量
 	 */
@@ -62,11 +71,11 @@ public class CatalogItem {
 		this.descript = descript;
 	}
 
-	public List<Article> getArticles() {
+	public List<Item> getArticles() {
 		return articles;
 	}
 
-	public void setArticles(List<Article> articles) {
+	public void setArticles(List<Item> articles) {
 		this.articles = articles;
 	}
 
@@ -77,6 +86,7 @@ public class CatalogItem {
 	public void setCount(int count) {
 		this.count = count;
 	}
+
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this,

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.charitybuzz.domain.Article;
+import com.charitybuzz.domain.Item;
 import com.charitybuzz.service.ArticleService;
 import com.charitybuzz.service.PictureService;
 
@@ -33,7 +33,7 @@ public class ArticleController {
 	@RequestMapping(value = "/{articleId}", method = RequestMethod.GET)
 	public String index(@PathVariable Long articleId, Model model) {
 		log.debug("[LOG][articleId]=" + articleId);
-		Article article = articleService.findById(articleId);
+		Item article = articleService.findById(articleId);
 		log.debug("[LOG][article]" + article);
 		model.addAttribute("article", article);
 		return "article";

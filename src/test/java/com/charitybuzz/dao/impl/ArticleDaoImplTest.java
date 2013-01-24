@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.charitybuzz.dao.ArticleDao;
-import com.charitybuzz.domain.Article;
+import com.charitybuzz.domain.Item;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -33,7 +33,7 @@ public class ArticleDaoImplTest {
 
 	@Test
 	public void findAll() {
-		List<Article> domains = dao.findAll();
+		List<Item> domains = dao.findAll();
 		for (int i = 0; i < domains.size(); i++) {
 			log.debug("[LOG]" + domains.get(i));
 		}
@@ -42,7 +42,7 @@ public class ArticleDaoImplTest {
 	@Test
 	@Rollback(true)
 	public void insert() {
-		Article domain = new Article();
+		Item domain = new Item();
 		domain.setId(100L);
 		//2L, 1L,"lotDetails", "legalTerms","shipping", 1d, new Date(), new Date(), 1L, 100d
 		log.debug("[LOG]" + dao.insert(domain));
@@ -51,7 +51,7 @@ public class ArticleDaoImplTest {
 	@Test
 	@Rollback(true)
 	public void update() {
-		Article domain = new Article();
+		Item domain = new Item();
 		domain.setId(2L);
 		log.debug("[LOG]" + dao.update(domain));
 	}
@@ -64,7 +64,7 @@ public class ArticleDaoImplTest {
 
 	@Test
 	public void findByUserId() {
-		Article u = dao.findById(1L);
+		Item u = dao.findById(1L);
 		log.debug("[LOG]" + u);
 	}
 

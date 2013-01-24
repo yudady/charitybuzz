@@ -12,7 +12,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * @author Administrator
  * 
  */
-public class Article {
+public class Item {
 
 	private Long id;
 
@@ -70,11 +70,11 @@ public class Article {
 	/**
 	 * 有多個2級目錄
 	 */
-	private List<CatalogItem> catalogItems;
+	private List<SubCategory> catalogItems;
 	/**
 	 * 歷史紀錄
 	 */
-	private List<ArticleHistory> articleHistories;
+	private List<Bidlog> articleHistories;
 	/**
 	 * 圖片
 	 */
@@ -178,19 +178,19 @@ public class Article {
 		this.isEnd = isEnd;
 	}
 
-	public List<CatalogItem> getCatalogItems() {
+	public List<SubCategory> getCatalogItems() {
 		return catalogItems;
 	}
 
-	public void setCatalogItems(List<CatalogItem> catalogItems) {
+	public void setCatalogItems(List<SubCategory> catalogItems) {
 		this.catalogItems = catalogItems;
 	}
 
-	public List<ArticleHistory> getArticleHistories() {
+	public List<Bidlog> getArticleHistories() {
 		return articleHistories;
 	}
 
-	public void setArticleHistories(List<ArticleHistory> articleHistories) {
+	public void setArticleHistories(List<Bidlog> articleHistories) {
 		this.articleHistories = articleHistories;
 	}
 

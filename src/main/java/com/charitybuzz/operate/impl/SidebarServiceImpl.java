@@ -6,8 +6,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.charitybuzz.domain.Article;
-import com.charitybuzz.domain.CatalogItem;
+import com.charitybuzz.domain.Item;
+import com.charitybuzz.domain.SubCategory;
 import com.charitybuzz.domain.Category;
 import com.charitybuzz.operate.SidebarService;
 import com.charitybuzz.service.ArticleService;
@@ -44,14 +44,14 @@ public class SidebarServiceImpl implements SidebarService {
 			/**
 			 * 第二級目錄
 			 */
-			List<CatalogItem> catalogItems = catalogItemService
+			List<SubCategory> catalogItems = catalogItemService
 					.findItensByCategoryId(categoryId);
 			category.setCatalogItems(catalogItems);
 
 			/**
 			 * 全部商品
 			 */
-			List<Article> articles = articleService
+			List<Item> articles = articleService
 					.findByCategoryId(categoryId);
 			category.setCount(articles.size());
 

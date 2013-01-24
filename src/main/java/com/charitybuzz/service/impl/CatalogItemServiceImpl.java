@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.charitybuzz.dao.CatalogItemDao;
-import com.charitybuzz.domain.CatalogItem;
+import com.charitybuzz.domain.SubCategory;
 import com.charitybuzz.service.CatalogItemService;
 
 @Service("catalogItemService")
@@ -17,12 +17,12 @@ public class CatalogItemServiceImpl implements CatalogItemService {
 	private CatalogItemDao catalogItemDao;
 
 	@Override
-	public List<CatalogItem> findItensByCategoryId(Long id) {
-		List<CatalogItem> catalogItems = catalogItemDao.findByCategoryId(id);
+	public List<SubCategory> findItensByCategoryId(Long id) {
+		List<SubCategory> catalogItems = catalogItemDao.findByCategoryId(id);
 		if (catalogItems.size() > 0) {
 			return catalogItems;
 		}
-		return new ArrayList<CatalogItem>();
+		return new ArrayList<SubCategory>();
 	}
 
 }

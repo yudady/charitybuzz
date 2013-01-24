@@ -8,11 +8,11 @@ import java.util.List;
  * @author Administrator
  * 
  */
-public class BiddingRule {
+public class AuctionRule {
 
 	private Long id;
 
-	private List<BiddingDetail> BiddingDetails;
+	private List<AuctionRuleDetail> BiddingDetails;
 
 	public Long getId() {
 		return id;
@@ -22,11 +22,11 @@ public class BiddingRule {
 		this.id = id;
 	}
 
-	public List<BiddingDetail> getBiddingDetails() {
+	public List<AuctionRuleDetail> getBiddingDetails() {
 		return BiddingDetails;
 	}
 
-	public void setBiddingDetails(List<BiddingDetail> biddingDetails) {
+	public void setBiddingDetails(List<AuctionRuleDetail> biddingDetails) {
 		BiddingDetails = biddingDetails;
 	}
 

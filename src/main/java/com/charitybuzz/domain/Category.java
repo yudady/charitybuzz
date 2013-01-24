@@ -12,19 +12,25 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * 
  */
 public class Category {
+
+	/**
+	 * 第一級目錄id
+	 */
 	private Long id;
 	/**
-	 * 分類種類
+	 * 第一級目錄名稱分類種類
 	 */
 	private String name;
+
+	// 關聯=================================
 	/**
 	 * 第二級目錄
 	 */
-	private List<CatalogItem> catalogItems;
+	private List<SubCategory> catalogItems;
 	/**
 	 * 全部商品
 	 */
-	private List<Article> commodities;
+	private List<Item> commodities;
 	/**
 	 * 底下有幾個數量
 	 */
@@ -54,19 +60,19 @@ public class Category {
 		this.name = name;
 	}
 
-	public List<CatalogItem> getCatalogItems() {
+	public List<SubCategory> getCatalogItems() {
 		return catalogItems;
 	}
 
-	public void setCatalogItems(List<CatalogItem> catalogItems) {
+	public void setCatalogItems(List<SubCategory> catalogItems) {
 		this.catalogItems = catalogItems;
 	}
 
-	public List<Article> getCommodities() {
+	public List<Item> getCommodities() {
 		return commodities;
 	}
 
-	public void setCommodities(List<Article> commodities) {
+	public void setCommodities(List<Item> commodities) {
 		this.commodities = commodities;
 	}
 

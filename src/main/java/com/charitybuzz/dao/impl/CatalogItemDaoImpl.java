@@ -12,10 +12,10 @@ import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.charitybuzz.dao.CatalogItemDao;
-import com.charitybuzz.domain.CatalogItem;
+import com.charitybuzz.domain.SubCategory;
 
 @Repository("catalogItemJdbcDao")
-public class CatalogItemDaoImpl extends BaseDaoImpl<CatalogItem> implements
+public class CatalogItemDaoImpl extends BaseDaoImpl<SubCategory> implements
 		CatalogItemDao {
 	/**
 	 * 注入DataSource
@@ -28,8 +28,8 @@ public class CatalogItemDaoImpl extends BaseDaoImpl<CatalogItem> implements
 	}
 
 	@Override
-	public Class<CatalogItem> getClazz() {
-		return CatalogItem.class;
+	public Class<SubCategory> getClazz() {
+		return SubCategory.class;
 	}
 
 	@Override
@@ -38,22 +38,22 @@ public class CatalogItemDaoImpl extends BaseDaoImpl<CatalogItem> implements
 	}
 
 	@Override
-	public int insert(CatalogItem catalogItem) {
+	public int insert(SubCategory catalogItem) {
 		String sql = " ";
 		return super.insert(sql, catalogItem);
 	}
 
 	@Override
-	public int update(CatalogItem catalogItem) {
+	public int update(SubCategory catalogItem) {
 		String sql = " ";
 		return super.update(sql, catalogItem);
 	}
 
 	@Override
-	public List<CatalogItem> findByCategoryId(Long id) {
+	public List<SubCategory> findByCategoryId(Long id) {
 		String sql = "select * from " + getTableName()
 				+ " where CATEGORYID=:categoryId";
-		BeanPropertyRowMapper<CatalogItem> rm = ParameterizedBeanPropertyRowMapper
+		BeanPropertyRowMapper<SubCategory> rm = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
 		Map<String, Object> args = new HashMap<String, Object>();
 		args.put("categoryId", id);

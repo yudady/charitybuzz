@@ -34,7 +34,7 @@ package com.charitybuzz.domain;
  * @author Administrator
  * 
  */
-public class BiddingDetail {
+public class AuctionRuleDetail {
 
 	private Long id;
 	private Long biddingRuleId;

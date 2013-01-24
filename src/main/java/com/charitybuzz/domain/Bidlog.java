@@ -8,11 +8,23 @@ import java.util.Date;
  * @author Administrator
  * 
  */
-public class ArticleHistory {
+public class Bidlog {
 
+	/**
+	 * bid歷史紀錄id
+	 */
 	private Long id;
+	/**
+	 * Bidder
+	 */
 	private Bidder bidder;
+	/**
+	 * 價格
+	 */
 	private Double amount;
+	/**
+	 * 時間
+	 */
 	private Date bidTime;
 
 	public Long getId() {
