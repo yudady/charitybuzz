@@ -8,8 +8,8 @@ public interface ItemService {
 
 	public List<Item> findByCategoryId(Long id);
 
-	public Item findById(Long articleId);
+	public Item findById(Long itemId);
 
-	public int updateCurrentBidById(Long articleId, Double currentBid);
+	public int updateCurrentBidById(Long itemId, Double currentBid);
 
 }

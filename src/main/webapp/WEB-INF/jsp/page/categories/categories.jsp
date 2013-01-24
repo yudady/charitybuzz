@@ -18,42 +18,42 @@
 
 
 
-<c:forEach items="${articles}" var="article">
+<c:forEach items="${items}" var="item">
 			<div>
 				<div>
-					<a href='<c:url value="/article/${article.id}" />'>
-						<img src="${article.mainPictureLocation}" alt="Large_list" />
+					<a href='<c:url value="/item/${item.id}" />'>
+						<img src="${item.mainPictureLocation}" alt="Large_list" />
 					</a>
 				</div>
 				<!-- /lotPhoto -->
 				<h3>
-					<a href='<c:url value="/article/${article.id}" />'>${article.title}</a>
+					<a href='<c:url value="/item/${item.id}" />'>${item.title}</a>
 				</h3>
 				<table cellspacing="0" cellpadding="0" border="0">
 					<tbody>
 						<tr>
 							<th>Current Bid:</th>
-							<td>${article.currentBid}</td>
+							<td>${item.currentBid}</td>
 						</tr>
 						<tr>
 							<th>Number of Bids:</th>
-							<td>${article.articleHistorySize}</td>
+							<td>${item.itemHistorySize}</td>
 						</tr>
 						<tr>
 							<th>Minimum Next Bid:</th>
-							<td>${article.minNextBid}</td>
+							<td>${item.minNextBid}</td>
 						</tr>
 						<tr>
 							<th>Estimated Value:</th>
-							<td>${article.estimatedValue}</td>
+							<td>${item.estimatedValue}</td>
 						</tr>
 						<tr>
 							<th>Lot Number:</th>
-							<td>${article.id}</td>
+							<td>${item.id}</td>
 						</tr>
 						<tr>
 							<th>Lot Closes:</th>
-							<td>${article.endDate}</td>
+							<td>${item.endDate}</td>
 						</tr>
 					</tbody>
 				</table>

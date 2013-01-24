@@ -1,6 +1,6 @@
 package com.charitybuzz.scheduler;
 
-public class SchedulerArticle {
+public class SchedulerItem {
 
 	public void sayTenSec() {
 		System.out.println("[LOG]sayTenSec");

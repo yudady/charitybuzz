@@ -25,7 +25,7 @@ tiles		webapp\WEB-INF\jsp\tiles-definitions.xml
 
 =========================
 TODO
-Article 分割2個表
+item 分割2個表
 財務結算
 
 

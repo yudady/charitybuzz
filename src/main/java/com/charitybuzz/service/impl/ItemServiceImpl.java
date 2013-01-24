@@ -12,29 +12,29 @@ import com.charitybuzz.dao.ItemDao;
 import com.charitybuzz.domain.Item;
 import com.charitybuzz.service.ItemService;
 
-@Service("articleService")
+@Service("itemService")
 @Transactional
 public class ItemServiceImpl implements ItemService {
-	@Resource(name = "articleJdbcDao")
-	private ItemDao articleDao;
+	@Resource(name = "itemJdbcDao")
+	private ItemDao itemDao;
 
 	@Override
 	public List<Item> findByCategoryId(Long id) {
-		List<Item> articles = articleDao.findByCategoryId(id);
-		if (articles.size() > 0) {
-			return articles;
+		List<Item> items = itemDao.findByCategoryId(id);
+		if (items.size() > 0) {
+			return items;
 		}
 		return new ArrayList<Item>();
 	}
 
 	@Override
-	public Item findById(Long articleId) {
-		return articleDao.findById(articleId);
+	public Item findById(Long itemId) {
+		return itemDao.findById(itemId);
 	}
 
 	@Override
-	public int updateCurrentBidById(Long articleId, Double currentBid) {
-		return articleDao.updateNameById("currentBid", articleId, currentBid);
+	public int updateCurrentBidById(Long itemId, Double currentBid) {
+		return itemDao.updateNameById("currentBid", itemId, currentBid);
 	}
 
 }

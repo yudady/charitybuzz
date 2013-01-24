@@ -16,8 +16,8 @@ public class IndexController {
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name="userService")
-	private BidderService userService;
+	@Resource(name="bidderService")
+	private BidderService bidderService;
 
 	
 	

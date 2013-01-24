@@ -17,7 +17,7 @@ public class ItemDetail {
 	/**
 	 * parentId
 	 */
-	private Long articleId;
+	private Long itemId;
 
 	/**
 	 * LOTDETAILS訊息
@@ -50,12 +50,12 @@ public class ItemDetail {
 		this.id = id;
 	}
 
-	public Long getArticleId() {
-		return articleId;
+	public Long getitemId() {
+		return itemId;
 	}
 
-	public void setArticleId(Long articleId) {
-		this.articleId = articleId;
+	public void setitemId(Long itemId) {
+		this.itemId = itemId;
 	}
 
 	public String getLotDetails() {

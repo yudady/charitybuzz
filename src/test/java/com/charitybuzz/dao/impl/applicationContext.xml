@@ -53,10 +53,10 @@
   
   
   
-  	<bean id="userJdbcDao" class="com.charitybuzz.dao.impl.UserDaoImpl">
+  	<bean id="bidderJdbcDao" class="com.charitybuzz.dao.impl.UserDaoImpl">
 		<constructor-arg ref="dataSource"/>
 	</bean>
-  	<bean id="articleJdbcDao" class="com.charitybuzz.dao.impl.ArticleDaoImpl">
+  	<bean id="itemJdbcDao" class="com.charitybuzz.dao.impl.itemDaoImpl">
 		<constructor-arg ref="dataSource"/>
 	</bean>
 </beans>

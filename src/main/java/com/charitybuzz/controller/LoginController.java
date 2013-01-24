@@ -19,8 +19,8 @@ public class LoginController {
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name = "userService")
-	private BidderService userService;
+	@Resource(name = "bidderService")
+	private BidderService bidderService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(HttpServletRequest request, HttpServletResponse response) {
@@ -40,7 +40,7 @@ public class LoginController {
 		log.debug("[LOG][login][login]");
 		String email = request.getParameter("email");
 		String passWord = request.getParameter("passWord");
-		Bidder user = userService.findByEmail(email);
+		Bidder user = bidderService.findByEmail(email);
 		if (user.getPassWord().equalsIgnoreCase(passWord)) {
 			request.getSession().setAttribute("user", user);
 		}

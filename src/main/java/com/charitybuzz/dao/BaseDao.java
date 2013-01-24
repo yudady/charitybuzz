@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface BaseDao<T> {
 	
-	public int insert(T article);
+	public int insert(T item);
 	
-	public int update(T article);
+	public int update(T item);
 	
 	public int updateNameById(String column, Long id, Object obj);
 	

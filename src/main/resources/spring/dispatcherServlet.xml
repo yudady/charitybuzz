@@ -59,11 +59,11 @@
 	
 	<!-- spring 3.0 定時調度器-->
 	<task:annotation-driven />
-	<bean id="schedulerArticle" class="com.charitybuzz.scheduler.SchedulerArticle" />
+	<bean id="schedulerItem" class="com.charitybuzz.scheduler.SchedulerItem" />
 	<task:scheduled-tasks>
-		<task:scheduled ref="schedulerArticle" method="sayTenSec" cron="*/10 * * * * ?" />
-		<task:scheduled ref="schedulerArticle" method="say5Sec" cron="*/5 * * * * ?" />
-		<task:scheduled ref="schedulerArticle" method="say1Min" cron="0 */1 * * * ?" />
+		<task:scheduled ref="schedulerItem" method="sayTenSec" cron="*/10 * * * * ?" />
+		<task:scheduled ref="schedulerItem" method="say5Sec" cron="*/5 * * * * ?" />
+		<task:scheduled ref="schedulerItem" method="say1Min" cron="0 */1 * * * ?" />
 	</task:scheduled-tasks>
 	 
 	

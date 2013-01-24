@@ -9,9 +9,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet"
-	href='<c:url value="/resources/css/article.css"/>' />
+	href='<c:url value="/resources/css/item.css"/>' />
 <script type="text/javascript"
-	src='<c:url value="/resources/js/page/article.js" />'></script>
+	src='<c:url value="/resources/js/page/item.js" />'></script>
 </head>
 <body>
 	<div id="HomePageOnly-top">
@@ -43,9 +43,9 @@
 					<li><a href="#shipping">Shipping</a></li>
 				</ul>
 				
-				<div id="lotDetails">${article.lotDetails}</div>
-				<div id="legalTerms">${article.legalTerms}</div>
-				<div id="shipping">${article.shipping}</div>
+				<div id="lotDetails">${item.lotDetails}</div>
+				<div id="legalTerms">${item.legalTerms}</div>
+				<div id="shipping">${item.shipping}</div>
 			</div>
 		</div>
 <!-- bidding_left_column -->
@@ -53,30 +53,30 @@
 		<div id="bidding_right_column">
 			<div id="bidding_right_column">
 				<h2>
-					${article.title}
+					${item.title}
 				</h2>
 				<div>
-					<a href='<c:url value="/" />'><i><span>Home</span></i></a> » <a href='<c:url value="/categories/${article.categoryId}" />'>Celebrity</a>
+					<a href='<c:url value="/" />'><i><span>Home</span></i></a> » <a href='<c:url value="/categories/${item.categoryId}" />'>Celebrity</a>
 				</div>
 <!-- bidInfo -->
 				<div id="bidInfo">
 					<div id="placeBid">
 						<div>
 							<div>Current Bid: 
-								<span id="currentPrice">${article.currentBid}</span> 
-								<span> ( <a href='<c:url value="/article/${article.id}/BiddingHistory" />'>${article.articleHistorySize}</a> )</span>
+								<span id="currentPrice">${item.currentBid}</span> 
+								<span> ( <a href='<c:url value="/item/${item.id}/BiddingHistory" />'>${item.itemHistorySize}</a> )</span>
 							</div>
 							<div id="placedBy">
 								placed by: <b>jaimervelasco</b>
 							</div>
 							<div>
-								Estimated Value: <b> ${article.estimatedValue} </b>
+								Estimated Value: <b> ${item.estimatedValue} </b>
 							</div>
 						</div>
 						<div>
-							${article.endDate} - ${article.startDate}     days left to bid
+							${item.endDate} - ${item.startDate}     days left to bid
 							<div>
-								${article.endDate} - ${article.startDate}  Fri, 8 Feb 1:12PM EST 
+								${item.endDate} - ${item.startDate}  Fri, 8 Feb 1:12PM EST 
 								<a id="closingTimePop" href="#"><span>What's this?</span></a>
 								<div id="closingTimePopDialog" title="Closing Time">
 									This is the time the auction will end, but "Popcorn Bidding" could add 10 minutes to the closing time. If a bid is placed within 10 minutes of the closing time, the auction will extend by 10 minutes. This allows competing bidders a chance to stay in the race.
@@ -87,8 +87,8 @@
 						<div id="currencyConverter">
 							<a id="link-currency" href="#"> $ <small>▾</small></a>
 							<input id="bid_amount" type="text" size="30" />
-							<input id="bid_articleId" type="hidden" value="${article.id}" />
-							<input id="bid_minNextBid" type="hidden" value="${article.minNextBid}" />
+							<input id="bid_itemId" type="hidden" value="${item.id}" />
+							<input id="bid_minNextBid" type="hidden" value="${item.minNextBid}" />
 							<button id="bid_submit" type="button">Bid now</button>
 						</div>
 <!-- /currencyConverter -->
@@ -169,7 +169,7 @@
 
 						<div>
 							you must bid at least 
-							<span>${article.minNextBid}</span> 
+							<span>${item.minNextBid}</span> 
 							<a id="maxBidAndBidIncrementsPop" href="#"><span>What's this?</span></a>
 							<div id="maxBidAndBidIncrementsPopDialog">
 								<h2>Max Bid</h2>
@@ -243,13 +243,13 @@
 						<a href="#">More Details</a>
 						<dl>
 							<dt>Lot Number:</dt>
-							<dd>${article.id}</dd>
+							<dd>${item.id}</dd>
 							<dt>Estimated Value:</dt>
-							<dd>${article.estimatedValue}</dd>
+							<dd>${item.estimatedValue}</dd>
 							<dt>Open Date</dt>
-							<dd>${article.startDate}</dd>
+							<dd>${item.startDate}</dd>
 							<dt>Close Date:</dt>
-							<dd>${article.endDate}</dd>
+							<dd>${item.endDate}</dd>
 						</dl>
 					</div>
 				</div>

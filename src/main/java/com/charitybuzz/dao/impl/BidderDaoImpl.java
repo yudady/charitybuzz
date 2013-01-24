@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.charitybuzz.dao.BidderDao;
 import com.charitybuzz.domain.Bidder;
 
-@Repository("userJdbcDao")
+@Repository("bidderJdbcDao")
 public class BidderDaoImpl extends BaseDaoImpl<Bidder> implements BidderDao {
 
 	/**

@@ -32,8 +32,8 @@ public class CategoriesController {
 	/**
 	 * 全部商品
 	 */
-	@Resource(name = "articleService")
-	private ItemService articleService;
+	@Resource(name = "itemService")
+	private ItemService itemService;
 	/**
 	 * 商品圖片
 	 */
@@ -48,19 +48,19 @@ public class CategoriesController {
 		/**
 		 * 全部商品
 		 */
-		List<Item> articles = articleService.findByCategoryId(id);
+		List<Item> items = itemService.findByCategoryId(id);
 
-		for (Item article : articles) {
+		for (Item item : items) {
 
-			Long articleId = article.getId();
+			Long itemId = item.getId();
 			List<Picture> pictures = pictureService
-					.findPictureByArticleId(articleId);
-			article.setPictures(pictures);
-			log.debug("[LOG][pic]" + article.getMainPictureLocation());
+					.findPictureByitemId(itemId);
+			item.setPictures(pictures);
+			log.debug("[LOG][pic]" + item.getMainPictureLocation());
 		}
-		model.addAttribute("articles", articles);
+		model.addAttribute("items", items);
 
-		log.debug(articles.toString());
+		log.debug(items.toString());
 		return "categories";
 	}
 

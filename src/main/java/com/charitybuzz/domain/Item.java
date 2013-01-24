@@ -74,7 +74,7 @@ public class Item {
 	/**
 	 * 歷史紀錄
 	 */
-	private List<Bidlog> articleHistories;
+	private List<Bidlog> itemHistories;
 	/**
 	 * 圖片
 	 */
@@ -186,12 +186,12 @@ public class Item {
 		this.catalogItems = catalogItems;
 	}
 
-	public List<Bidlog> getArticleHistories() {
-		return articleHistories;
+	public List<Bidlog> getitemHistories() {
+		return itemHistories;
 	}
 
-	public void setArticleHistories(List<Bidlog> articleHistories) {
-		this.articleHistories = articleHistories;
+	public void setitemHistories(List<Bidlog> itemHistories) {
+		this.itemHistories = itemHistories;
 	}
 
 	public List<Picture> getPictures() {

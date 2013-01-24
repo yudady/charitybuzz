@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.charitybuzz.dao.BidlogDao;
 import com.charitybuzz.domain.Bidlog;
 
-@Repository("articleHistoryJdbcDao")
+@Repository("bidlogJdbcDao")
 public class BidlogDaoImpl extends BaseDaoImpl<Bidlog>
 		implements BidlogDao {
 
@@ -29,19 +29,19 @@ public class BidlogDaoImpl extends BaseDaoImpl<Bidlog>
 
 	@Override
 	public String getTableName() {
-		return "t_article_history";
+		return "t_item_history";
 	}
 
 	@Override
-	public int insert(Bidlog articleHistory) {
+	public int insert(Bidlog itemHistory) {
 		String sql = "";
-		return super.insert(sql, articleHistory);
+		return super.insert(sql, itemHistory);
 	}
 
 	@Override
-	public int update(Bidlog articleHistory) {
+	public int update(Bidlog itemHistory) {
 		String sql = " ";
-		return super.update(sql, articleHistory);
+		return super.update(sql, itemHistory);
 	}
 
 }

@@ -36,7 +36,7 @@ $(function() {
 		if ($('#logIn').contents().find("#logout").is(":visible") == true){
 			$.log("login");
 			
-			var articleId = $("#bid_articleId").val();
+			var itemId = $("#bid_itemId").val();
 			var currentBid = $("#bid_amount").val() || 0;
 			var bid_minNextBid = $("#bid_minNextBid").val() || 0;
 			if((parseInt(bid_minNextBid) - parseInt(bid_amount)) > 0){
@@ -48,7 +48,7 @@ $(function() {
 				type: "POST",
 				url: getSafeUrl("bid"),
 				data: {
-					articleId : articleId,
+					itemId : itemId,
 					currentBid : currentBid
 				},
 				success: function(data){

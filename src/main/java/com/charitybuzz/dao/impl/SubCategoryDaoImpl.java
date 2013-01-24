@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.charitybuzz.dao.SubCategoryDao;
 import com.charitybuzz.domain.SubCategory;
 
-@Repository("catalogItemJdbcDao")
+@Repository("subCategoryJdbcDao")
 public class SubCategoryDaoImpl extends BaseDaoImpl<SubCategory> implements
 		SubCategoryDao {
 	/**

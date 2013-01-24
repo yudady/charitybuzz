@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.charitybuzz.controller.form.ArticleForm;
+import com.charitybuzz.controller.form.ItemForm;
 import com.charitybuzz.controller.msg.ReturnMsg;
 import com.charitybuzz.domain.Item;
 import com.charitybuzz.service.ItemService;
@@ -22,8 +22,8 @@ public class BidController {
 	/**
 	 * 全部商品
 	 */
-	@Resource(name = "articleService")
-	private ItemService articleService;
+	@Resource(name = "itemService")
+	private ItemService itemService;
 	/**
 	 * 商品圖片
 	 */
@@ -32,13 +32,13 @@ public class BidController {
 
 	@RequestMapping()
 	public @ResponseBody
-	ReturnMsg index(ArticleForm form){
-		log.debug("[LOG][articleId]" + form.getArticleId());
+	ReturnMsg index(ItemForm form){
+		log.debug("[LOG][itemId]" + form.getItemId());
 		log.debug("[LOG][currentBid]" + form.getCurrentBid());
-//TODO fix article need reload
-		Item article = articleService.findById(form.getArticleId());
-		if (article.getMinNextBid() <= form.getCurrentBid()) {
-			articleService.updateCurrentBidById(form.getArticleId(),form.getCurrentBid());
+//TODO fix item need reload
+		Item item = itemService.findById(form.getItemId());
+		if (item.getMinNextBid() <= form.getCurrentBid()) {
+			itemService.updateCurrentBidById(form.getItemId(),form.getCurrentBid());
 			return new ReturnMsg("success");
 		}
 		return new ReturnMsg("fail", 1);

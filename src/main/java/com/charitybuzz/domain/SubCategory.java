@@ -33,7 +33,7 @@ public class SubCategory {
 	/**
 	 * 全部商品
 	 */
-	private List<Item> articles;
+	private List<Item> items;
 	/**
 	 * 底下有幾個數量
 	 */
@@ -71,12 +71,12 @@ public class SubCategory {
 		this.descript = descript;
 	}
 
-	public List<Item> getArticles() {
-		return articles;
+	public List<Item> getitems() {
+		return items;
 	}
 
-	public void setArticles(List<Item> articles) {
-		this.articles = articles;
+	public void setitems(List<Item> items) {
+		this.items = items;
 	}
 
 	public int getCount() {

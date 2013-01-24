@@ -6,6 +6,6 @@ import com.charitybuzz.domain.Picture;
 
 public interface PictureDao extends BaseDao<Picture> {
 
-	List<Picture> findPictureByArticleId(Long articleId);
+	List<Picture> findPictureByitemId(Long itemId);
 
 }

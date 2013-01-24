@@ -13,12 +13,12 @@ import com.charitybuzz.service.SubCategoryService;
 
 @Service("catalogItemService")
 public class SubCategoryServiceImpl implements SubCategoryService {
-	@Resource(name = "catalogItemJdbcDao")
-	private SubCategoryDao catalogItemDao;
+	@Resource(name = "subCategoryJdbcDao")
+	private SubCategoryDao subCategoryDao;
 
 	@Override
 	public List<SubCategory> findItensByCategoryId(Long id) {
-		List<SubCategory> catalogItems = catalogItemDao.findByCategoryId(id);
+		List<SubCategory> catalogItems = subCategoryDao.findByCategoryId(id);
 		if (catalogItems.size() > 0) {
 			return catalogItems;
 		}

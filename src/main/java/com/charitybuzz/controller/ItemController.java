@@ -15,28 +15,28 @@ import com.charitybuzz.service.ItemService;
 import com.charitybuzz.service.PictureService;
 
 @Controller
-@RequestMapping("/article")
-public class ArticleController {
+@RequestMapping("/item")
+public class ItemController {
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 	/**
 	 * 全部商品
 	 */
-	@Resource(name = "articleService")
-	private ItemService articleService;
+	@Resource(name = "itemService")
+	private ItemService itemService;
 	/**
 	 * 商品圖片
 	 */
 	@Resource(name = "pictureService")
 	private PictureService pictureService;
 
-	@RequestMapping(value = "/{articleId}", method = RequestMethod.GET)
-	public String index(@PathVariable Long articleId, Model model) {
-		log.debug("[LOG][articleId]=" + articleId);
-		Item article = articleService.findById(articleId);
-		log.debug("[LOG][article]" + article);
-		model.addAttribute("article", article);
-		return "article";
+	@RequestMapping(value = "/{itemId}", method = RequestMethod.GET)
+	public String index(@PathVariable Long itemId, Model model) {
+		log.debug("[LOG][itemId]=" + itemId);
+		Item item = itemService.findById(itemId);
+		log.debug("[LOG][item]" + item);
+		model.addAttribute("item", item);
+		return "item";
 	}
 
 }

@@ -1,16 +1,16 @@
 package com.charitybuzz.controller.form;
 
-public class ArticleForm {
+public class ItemForm {
 
-	private Long articleId;
+	private Long itemId;
 	private Double currentBid;
 
-	public Long getArticleId() {
-		return articleId;
+	public Long getItemId() {
+		return itemId;
 	}
 
-	public void setArticleId(Long articleId) {
-		this.articleId = articleId;
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
 	}
 
 	public Double getCurrentBid() {

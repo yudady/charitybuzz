@@ -49,13 +49,13 @@ public class PictureDaoImpl extends BaseDaoImpl<Picture> implements PictureDao {
 	}
 
 	@Override
-	public List<Picture> findPictureByArticleId(Long articleId) {
+	public List<Picture> findPictureByitemId(Long itemId) {
 		String sql = "select * from " + getTableName()
-				+ " where articleId=:articleId";
+				+ " where itemId=:itemId";
 		BeanPropertyRowMapper<Picture> rm = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
 		Map<String, Object> args = new HashMap<String, Object>();
-		args.put("articleId", articleId);
+		args.put("itemId", itemId);
 		return this.getSimpleJdbcTemplate().query(sql, rm, args);
 	}
 

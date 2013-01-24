@@ -6,7 +6,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 public class Picture {
 
 	private Long id;
-	private Long articleId;
+	private Long itemId;
 	private String mark;
 	private String location;
 
@@ -18,12 +18,12 @@ public class Picture {
 		this.id = id;
 	}
 
-	public Long getArticleId() {
-		return articleId;
+	public Long getitemId() {
+		return itemId;
 	}
 
-	public void setArticleId(Long articleId) {
-		this.articleId = articleId;
+	public void setitemId(Long itemId) {
+		this.itemId = itemId;
 	}
 
 	public String getMark() {

@@ -19,11 +19,11 @@ import com.charitybuzz.domain.Bidder;
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/com/charitybuzz/dao/impl/applicationContext.xml" })
-public class UserDaoImplTest {
+public class BidderDaoImplTest {
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name = "userJdbcDao")
+	@Resource(name = "bidderJdbcDao")
 	private BidderDao userDao;
 
 	@Test

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.charitybuzz.dao.ItemDao;
 import com.charitybuzz.domain.Item;
 
-@Repository("articleJdbcDao")
+@Repository("itemJdbcDao")
 public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 
 	/**
@@ -34,22 +34,22 @@ public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 
 	@Override
 	public String getTableName() {
-		return "t_article";
+		return "t_item";
 	}
 
 	@Override
-	public int insert(Item article) {
-		String sql = "INSERT INTO t_article (ID,LOTDETAILS,LEGALTERMS,SHIPPING,CURRENTBID,STARTDATE,ENDDATE,USERID,ESTIMATEDVALUE) "
+	public int insert(Item item) {
+		String sql = "INSERT INTO t_item (ID,LOTDETAILS,LEGALTERMS,SHIPPING,CURRENTBID,STARTDATE,ENDDATE,USERID,ESTIMATEDVALUE) "
 				+ " VALUES (:id, :lotDetails, :legalTerms, :shipping, :currentBid, :startDate, :endDate , :userId, :estimatedValue) ";
-		return super.insert(sql, article);
+		return super.insert(sql, item);
 	}
 
 	@Override
-	public int update(Item article) {
-		String sql = " UPDATE t_article SET LOTDETAILS=:lotDetails, LEGALTERMS=:legalTerms,"
+	public int update(Item item) {
+		String sql = " UPDATE t_item SET LOTDETAILS=:lotDetails, LEGALTERMS=:legalTerms,"
 				+ "SHIPPING=:shipping,CURRENTBID=:currentBid,STARTDATE=:startDate,ENDDATE=:endDate,"
 				+ "USERID=:userId,ESTIMATEDVALUE=:estimatedValue WHERE ID=:id ";
-		return super.update(sql, article);
+		return super.update(sql, item);
 	}
 
 	@Override

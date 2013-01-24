@@ -30,8 +30,8 @@ public class SidebarServiceImpl implements SidebarService {
 	/**
 	 * 全部商品
 	 */
-	@Resource(name = "articleService")
-	private ItemService articleService;
+	@Resource(name = "itemService")
+	private ItemService itemService;
 
 	@Override
 	public List<Category> getSidebar() {
@@ -51,9 +51,9 @@ public class SidebarServiceImpl implements SidebarService {
 			/**
 			 * 全部商品
 			 */
-			List<Item> articles = articleService
+			List<Item> items = itemService
 					.findByCategoryId(categoryId);
-			category.setCount(articles.size());
+			category.setCount(items.size());
 
 		}
 		return categories;
