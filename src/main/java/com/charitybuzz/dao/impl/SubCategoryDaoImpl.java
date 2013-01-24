@@ -11,19 +11,19 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.charitybuzz.dao.CatalogItemDao;
+import com.charitybuzz.dao.SubCategoryDao;
 import com.charitybuzz.domain.SubCategory;
 
 @Repository("catalogItemJdbcDao")
-public class CatalogItemDaoImpl extends BaseDaoImpl<SubCategory> implements
-		CatalogItemDao {
+public class SubCategoryDaoImpl extends BaseDaoImpl<SubCategory> implements
+		SubCategoryDao {
 	/**
 	 * 注入DataSource
 	 * 
 	 * @param dataSource
 	 */
 	@Inject
-	public CatalogItemDaoImpl(DataSource dataSource) {
+	public SubCategoryDaoImpl(DataSource dataSource) {
 		setDataSource(dataSource);
 	}
 

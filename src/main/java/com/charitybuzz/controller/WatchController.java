@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.charitybuzz.domain.Item;
-import com.charitybuzz.service.ArticleService;
+import com.charitybuzz.service.ItemService;
 import com.charitybuzz.service.PictureService;
 
 @Controller
@@ -23,7 +23,7 @@ public class WatchController {
 	 * 全部商品
 	 */
 	@Resource(name = "articleService")
-	private ArticleService articleService;
+	private ItemService articleService;
 	/**
 	 * 商品圖片
 	 */

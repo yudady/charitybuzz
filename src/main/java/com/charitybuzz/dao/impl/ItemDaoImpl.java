@@ -11,11 +11,11 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.charitybuzz.dao.ArticleDao;
+import com.charitybuzz.dao.ItemDao;
 import com.charitybuzz.domain.Item;
 
 @Repository("articleJdbcDao")
-public class ArticleDaoImpl extends BaseDaoImpl<Item> implements ArticleDao {
+public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 
 	/**
 	 * 注入DataSource
@@ -23,7 +23,7 @@ public class ArticleDaoImpl extends BaseDaoImpl<Item> implements ArticleDao {
 	 * @param dataSource
 	 */
 	@Inject
-	public ArticleDaoImpl(DataSource dataSource) {
+	public ItemDaoImpl(DataSource dataSource) {
 		setDataSource(dataSource);
 	}
 

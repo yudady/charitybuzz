@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.charitybuzz.domain.Item;
 
-public interface ArticleDao extends BaseDao<Item> {
+public interface ItemDao extends BaseDao<Item> {
 
 	public List<Item> findByCategoryId(Long id);
 

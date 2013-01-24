@@ -6,14 +6,14 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.charitybuzz.dao.UserDao;
+import com.charitybuzz.dao.BidderDao;
 import com.charitybuzz.domain.Bidder;
-import com.charitybuzz.service.UserService;
+import com.charitybuzz.service.BidderService;
 @Service("userService")
-public class UserServiceImpl implements UserService{
+public class BidderServiceImpl implements BidderService{
 	
 	@Resource(name="userJdbcDao")
-	private UserDao userDao;
+	private BidderDao userDao;
 	
 	public List<Bidder> findAll(){
 		return userDao.findAll();

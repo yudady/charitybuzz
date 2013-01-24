@@ -13,7 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.charitybuzz.dao.UserDao;
+import com.charitybuzz.dao.BidderDao;
 import com.charitybuzz.domain.Bidder;
 
 @Transactional
@@ -24,7 +24,7 @@ public class UserDaoImplTest {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@Resource(name = "userJdbcDao")
-	private UserDao userDao;
+	private BidderDao userDao;
 
 	@Test
 	public void findTotalUserCount() {

@@ -8,15 +8,15 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.charitybuzz.dao.ArticleDao;
+import com.charitybuzz.dao.ItemDao;
 import com.charitybuzz.domain.Item;
-import com.charitybuzz.service.ArticleService;
+import com.charitybuzz.service.ItemService;
 
 @Service("articleService")
 @Transactional
-public class ArticleServiceImpl implements ArticleService {
+public class ItemServiceImpl implements ItemService {
 	@Resource(name = "articleJdbcDao")
-	private ArticleDao articleDao;
+	private ItemDao articleDao;
 
 	@Override
 	public List<Item> findByCategoryId(Long id) {

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.charitybuzz.domain.SubCategory;
 
-public interface CatalogItemService {
+public interface SubCategoryService {
 
 	public List<SubCategory> findItensByCategoryId(Long id);
 

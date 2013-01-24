@@ -7,14 +7,14 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.charitybuzz.dao.CatalogItemDao;
+import com.charitybuzz.dao.SubCategoryDao;
 import com.charitybuzz.domain.SubCategory;
-import com.charitybuzz.service.CatalogItemService;
+import com.charitybuzz.service.SubCategoryService;
 
 @Service("catalogItemService")
-public class CatalogItemServiceImpl implements CatalogItemService {
+public class SubCategoryServiceImpl implements SubCategoryService {
 	@Resource(name = "catalogItemJdbcDao")
-	private CatalogItemDao catalogItemDao;
+	private SubCategoryDao catalogItemDao;
 
 	@Override
 	public List<SubCategory> findItensByCategoryId(Long id) {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.charitybuzz.service.UserService;
+import com.charitybuzz.service.BidderService;
 
 @Controller
 @RequestMapping("/")
@@ -17,7 +17,7 @@ public class IndexController {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@Resource(name="userService")
-	private UserService userService;
+	private BidderService userService;
 
 	
 	

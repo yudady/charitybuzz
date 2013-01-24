@@ -10,8 +10,8 @@ import com.charitybuzz.domain.Item;
 import com.charitybuzz.domain.SubCategory;
 import com.charitybuzz.domain.Category;
 import com.charitybuzz.operate.SidebarService;
-import com.charitybuzz.service.ArticleService;
-import com.charitybuzz.service.CatalogItemService;
+import com.charitybuzz.service.ItemService;
+import com.charitybuzz.service.SubCategoryService;
 import com.charitybuzz.service.CategoryService;
 
 @Service("sidebarService")
@@ -26,12 +26,12 @@ public class SidebarServiceImpl implements SidebarService {
 	 * 第二級目錄
 	 */
 	@Resource(name = "catalogItemService")
-	private CatalogItemService catalogItemService;
+	private SubCategoryService catalogItemService;
 	/**
 	 * 全部商品
 	 */
 	@Resource(name = "articleService")
-	private ArticleService articleService;
+	private ItemService articleService;
 
 	@Override
 	public List<Category> getSidebar() {

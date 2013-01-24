@@ -10,11 +10,11 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.charitybuzz.dao.UserDao;
+import com.charitybuzz.dao.BidderDao;
 import com.charitybuzz.domain.Bidder;
 
 @Repository("userJdbcDao")
-public class UserDaoImpl extends BaseDaoImpl<Bidder> implements UserDao {
+public class BidderDaoImpl extends BaseDaoImpl<Bidder> implements BidderDao {
 
 	/**
 	 * 注入DataSource
@@ -22,7 +22,7 @@ public class UserDaoImpl extends BaseDaoImpl<Bidder> implements UserDao {
 	 * @param dataSource
 	 */
 	@Inject
-	public UserDaoImpl(DataSource dataSource) {
+	public BidderDaoImpl(DataSource dataSource) {
 		setDataSource(dataSource);
 	}
 

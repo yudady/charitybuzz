@@ -13,7 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.charitybuzz.dao.ArticleDao;
+import com.charitybuzz.dao.ItemDao;
 import com.charitybuzz.domain.Item;
 
 @Transactional
@@ -24,7 +24,7 @@ public class ArticleDaoImplTest {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@Resource(name = "articleJdbcDao")
-	private ArticleDao dao;
+	private ItemDao dao;
 
 	@Test
 	public void findTotalCount() {

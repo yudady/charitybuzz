@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.charitybuzz.domain.Bidder;
-import com.charitybuzz.service.UserService;
+import com.charitybuzz.service.BidderService;
 
 @Controller
 @RequestMapping("/login")
@@ -20,7 +20,7 @@ public class LoginController {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@Resource(name = "userService")
-	private UserService userService;
+	private BidderService userService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(HttpServletRequest request, HttpServletResponse response) {

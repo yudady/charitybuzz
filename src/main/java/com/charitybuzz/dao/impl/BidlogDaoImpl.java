@@ -5,12 +5,12 @@ import javax.sql.DataSource;
 
 import org.springframework.stereotype.Repository;
 
-import com.charitybuzz.dao.ArticleHistoryDao;
+import com.charitybuzz.dao.BidlogDao;
 import com.charitybuzz.domain.Bidlog;
 
 @Repository("articleHistoryJdbcDao")
-public class ArticleHistoryDaoImpl extends BaseDaoImpl<Bidlog>
-		implements ArticleHistoryDao {
+public class BidlogDaoImpl extends BaseDaoImpl<Bidlog>
+		implements BidlogDao {
 
 	/**
 	 * 注入DataSource
@@ -18,7 +18,7 @@ public class ArticleHistoryDaoImpl extends BaseDaoImpl<Bidlog>
 	 * @param dataSource
 	 */
 	@Inject
-	public ArticleHistoryDaoImpl(DataSource dataSource) {
+	public BidlogDaoImpl(DataSource dataSource) {
 		setDataSource(dataSource);
 	}
 

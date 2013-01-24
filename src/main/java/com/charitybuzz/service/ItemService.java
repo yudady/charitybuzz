@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.charitybuzz.domain.Item;
 
-public interface ArticleService {
+public interface ItemService {
 
 	public List<Item> findByCategoryId(Long id);
 
