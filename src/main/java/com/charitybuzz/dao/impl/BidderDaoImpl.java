@@ -33,7 +33,7 @@ public class BidderDaoImpl extends BaseDaoImpl<Bidder> implements BidderDao {
 
 	@Override
 	public String getTableName() {
-		return " t_user ";
+		return "bidder";
 	}
 
 	@Override

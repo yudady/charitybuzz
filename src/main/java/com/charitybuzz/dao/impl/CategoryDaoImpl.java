@@ -29,7 +29,7 @@ public class CategoryDaoImpl extends BaseDaoImpl<Category> implements
 
 	@Override
 	public String getTableName() {
-		return "t_category";
+		return "category";
 	}
 
 	@Override

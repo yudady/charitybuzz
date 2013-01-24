@@ -34,7 +34,7 @@ public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 
 	@Override
 	public String getTableName() {
-		return "t_item";
+		return "item";
 	}
 
 	@Override

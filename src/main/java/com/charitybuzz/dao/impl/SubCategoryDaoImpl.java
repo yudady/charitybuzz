@@ -34,7 +34,7 @@ public class SubCategoryDaoImpl extends BaseDaoImpl<SubCategory> implements
 
 	@Override
 	public String getTableName() {
-		return "t_catalog_item";
+		return "subCategory";
 	}
 
 	@Override

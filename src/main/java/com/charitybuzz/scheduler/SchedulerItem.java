@@ -1,16 +1,22 @@
 package com.charitybuzz.scheduler;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class SchedulerItem {
 
+	/** logger. */
+	private Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	public void sayTenSec() {
-		System.out.println("[LOG]sayTenSec");
+		log.debug("[LOG]sayTenSec");
 	}
 	public void say5Sec() {
-		System.out.println("[LOG]say5Sec");
+		log.debug("[LOG]say5Sec");
 	}
 
 	public void say1Min() {
-		System.out.println("[LOG]say1Min");
+		log.debug("[LOG]say1Min");
 	}
 
 }

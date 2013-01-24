@@ -33,7 +33,7 @@ public class PictureDaoImpl extends BaseDaoImpl<Picture> implements PictureDao {
 
 	@Override
 	public String getTableName() {
-		return "t_picture";
+		return "picture";
 	}
 
 	@Override

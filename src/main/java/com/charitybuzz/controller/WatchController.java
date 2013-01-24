@@ -29,8 +29,8 @@ public class WatchController {
 
 	@RequestMapping(value = "/{itemId}", method = RequestMethod.GET)
 	public String index() {
-		// ajax
-		return "bid";
+		log.debug("[LOG][watch]");
+		return "watch";
 	}
 
 }
