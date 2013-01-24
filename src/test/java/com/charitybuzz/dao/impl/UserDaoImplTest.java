@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.charitybuzz.dao.UserDao;
-import com.charitybuzz.domain.User;
+import com.charitybuzz.domain.Bidder;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -33,7 +33,7 @@ public class UserDaoImplTest {
 
 	@Test
 	public void findAll() {
-		List<User> users = userDao.findAll();
+		List<Bidder> users = userDao.findAll();
 		for (int i = 0; i < users.size(); i++) {
 			log.debug("[LOG]" + users.get(i));
 		}
@@ -42,7 +42,7 @@ public class UserDaoImplTest {
 	@Test
 	@Rollback(true)
 	public void insert() {
-		User user = new User();
+		Bidder user = new Bidder();
 		user.setId(3L);
 		log.debug("[LOG]" + userDao.insert(user));
 	}
@@ -50,7 +50,7 @@ public class UserDaoImplTest {
 	@Test
 	@Rollback(true)
 	public void update() {
-		User user = new User();
+		Bidder user = new Bidder();
 		user.setId(3L);
 		log.debug("[LOG]" + userDao.update(user));
 	}
@@ -76,7 +76,7 @@ public class UserDaoImplTest {
 
 	@Test
 	public void findByUserId() {
-		User u = userDao.findById(1L);
+		Bidder u = userDao.findById(1L);
 		log.debug("[LOG]" + u);
 	}
 

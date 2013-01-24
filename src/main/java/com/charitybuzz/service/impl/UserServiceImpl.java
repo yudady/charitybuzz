@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.charitybuzz.dao.UserDao;
-import com.charitybuzz.domain.User;
+import com.charitybuzz.domain.Bidder;
 import com.charitybuzz.service.UserService;
 @Service("userService")
 public class UserServiceImpl implements UserService{
@@ -15,12 +15,12 @@ public class UserServiceImpl implements UserService{
 	@Resource(name="userJdbcDao")
 	private UserDao userDao;
 	
-	public List<User> findAll(){
+	public List<Bidder> findAll(){
 		return userDao.findAll();
 	}
 
 	@Override
-	public User findByEmail(String email) {
+	public Bidder findByEmail(String email) {
 		return userDao.findByEmail(email);
 	};
 

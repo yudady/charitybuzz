@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.charitybuzz.domain.User;
+import com.charitybuzz.domain.Bidder;
 import com.charitybuzz.service.UserService;
 
 @Controller
@@ -40,7 +40,7 @@ public class LoginController {
 		log.debug("[LOG][login][login]");
 		String email = request.getParameter("email");
 		String passWord = request.getParameter("passWord");
-		User user = userService.findByEmail(email);
+		Bidder user = userService.findByEmail(email);
 		if (user.getPassWord().equalsIgnoreCase(passWord)) {
 			request.getSession().setAttribute("user", user);
 		}

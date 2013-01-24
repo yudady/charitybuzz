@@ -1,17 +1,17 @@
 package com.charitybuzz.domain;
 
-import java.io.Serializable;
-
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-public class User implements Serializable {
+/**
+ * 投標者
+ * @author Administrator
+ *
+ */
+public class Bidder {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2763623236690502422L;
-
+	
+	
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -19,11 +19,6 @@ public class User implements Serializable {
 	private String passWord;
 	private String email;
 	private String promoCode;
-
-	public User() {
-		super();
-	}
-
 
 	public Long getId() {
 		return id;

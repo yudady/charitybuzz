@@ -11,7 +11,7 @@ import java.util.Date;
 public class ArticleHistory {
 
 	private Long id;
-	private User bidder;
+	private Bidder bidder;
 	private Double amount;
 	private Date bidTime;
 
@@ -23,11 +23,11 @@ public class ArticleHistory {
 		this.id = id;
 	}
 
-	public User getBidder() {
+	public Bidder getBidder() {
 		return bidder;
 	}
 
-	public void setBidder(User bidder) {
+	public void setBidder(Bidder bidder) {
 		this.bidder = bidder;
 	}
 

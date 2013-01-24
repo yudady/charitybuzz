@@ -11,10 +11,10 @@ import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.charitybuzz.dao.UserDao;
-import com.charitybuzz.domain.User;
+import com.charitybuzz.domain.Bidder;
 
 @Repository("userJdbcDao")
-public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
+public class UserDaoImpl extends BaseDaoImpl<Bidder> implements UserDao {
 
 	/**
 	 * 注入DataSource
@@ -27,8 +27,8 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	}
 
 	@Override
-	public Class<User> getClazz() {
-		return User.class;
+	public Class<Bidder> getClazz() {
+		return Bidder.class;
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	}
 
 	@Override
-	public int insert(User user) {
+	public int insert(Bidder user) {
 		String sql = "INSERT INTO t_user (id,firstName,lastName,screenName,passWord,email,promoCode) "
 				+ " VALUES (:id, :firstName, :lastName, :screenName, :passWord, :email, :promoCode) ";
 		return super.insert(sql, user);
@@ -45,7 +45,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	}
 
 	@Override
-	public int update(User user) {
+	public int update(Bidder user) {
 		String sql = " update t_user set firstName=:firstName, lastName=:lastName, "
 				+ "screenName=:screenName, passWord=:passWord, email=:email, "
 				+ "promoCode=:promoCode where id=:id ";
@@ -54,9 +54,9 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	}
 
 	@Override
-	public User findByEmail(String email) {
+	public Bidder findByEmail(String email) {
 		String sql = "select * from " + getTableName() + " where email=:email";
-		BeanPropertyRowMapper<User> rm = ParameterizedBeanPropertyRowMapper
+		BeanPropertyRowMapper<Bidder> rm = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
 		Map<String, Object> args = new HashMap<String, Object>();
 		args.put("email", email);

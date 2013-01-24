@@ -1,9 +1,9 @@
 package com.charitybuzz.dao;
 
-import com.charitybuzz.domain.User;
+import com.charitybuzz.domain.Bidder;
 
-public interface UserDao extends BaseDao<User> {
+public interface UserDao extends BaseDao<Bidder> {
 
-	User findByEmail(String email);
+	Bidder findByEmail(String email);
 
 }

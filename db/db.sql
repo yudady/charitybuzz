@@ -230,7 +230,6 @@ COMMENT ON COLUMN bidder.firstName IS 'firstName';
 COMMENT ON COLUMN bidder.lastName IS 'lastName';
 COMMENT ON COLUMN bidder.screenName IS 'screenName';
 COMMENT ON COLUMN bidder.passWord IS 'passWord';
-COMMENT ON COLUMN bidder.passWord IS 'passWord';
 COMMENT ON COLUMN bidder.email IS 'email';
 COMMENT ON COLUMN bidder.promoCode IS 'promoCode';
 
