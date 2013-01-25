@@ -23,9 +23,12 @@ public class SidebarController {
 	private SidebarService sidebarService;
 
 	@RequestMapping()
-	public @ResponseBody List<Category> index() {
+	public @ResponseBody
+	List<Category> index() {
 		log.debug("[sidebar]");
-		return sidebarService.getSidebar();
+		List<Category> categories = sidebarService.getSidebar();
+		log.debug("[List<Category>]" + categories);
+		return categories;
 	}
 
 }

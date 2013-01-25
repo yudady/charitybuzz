@@ -14,9 +14,6 @@
 	<logger name="org.charitybuzz">
 		<level value="debug" />
 	</logger>
-	<logger name="com.charitybuzz.controller.SidebarController">
-		<level value="info" />
-	</logger>
 	<logger name="com.charitybuzz.scheduler">
 		<level value="info" />
 	</logger>

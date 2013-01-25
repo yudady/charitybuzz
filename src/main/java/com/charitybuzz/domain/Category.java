@@ -32,7 +32,7 @@ public class Category {
 	 */
 	private List<Item> items;
 	/**
-	 * 底下有幾個數量
+	 * 底下有幾個商品數量
 	 */
 	private int count;
 
@@ -66,6 +66,7 @@ public class Category {
 
 	public void setItems(List<Item> items) {
 		this.items = items;
+		this.count = items.size();
 	}
 
 	public int getCount() {

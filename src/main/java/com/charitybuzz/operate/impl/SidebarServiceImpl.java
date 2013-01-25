@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.charitybuzz.domain.Item;
@@ -17,6 +19,9 @@ import com.charitybuzz.service.CategoryService;
 @Service
 public class SidebarServiceImpl implements SidebarService {
 
+	/** logger. */
+	private Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * 第一級目錄
 	 */
@@ -46,14 +51,13 @@ public class SidebarServiceImpl implements SidebarService {
 			 */
 			List<SubCategory> subCategories = subCategoryService
 					.findItensByCategoryId(categoryId);
+			System.out.println("[LOG]"+subCategories.size());
 			category.setSubCategories(subCategories);
-
 			/**
-			 * 全部商品
+			 * 第一級目錄全部商品
 			 */
-			List<Item> items = itemService
-					.findByCategoryId(categoryId);
-			category.setCount(items.size());
+			List<Item> items = itemService.findByCategoryId(categoryId);
+			category.setItems(items);
 
 		}
 		return categories;

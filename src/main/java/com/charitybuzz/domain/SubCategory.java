@@ -77,6 +77,7 @@ public class SubCategory {
 
 	public void setitems(List<Item> items) {
 		this.items = items;
+		this.count = items.size();
 	}
 
 	public int getCount() {
