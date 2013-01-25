@@ -18,24 +18,17 @@
 		<div id="sidebar"></div>
 <!-- bidding_left_column -->
 		<div id="bidding_left_column">
+		
 			<div>
 				<div>
-					<div>
-						<span>
-							<b><i style="margin: 0 !important; padding: 0 !important;"></i>17 days</b>
-						</span>
-					</div>
-					<!-- rotate-clock -->
+					${item.difDay} day
 				</div>
 				<!-- time-tag -->
 				<a href="#">
-					<img id="photo-zoom"
-					src="https://s3.amazonaws.com/images.charitybuzz.com/images/85732/detail.jpeg?1358201435"
-					alt="LotPhoto" /></a>
+					<img src='<c:url value="/resources/upload/${item.mainPictureLocation}" />' />
+				</a>
 			</div>
-
-
-
+		
 			<div id="tabs">
 				<ul>
 					<li><a href="#lotDetails">Lot Details </a></li>
@@ -64,7 +57,7 @@
 						<div>
 							<div>Current Bid: 
 								<span id="currentPrice">${item.currentBid}</span> 
-								<span> ( <a href='<c:url value="/item/${item.id}/BiddingHistory" />'>${item.itemHistorySize}</a> )</span>
+								<span> ( <a href='<c:url value="/item/${item.id}/BiddingHistory" />'>${item.numberBids}</a> )</span>
 							</div>
 							<div id="placedBy">
 								placed by: <b>jaimervelasco</b>
@@ -74,9 +67,9 @@
 							</div>
 						</div>
 						<div>
-							${item.endDate} - ${item.startDate}     days left to bid
+							${item.lotClose} - ${item.lotStart}     days left to bid
 							<div>
-								${item.endDate} - ${item.startDate}  Fri, 8 Feb 1:12PM EST 
+								${item.lotClose} - ${item.lotStart}  Fri, 8 Feb 1:12PM EST 
 								<a id="closingTimePop" href="#"><span>What's this?</span></a>
 								<div id="closingTimePopDialog" title="Closing Time">
 									This is the time the auction will end, but "Popcorn Bidding" could add 10 minutes to the closing time. If a bid is placed within 10 minutes of the closing time, the auction will extend by 10 minutes. This allows competing bidders a chance to stay in the race.
@@ -247,9 +240,9 @@
 							<dt>Estimated Value:</dt>
 							<dd>${item.estimatedValue}</dd>
 							<dt>Open Date</dt>
-							<dd>${item.startDate}</dd>
+							<dd>${item.lotStart}</dd>
 							<dt>Close Date:</dt>
-							<dd>${item.endDate}</dd>
+							<dd>${item.lotClose}</dd>
 						</dl>
 					</div>
 				</div>

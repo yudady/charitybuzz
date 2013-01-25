@@ -1,5 +1,6 @@
 package com.charitybuzz.domain;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class Item {
 	private Date lotClose;
 
 	/**
-	 * ESTIMATED_VALUE 直購價 Estimated Value: $9,500
+	 * ESTIMATED_VALUE 估計價值 Estimated Value: $9,500
 	 */
 	private Double estimatedValue;
 
@@ -74,11 +75,13 @@ public class Item {
 	/**
 	 * 歷史紀錄
 	 */
-	private List<Bidlog> itemHistories;
+	private List<Bidlog> bidlogs;
 	/**
 	 * 圖片
 	 */
 	private List<Picture> pictures;
+
+	private Long difDay;
 
 	// ====================================================
 
@@ -124,10 +127,6 @@ public class Item {
 
 	public int getNumberBids() {
 		return numberBids;
-	}
-
-	public void setNumberBids(int numberBids) {
-		this.numberBids = numberBids;
 	}
 
 	public Date getLotStart() {
@@ -186,12 +185,12 @@ public class Item {
 		this.catalogItems = catalogItems;
 	}
 
-	public List<Bidlog> getitemHistories() {
-		return itemHistories;
+	public List<Bidlog> getBidlogs() {
+		return bidlogs;
 	}
 
-	public void setitemHistories(List<Bidlog> itemHistories) {
-		this.itemHistories = itemHistories;
+	public void setBidlogs(List<Bidlog> bidlogs) {
+		this.bidlogs = bidlogs;
 	}
 
 	public List<Picture> getPictures() {
@@ -200,6 +199,15 @@ public class Item {
 
 	public void setPictures(List<Picture> pictures) {
 		this.pictures = pictures;
+	}
+
+	public Long getDifDay() {
+		
+		if(this.getLotClose() == null){
+			return null;
+		}
+		long diff = this.getLotClose().getTime() - new Date().getTime() ;
+		return diff / (1000 * 60 * 60 * 24);
 	}
 
 	@Override
