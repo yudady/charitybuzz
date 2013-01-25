@@ -51,7 +51,11 @@ public class SidebarServiceImpl implements SidebarService {
 			 */
 			List<SubCategory> subCategories = subCategoryService
 					.findItensByCategoryId(categoryId);
-			System.out.println("[LOG]"+subCategories.size());
+			for(int j = 0 ; j < subCategories.size() ; j ++){
+				SubCategory subs = subCategories.get(j);
+				List<Item> subsItems = itemService.findBySubCategoryId(subs.getId());
+				subs.setitems(subsItems);
+			}
 			category.setSubCategories(subCategories);
 			/**
 			 * 第一級目錄全部商品

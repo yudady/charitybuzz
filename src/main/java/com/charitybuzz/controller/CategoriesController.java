@@ -45,19 +45,18 @@ public class CategoriesController {
 	public String fir(@PathVariable Long id, Model model) {
 		log.debug("[categories][id]=" + id);
 
-		// Category category = categoryService.findById(id);
 		/**
 		 * 全部商品
 		 */
 		List<Item> items = itemService.findByCategoryId(id);
 
-		for (Item item : items) {
-
-			Long itemId = item.getId();
-			List<Picture> pictures = pictureService.findPictureByitemId(itemId);
-			item.setPictures(pictures);
-			log.debug("[pic]" + item.getMainPictureLocation());
-		}
+//		for (Item item : items) {
+//
+//			Long itemId = item.getId();
+//			List<Picture> pictures = pictureService.findPictureByitemId(itemId);
+//			item.setPictures(pictures);
+//			log.debug("[pic]" + item.getMainPictureLocation());
+//		}
 		model.addAttribute("items", items);
 
 		log.debug(items.toString());
@@ -77,19 +76,18 @@ public class CategoriesController {
 			@PathVariable Long subcategoryId, Model model) {
 		log.debug("[categories][id]=" + categoryId);
 
-		// Category category = categoryService.findById(id);
 		/**
 		 * 全部商品
 		 */
 		List<Item> items = itemService.findBySubCategoryId(subcategoryId);
 
-		for (Item item : items) {
-
-			Long itemId = item.getId();
-			List<Picture> pictures = pictureService.findPictureByitemId(itemId);
-			item.setPictures(pictures);
-			log.debug("[pic]" + item.getMainPictureLocation());
-		}
+//		for (Item item : items) {
+//
+//			Long itemId = item.getId();
+//			List<Picture> pictures = pictureService.findPictureByitemId(itemId);
+//			item.setPictures(pictures);
+//			log.debug("[pic]" + item.getMainPictureLocation());
+//		}
 		model.addAttribute("items", items);
 
 		log.debug(items.toString());

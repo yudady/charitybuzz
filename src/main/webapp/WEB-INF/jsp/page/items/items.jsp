@@ -24,7 +24,7 @@
 			<div>
 				<div>
 					<a href='<c:url value="/item/${item.id}" />'>
-						<img src='<c:url value="/resources/upload/${item.mainPictureLocation}" />' />
+						<img src='<c:url value="/resources/upload/mainpic/${item.mainPictureLocation}" />' />
 					</a>
 				</div>
 				<!-- /lotPhoto -->

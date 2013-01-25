@@ -27,7 +27,7 @@
 				</div>
 				<!-- time-tag -->
 				<a href="#">
-					<img src='<c:url value="/resources/upload/${item.mainPictureLocation}" />' />
+					<img src='<c:url value="/resources/upload/mainpic/${item.mainPictureLocation}" />' />
 				</a>
 			</div>
 		
