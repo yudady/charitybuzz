@@ -53,13 +53,23 @@ public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 	}
 
 	@Override
-	public List<Item> findByCategoryId(Long id) {
+	public List<Item> findByCategoryId(Long categoryId) {
 		String sql = "select * from " + getTableName()
 				+ " where CATEGORYID=:categoryId";
 		BeanPropertyRowMapper<Item> rm = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
 		Map<String, Object> args = new HashMap<String, Object>();
-		args.put("categoryId", id);
+		args.put("categoryId", categoryId);
+		return this.getSimpleJdbcTemplate().query(sql, rm, args);
+	}
+
+	@Override
+	public List<Item> findBySubCategoryId(Long subcategoryId) {
+		String sql = "SELECT b.* FROM subcategory_item a, item b WHERE b.ID = a.SUBCATALOGITEMID AND a.SUBCATALOGITEMID = :id ";
+		BeanPropertyRowMapper<Item> rm = ParameterizedBeanPropertyRowMapper
+				.newInstance(getClazz());
+		Map<String, Object> args = new HashMap<String, Object>();
+		args.put("id", subcategoryId);
 		return this.getSimpleJdbcTemplate().query(sql, rm, args);
 	}
 

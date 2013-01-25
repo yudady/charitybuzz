@@ -6,10 +6,12 @@ import com.charitybuzz.domain.Item;
 
 public interface ItemService {
 
-	public List<Item> findByCategoryId(Long id);
+	public List<Item> findByCategoryId(Long categoryId);
 
 	public Item findById(Long itemId);
 
 	public int updateCurrentBidById(Long itemId, Double currentBid);
+
+	public List<Item> findBySubCategoryId(Long subcategoryId);
 
 }

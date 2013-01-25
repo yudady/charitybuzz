@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.charitybuzz.domain.Item;
 import com.charitybuzz.domain.Picture;
 import com.charitybuzz.service.ItemService;
-import com.charitybuzz.service.CategoryService;
 import com.charitybuzz.service.PictureService;
 
 @Controller
@@ -24,11 +23,6 @@ public class CategoriesController {
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	/**
-	 * 第一級目錄
-	 */
-	@Resource
-	private CategoryService categoryService;
 	/**
 	 * 全部商品
 	 */
@@ -42,6 +36,7 @@ public class CategoriesController {
 
 	/**
 	 * categories/2
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -59,8 +54,7 @@ public class CategoriesController {
 		for (Item item : items) {
 
 			Long itemId = item.getId();
-			List<Picture> pictures = pictureService
-					.findPictureByitemId(itemId);
+			List<Picture> pictures = pictureService.findPictureByitemId(itemId);
 			item.setPictures(pictures);
 			log.debug("[pic]" + item.getMainPictureLocation());
 		}
@@ -69,36 +63,37 @@ public class CategoriesController {
 		log.debug(items.toString());
 		return "items";
 	}
-	
+
 	/**
 	 * categories/2/subcategories/14
+	 * 
 	 * @param categoryId
 	 * @param subcategoryId
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping(value = "/{categoryId}/subcategories/{subcategoryId}", method = RequestMethod.GET)
-	public String sec(@PathVariable Long categoryId, @PathVariable Long subcategoryId,Model model) {
+	public String sec(@PathVariable Long categoryId,
+			@PathVariable Long subcategoryId, Model model) {
 		log.debug("[categories][id]=" + categoryId);
-		
+
 		// Category category = categoryService.findById(id);
 		/**
 		 * 全部商品
 		 */
-		List<Item> items = itemService.findByCategoryId(categoryId);
-		
+		List<Item> items = itemService.findBySubCategoryId(subcategoryId);
+
 		for (Item item : items) {
-			
+
 			Long itemId = item.getId();
-			List<Picture> pictures = pictureService
-					.findPictureByitemId(itemId);
+			List<Picture> pictures = pictureService.findPictureByitemId(itemId);
 			item.setPictures(pictures);
 			log.debug("[pic]" + item.getMainPictureLocation());
 		}
 		model.addAttribute("items", items);
-		
+
 		log.debug(items.toString());
 		return "items";
 	}
-	
+
 }

@@ -143,7 +143,7 @@ INSERT INTO subcategory VALUES ('19', '3', 'Memorabilia', null);
 CREATE TABLE subcategory_item (
 id NUMBER(10) NOT NULL PRIMARY KEY,
 itemId NUMBER(10) NOT NULL ,
-catalogitemId NUMBER(10) NOT NULL 
+subCatalogitemId NUMBER(10) NOT NULL 
 )
 ;
 COMMENT ON COLUMN subcategory_item.id IS '中間表id';

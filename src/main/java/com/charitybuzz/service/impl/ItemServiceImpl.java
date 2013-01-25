@@ -24,8 +24,26 @@ public class ItemServiceImpl implements ItemService {
 	private ItemDao itemDao;
 
 	@Override
-	public List<Item> findByCategoryId(Long id) {
-		List<Item> items = itemDao.findByCategoryId(id);
+	public Item findById(Long itemId) {
+
+		Item item = null;
+		try {
+			item = itemDao.findById(itemId);
+		} catch (EmptyResultDataAccessException t) {
+			log.warn("商品不存在", t);
+		}
+
+		return item;
+	}
+
+	@Override
+	public int updateCurrentBidById(Long itemId, Double currentBid) {
+		return itemDao.updateNameById("currentBid", itemId, currentBid);
+	}
+
+	@Override
+	public List<Item> findByCategoryId(Long categoryId) {
+		List<Item> items = itemDao.findByCategoryId(categoryId);
 		if (items.size() > 0) {
 			return items;
 		}
@@ -33,21 +51,12 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public Item findById(Long itemId) {
-		
-		Item item = null;
-		try {
-			item = itemDao.findById(itemId);
-		} catch (EmptyResultDataAccessException t) {
-			log.warn("商品不存在", t);
+	public List<Item> findBySubCategoryId(Long subcategoryId) {
+		List<Item> items = itemDao.findBySubCategoryId(subcategoryId);
+		if (items.size() > 0) {
+			return items;
 		}
-		
-		return item;
-	}
-
-	@Override
-	public int updateCurrentBidById(Long itemId, Double currentBid) {
-		return itemDao.updateNameById("currentBid", itemId, currentBid);
+		return new ArrayList<Item>();
 	}
 
 }
