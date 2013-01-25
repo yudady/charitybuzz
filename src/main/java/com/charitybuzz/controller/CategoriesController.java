@@ -40,8 +40,14 @@ public class CategoriesController {
 	@Resource
 	private PictureService pictureService;
 
+	/**
+	 * categories/2
+	 * @param id
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public String index(@PathVariable Long id, Model model) {
+	public String fir(@PathVariable Long id, Model model) {
 		log.debug("[categories][id]=" + id);
 
 		// Category category = categoryService.findById(id);
@@ -61,7 +67,38 @@ public class CategoriesController {
 		model.addAttribute("items", items);
 
 		log.debug(items.toString());
-		return "categories";
+		return "items";
 	}
-
+	
+	/**
+	 * categories/2/subcategories/14
+	 * @param categoryId
+	 * @param subcategoryId
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/{categoryId}/subcategories/{subcategoryId}", method = RequestMethod.GET)
+	public String sec(@PathVariable Long categoryId, @PathVariable Long subcategoryId,Model model) {
+		log.debug("[categories][id]=" + categoryId);
+		
+		// Category category = categoryService.findById(id);
+		/**
+		 * 全部商品
+		 */
+		List<Item> items = itemService.findByCategoryId(categoryId);
+		
+		for (Item item : items) {
+			
+			Long itemId = item.getId();
+			List<Picture> pictures = pictureService
+					.findPictureByitemId(itemId);
+			item.setPictures(pictures);
+			log.debug("[pic]" + item.getMainPictureLocation());
+		}
+		model.addAttribute("items", items);
+		
+		log.debug(items.toString());
+		return "items";
+	}
+	
 }

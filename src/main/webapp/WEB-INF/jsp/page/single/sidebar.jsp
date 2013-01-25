@@ -8,31 +8,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-<script>
-	$(function() {
-		$("#menu").menu();
-	});
-</script>
-<style>
-.ui-menu {
-	width: 150px;
-}
-</style>
-
+<script type="text/javascript" src='<c:url value="/resources/js/page/sidebar.js"/>'></script>
+<link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/sidebar.css"/>'/>
 </head>
 <body>
 	<ul id="menu">
 		<c:forEach items="${categories}" var="category">
-			<li><a href='<c:url value="/categories/${category.id}" />'>${category.name}</a></li>
+			<li><a href='<c:url value="/categories/${category.id}" />'>${category.name}(${category.count})</a>
+				<c:if test="${not empty category.subCategories}">
+					<ul>
+						<c:forEach items="${category.subCategories}" var="subCategory">
+							<li><a href='<c:url value="/categories/${category.id}/subcategories/${subCategory.id}" />'>${subCategory.name}(${subCategory.count})</a></li>
+						</c:forEach>
+					</ul>
+				</c:if>
+			</li>
 		</c:forEach>
-		<li><a href="#">Delphi</a>
-			<ul>
-				<li><a href="#">Ada</a></li>
-				<li><a href="#">Saarland</a></li>
-				<li><a href="#">Salzburg</a></li>
-			</ul>
-		</li>
+			<li><a href="#">Delphi</a>
+				<ul>
+					<li class="ui-state-disabled"><a href="#">Ada</a></li>
+					<li><a href="#">Saarland</a></li>
+					<li><a href="#">Salzburg</a></li>
+				</ul>
+			</li>
 	</ul>
 </body>
 </html>

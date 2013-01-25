@@ -23,9 +23,9 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/page/contactus/contact_us.jsp" />
 	</definition>
 	<!-- categories -->
-	<definition name="categories" extends="template-main">
+	<definition name="items" extends="template-main">
 		<put-attribute name="title" value="contactus" />
-		<put-attribute name="body" value="/WEB-INF/jsp/page/categories/categories.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/page/items/items.jsp" />
 	</definition>
 	<!-- item -->
 	<definition name="item" extends="template-main">

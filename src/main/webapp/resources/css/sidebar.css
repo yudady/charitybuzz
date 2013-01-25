@@ -2,6 +2,8 @@
 #sidebar {
 	width: 220px;
 	float:left;
-	background-color: #CCC;
 	margin: 10px 10px ;
+}
+#sidebar .ui-menu {
+	width: 220px;
 }
