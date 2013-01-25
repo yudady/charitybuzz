@@ -7,6 +7,6 @@ import com.charitybuzz.domain.Picture;
 
 public interface PictureService {
 
-	public List<Picture> findPictureByitemId(Long itemId);
+	public List<Picture> findByitemId(Long itemId);
 
 }

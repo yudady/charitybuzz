@@ -30,7 +30,10 @@
 					<img src='<c:url value="/resources/upload/mainpic/${item.mainPictureLocation}" />' />
 				</a>
 			</div>
-		
+<!-- run -->		
+<c:forEach items="${item.pictures}" var="picture">
+	<img src='<c:url value="/resources/upload/mainpic/${picture.location}" />' height="50" width="75"/>
+</c:forEach>
 			<div id="tabs">
 				<ul>
 					<li><a href="#lotDetails">Lot Details </a></li>

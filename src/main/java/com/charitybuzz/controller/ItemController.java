@@ -1,5 +1,7 @@
 package com.charitybuzz.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.charitybuzz.domain.Item;
 import com.charitybuzz.domain.ItemDetail;
+import com.charitybuzz.domain.Picture;
 import com.charitybuzz.service.ItemDetailService;
 import com.charitybuzz.service.ItemService;
 import com.charitybuzz.service.PictureService;
@@ -39,7 +42,6 @@ public class ItemController {
 	@RequestMapping(value = "/{itemId}", method = RequestMethod.GET)
 	public ModelAndView index(@PathVariable Long itemId, ModelAndView mav) {
 		log.debug("[itemId]=" + itemId);
-//TODO fix jsp
 		Item item = itemService.findById(itemId);
 		mav.setViewName("item");
 		if (item == null) {
@@ -55,6 +57,14 @@ public class ItemController {
 		}
 		mav.addObject("itemDetail", itemDetail);
 
+		
+		List<Picture> pictures = pictureService.findByitemId(itemId);
+		if (pictures == null) {
+			log.warn("多張圖片不存在");
+			return mav;
+		}
+		item.setPictures(pictures);
+		
 		return mav;
 	}
 

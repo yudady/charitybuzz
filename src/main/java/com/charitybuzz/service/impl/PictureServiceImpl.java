@@ -18,8 +18,8 @@ public class PictureServiceImpl implements PictureService {
 	private PictureDao pictureDao;
 
 	@Override
-	public List<Picture> findPictureByitemId(Long itemId) {
-		List<Picture> pictures = pictureDao.findPictureByitemId(itemId);
+	public List<Picture> findByitemId(Long itemId) {
+		List<Picture> pictures = pictureDao.findByitemId(itemId);
 		if (pictures.size() > 0) {
 			return pictures;
 		}

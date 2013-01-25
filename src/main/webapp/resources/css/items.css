@@ -2,7 +2,6 @@
 
 #HomePageOnly {
 	clear: both;
-	background-color: #BBB;
 }
 
 #mainRight {
@@ -10,4 +9,11 @@
 	float:left;
 	background-color: #CCC;
 	margin-top: 10px;
+}
+#mainRight a{
+	background-color: yellow;
+}
+#mainRight .mainPictureLocation {
+	width: 200px;
+	height: 175px;
 }

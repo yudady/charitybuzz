@@ -49,7 +49,7 @@ public class PictureDaoImpl extends BaseDaoImpl<Picture> implements PictureDao {
 	}
 
 	@Override
-	public List<Picture> findPictureByitemId(Long itemId) {
+	public List<Picture> findByitemId(Long itemId) {
 		String sql = "select * from " + getTableName()
 				+ " where itemId=:itemId";
 		BeanPropertyRowMapper<Picture> rm = ParameterizedBeanPropertyRowMapper
