@@ -9,20 +9,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.charitybuzz.dao.ItemDao;
 import com.charitybuzz.domain.Item;
 import com.charitybuzz.service.ItemService;
 
-@Service("itemService")
-@Transactional
+@Service
 public class ItemServiceImpl implements ItemService {
 
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name = "itemJdbcDao")
+	@Resource
 	private ItemDao itemDao;
 
 	@Override

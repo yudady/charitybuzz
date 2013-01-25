@@ -20,19 +20,19 @@ public class LoginController {
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name = "bidderService")
+	@Resource
 	private BidderService bidderService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(HttpServletRequest request, HttpServletResponse response) {
-		log.debug("[LOG][login][index]");
+		log.debug("[login][index]");
 		return "login";
 	}
 
 	@RequestMapping(value = "/biderLogin", method = RequestMethod.GET)
 	public String bidLogin(HttpServletRequest request,
 			HttpServletResponse response) {
-		log.debug("[LOG][login][biderLogin]");
+		log.debug("[login][biderLogin]");
 		return "login";
 	}
 
@@ -44,7 +44,7 @@ public class LoginController {
 	 */
 	@RequestMapping(value = "/iframe", method = RequestMethod.POST)
 	public ModelAndView login(HttpServletRequest request, ModelAndView mav) {
-		log.debug("[LOG][login][iframe]");
+		log.debug("[login][iframe]");
 		String email = request.getParameter("email");
 		String passWord = request.getParameter("passWord");
 
@@ -66,7 +66,7 @@ public class LoginController {
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public String logout(HttpServletRequest request,
 			HttpServletResponse response) {
-		log.debug("[LOG][login][logout]");
+		log.debug("[login][logout]");
 		request.getSession().removeAttribute("bidder");
 		return "login";
 	}

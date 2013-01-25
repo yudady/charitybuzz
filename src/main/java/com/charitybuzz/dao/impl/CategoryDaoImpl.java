@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.charitybuzz.dao.CategoryDao;
 import com.charitybuzz.domain.Category;
 
-@Repository("categoryJdbcDao")
+@Repository
 public class CategoryDaoImpl extends BaseDaoImpl<Category> implements
 		CategoryDao {
 

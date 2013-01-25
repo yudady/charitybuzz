@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.charitybuzz.dao.ItemDetailDao;
 import com.charitybuzz.domain.ItemDetail;
 
-@Repository("itemDetailJdbcDao")
+@Repository
 public class ItemDetailDaoImpl extends BaseDaoImpl<ItemDetail> implements ItemDetailDao {
 
 	/**

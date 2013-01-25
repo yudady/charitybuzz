@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.charitybuzz.dao.BidlogDao;
 import com.charitybuzz.domain.Bidlog;
 
-@Repository("bidlogJdbcDao")
+@Repository
 public class BidlogDaoImpl extends BaseDaoImpl<Bidlog>
 		implements BidlogDao {
 

@@ -13,7 +13,7 @@ public class ErrorController {
 	
 	@RequestMapping
 	public String code404() {
-		log.debug("[LOG]code404");
+		log.debug("code404");
 		return "code404";
 	}
 

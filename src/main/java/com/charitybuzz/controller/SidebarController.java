@@ -19,12 +19,12 @@ public class SidebarController {
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name = "sidebarService")
+	@Resource
 	private SidebarService sidebarService;
 
 	@RequestMapping()
 	public @ResponseBody List<Category> index() {
-		log.debug("[LOG][sidebar]");
+		log.debug("[sidebar]");
 		return sidebarService.getSidebar();
 	}
 

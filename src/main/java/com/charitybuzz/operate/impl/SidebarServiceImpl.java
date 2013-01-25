@@ -14,23 +14,23 @@ import com.charitybuzz.service.ItemService;
 import com.charitybuzz.service.SubCategoryService;
 import com.charitybuzz.service.CategoryService;
 
-@Service("sidebarService")
+@Service
 public class SidebarServiceImpl implements SidebarService {
 
 	/**
 	 * 第一級目錄
 	 */
-	@Resource(name = "categoryService")
+	@Resource
 	private CategoryService categoryService;
 	/**
 	 * 第二級目錄
 	 */
-	@Resource(name = "catalogItemService")
+	@Resource
 	private SubCategoryService subCategoryService;
 	/**
 	 * 全部商品
 	 */
-	@Resource(name = "itemService")
+	@Resource
 	private ItemService itemService;
 
 	@Override

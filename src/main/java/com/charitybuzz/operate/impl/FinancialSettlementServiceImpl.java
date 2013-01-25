@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.charitybuzz.operate.FinancialSettlementService;
 
-@Service("financialSettlementService")
+@Service
 public class FinancialSettlementServiceImpl implements
 		FinancialSettlementService {
 

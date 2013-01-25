@@ -27,22 +27,22 @@ public class CategoriesController {
 	/**
 	 * 第一級目錄
 	 */
-	@Resource(name = "categoryService")
+	@Resource
 	private CategoryService categoryService;
 	/**
 	 * 全部商品
 	 */
-	@Resource(name = "itemService")
+	@Resource
 	private ItemService itemService;
 	/**
 	 * 商品圖片
 	 */
-	@Resource(name = "pictureService")
+	@Resource
 	private PictureService pictureService;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String index(@PathVariable Long id, Model model) {
-		log.debug("[LOG][categories][id]=" + id);
+		log.debug("[categories][id]=" + id);
 
 		// Category category = categoryService.findById(id);
 		/**
@@ -56,7 +56,7 @@ public class CategoriesController {
 			List<Picture> pictures = pictureService
 					.findPictureByitemId(itemId);
 			item.setPictures(pictures);
-			log.debug("[LOG][pic]" + item.getMainPictureLocation());
+			log.debug("[pic]" + item.getMainPictureLocation());
 		}
 		model.addAttribute("items", items);
 

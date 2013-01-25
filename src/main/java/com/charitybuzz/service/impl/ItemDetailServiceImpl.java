@@ -11,13 +11,13 @@ import com.charitybuzz.dao.ItemDetailDao;
 import com.charitybuzz.domain.ItemDetail;
 import com.charitybuzz.service.ItemDetailService;
 
-@Service("itemDetailService")
+@Service
 public class ItemDetailServiceImpl implements ItemDetailService {
 
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name = "itemDetailJdbcDao")
+	@Resource
 	private ItemDetailDao itemDetailDao;
 
 	@Override

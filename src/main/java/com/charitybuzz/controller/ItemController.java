@@ -24,21 +24,21 @@ public class ItemController {
 	/**
 	 * 全部商品
 	 */
-	@Resource(name = "itemService")
+	@Resource
 	private ItemService itemService;
 
-	@Resource(name = "ItemDetailService")
+	@Resource
 	private ItemDetailService itemDetailService;
 
 	/**
 	 * 商品圖片
 	 */
-	@Resource(name = "pictureService")
+	@Resource
 	private PictureService pictureService;
 
 	@RequestMapping(value = "/{itemId}", method = RequestMethod.GET)
 	public ModelAndView index(@PathVariable Long itemId, ModelAndView mav) {
-		log.debug("[LOG][itemId]=" + itemId);
+		log.debug("[itemId]=" + itemId);
 //TODO fix jsp
 		Item item = itemService.findById(itemId);
 		mav.setViewName("item");

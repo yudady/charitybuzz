@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.charitybuzz.dao.ItemDao;
 import com.charitybuzz.domain.Item;
 
-@Repository("itemJdbcDao")
+@Repository
 public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 
 	/**

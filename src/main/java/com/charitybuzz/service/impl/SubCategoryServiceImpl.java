@@ -11,9 +11,10 @@ import com.charitybuzz.dao.SubCategoryDao;
 import com.charitybuzz.domain.SubCategory;
 import com.charitybuzz.service.SubCategoryService;
 
-@Service("catalogItemService")
+@Service
 public class SubCategoryServiceImpl implements SubCategoryService {
-	@Resource(name = "subCategoryJdbcDao")
+	
+	@Resource
 	private SubCategoryDao subCategoryDao;
 
 	@Override

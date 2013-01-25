@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.charitybuzz.dao.PictureDao;
 import com.charitybuzz.domain.Picture;
 
-@Repository("pictureJdbcDao")
+@Repository
 public class PictureDaoImpl extends BaseDaoImpl<Picture> implements PictureDao {
 	/**
 	 * 注入DataSource

@@ -16,19 +16,19 @@ public class IndexController {
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name="bidderService")
+	@Resource
 	private BidderService bidderService;
 
 	
 	
 	@RequestMapping
 	public String index() {
-		log.debug("[LOG]index");
+		log.debug("index");
 		return "index";
 	}
 	@RequestMapping(method = RequestMethod.GET)
 	public String all() {
-		log.debug("[LOG]index get");
+		log.debug("index get");
 		return "index";
 	}
 

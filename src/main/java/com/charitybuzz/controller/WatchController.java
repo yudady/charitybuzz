@@ -19,17 +19,17 @@ public class WatchController {
 	/**
 	 * 全部商品
 	 */
-	@Resource(name = "itemService")
+	@Resource
 	private ItemService itemService;
 	/**
 	 * 商品圖片
 	 */
-	@Resource(name = "pictureService")
+	@Resource
 	private PictureService pictureService;
 
 	@RequestMapping(value = "/{itemId}", method = RequestMethod.GET)
 	public String index() {
-		log.debug("[LOG][watch]");
+		log.debug("[watch]");
 		return "watch";
 	}
 

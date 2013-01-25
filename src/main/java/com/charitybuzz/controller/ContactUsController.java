@@ -13,7 +13,7 @@ public class ContactUsController {
 
 	@RequestMapping()
 	public String contactUs() {
-		log.debug("[LOG]contactUs");
+		log.debug("contactUs");
 		return "contactus";
 	}
 

@@ -10,9 +10,11 @@ import com.charitybuzz.dao.CategoryDao;
 import com.charitybuzz.domain.Category;
 import com.charitybuzz.service.CategoryService;
 
-@Service("categoryService")
+@Service
 public class CategoryServiceImpl implements CategoryService {
-	@Resource(name = "categoryJdbcDao")
+	
+	
+	@Resource
 	private CategoryDao categoryDao;
 
 	@Override

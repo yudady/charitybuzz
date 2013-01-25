@@ -13,12 +13,12 @@ import com.charitybuzz.dao.BidderDao;
 import com.charitybuzz.domain.Bidder;
 import com.charitybuzz.service.BidderService;
 
-@Service("bidderService")
+@Service
 public class BidderServiceImpl implements BidderService {
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name = "bidderJdbcDao")
+	@Resource
 	private BidderDao bidderDao;
 
 	public List<Bidder> findAll() {

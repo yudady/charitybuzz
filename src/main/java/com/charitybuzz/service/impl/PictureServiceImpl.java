@@ -11,10 +11,10 @@ import com.charitybuzz.dao.PictureDao;
 import com.charitybuzz.domain.Picture;
 import com.charitybuzz.service.PictureService;
 
-@Service("pictureService")
+@Service
 public class PictureServiceImpl implements PictureService {
 
-	@Resource(name = "pictureJdbcDao")
+	@Resource
 	private PictureDao pictureDao;
 
 	@Override
