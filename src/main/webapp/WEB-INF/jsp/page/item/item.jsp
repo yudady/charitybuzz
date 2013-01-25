@@ -15,7 +15,9 @@
 </head>
 <body>
 	<div id="HomePageOnly-top">
-		<div id="sidebar"></div>
+		<div id="sidebar">
+			<jsp:include page="/sidebar" />
+		</div>
 <!-- bidding_left_column -->
 		<div id="bidding_left_column">
 		

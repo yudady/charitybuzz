@@ -11,71 +11,12 @@
 <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/index.css"/>'/>
 
 
- <script>
-$(function() {
-$( "#menu" ).menu();
-});
-</script>
-<style>
-.ui-menu { width: 150px; }
-</style>
-
 
 </head>
 <body>
 	<div id="HomePageOnly-top">
 		<div id="sidebar">
-		
-		
-		
-		
-		
-		
-<ul id="menu">
-<li class="ui-state-disabled"><a href="#">Aberdeen</a></li>
-<li><a href="#">Ada</a></li>
-<li><a href="#">Adamsville</a></li>
-<li><a href="#">Addyston</a></li>
-<li>
-<a href="#">Delphi</a>
-<ul>
-<li class="ui-state-disabled"><a href="#">Ada</a></li>
-<li><a href="#">Saarland</a></li>
-<li><a href="#">Salzburg</a></li>
-</ul>
-</li>
-<li><a href="#">Saarland</a></li>
-<li>
-<a href="#">Salzburg</a>
-<ul>
-<li>
-<a href="#">Delphi</a>
-<ul>
-<li><a href="#">Ada</a></li>
-<li><a href="#">Saarland</a></li>
-<li><a href="#">Salzburg</a></li>
-</ul>
-</li>
-<li>
-<a href="#">Delphi</a>
-<ul>
-<li><a href="#">Ada</a></li>
-<li><a href="#">Saarland</a></li>
-<li><a href="#">Salzburg</a></li>
-</ul>
-</li>
-<li><a href="#">Perch</a></li>
-</ul>
-</li>
-<li class="ui-state-disabled"><a href="#">Amesville</a></li>
-</ul>
-		
-		
-		
-		
-		
-		
-		
+			<jsp:include page="/sidebar" />
 		</div>
 		<div id="mainRight">mainRight</div>
 	</div>

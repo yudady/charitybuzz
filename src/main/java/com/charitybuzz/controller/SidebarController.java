@@ -3,12 +3,13 @@ package com.charitybuzz.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.charitybuzz.domain.Category;
 import com.charitybuzz.operate.SidebarService;
@@ -23,12 +24,11 @@ public class SidebarController {
 	private SidebarService sidebarService;
 
 	@RequestMapping()
-	public @ResponseBody
-	List<Category> index() {
-		log.debug("[sidebar]");
+	public ModelAndView bidLogin(HttpServletRequest request, ModelAndView mav) {
+		log.debug("[login][biderLogin]");
+		mav.setViewName("sidebar");
 		List<Category> categories = sidebarService.getSidebar();
-		log.debug("[List<Category>]" + categories);
-		return categories;
+		mav.addObject("categories", categories);
+		return mav;
 	}
-
 }

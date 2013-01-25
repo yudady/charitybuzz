@@ -38,14 +38,19 @@
 	
 	
 	
-	<!-- iframe 定義模板 -->
-	<definition name="template-iframe" template="/WEB-INF/jsp/layouts/iframe.jsp">
+	<!-- single 定義模板 -->
+	<definition name="template-single" template="/WEB-INF/jsp/layouts/single.jsp">
 		<put-attribute name="body" value="" />
 	</definition>
 	<!-- iframe login -->
-	<definition name="login" extends="template-iframe">
+	<definition name="login" extends="template-single">
 		<put-attribute name="title" value="login" />
-		<put-attribute name="body" value="/WEB-INF/jsp/page/iframe/login.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/page/single/login.jsp" />
+	</definition>
+	<!-- sidebar -->
+	<definition name="sidebar" extends="template-single">
+		<put-attribute name="title" value="login" />
+		<put-attribute name="body" value="/WEB-INF/jsp/page/single/sidebar.jsp" />
 	</definition>
 	
 </tiles-definitions>
