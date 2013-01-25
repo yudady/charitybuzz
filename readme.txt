@@ -24,7 +24,7 @@ tiles		webapp\WEB-INF\jsp\tiles-definitions.xml
 3.apache titles
 
 =========================
-fix ItemController
+fix sidebar
 
 TODO
 item 分割2個表
