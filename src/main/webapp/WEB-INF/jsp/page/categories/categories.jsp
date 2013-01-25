@@ -22,7 +22,7 @@
 			<div>
 				<div>
 					<a href='<c:url value="/item/${item.id}" />'>
-						<img src="${item.mainPictureLocation}" alt="Large_list" />
+						<img src='<c:url value="/resources/upload/${item.mainPictureLocation}" />' />
 					</a>
 				</div>
 				<!-- /lotPhoto -->
