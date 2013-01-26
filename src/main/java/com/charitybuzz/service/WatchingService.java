@@ -3,8 +3,10 @@ package com.charitybuzz.service;
 
 public interface WatchingService {
 
-	int addBidderWaching(Long bidderId, Long itemId);
+	public int addBidderWaching(Long bidderId, Long itemId);
 
-	int delBidderWaching(Long bidderId, Long itemId);
+	public int delBidderWaching(Long bidderId, Long itemId);
+
+	public boolean isWatch(Long id, Long itemId);
 
 }

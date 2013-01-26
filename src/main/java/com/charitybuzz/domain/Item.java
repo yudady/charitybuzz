@@ -1,6 +1,5 @@
 package com.charitybuzz.domain;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -82,7 +81,7 @@ public class Item {
 	private List<Picture> pictures;
 
 	private Long difDay;
-
+	
 	// ====================================================
 
 	public Long getId() {

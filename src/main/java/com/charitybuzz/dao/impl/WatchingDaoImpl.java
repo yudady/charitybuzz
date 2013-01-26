@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.charitybuzz.dao.WatchingDao;
@@ -67,6 +68,13 @@ public class WatchingDaoImpl extends BaseDaoImpl<Watching>
 		paramMap.put("itemId", itemId);
 		return this.getSimpleJdbcTemplate().getNamedParameterJdbcOperations()
 				.update(sql, paramMap);
+	}
+
+	@Override
+	public Watching findByBidderIdItemId(Long bidderId, Long itemId) {
+		String sql = "SELECT * FROM " + getTableName() + " WHERE bidderId = ? and itemId = ? ";
+		return this.getSimpleJdbcTemplate().queryForObject(sql,
+				new BeanPropertyRowMapper<Watching>(getClazz()), bidderId,itemId);
 	}
 
 

@@ -227,7 +227,15 @@
 						<a target="_blank" href="http://www.gardenofdreamsfoundation.org/">The Garden of Dreams Foundation</a>
 					</div>
 					<div id="watchQuestion">
-						<input type="checkbox" id="watchBox" name="watchBox" />
+					<c:choose>
+						<c:when test="${isWatching}">
+							<input type="checkbox" id="watchBox" name="watchBox" checked="checked" />
+						</c:when>
+						<c:otherwise>
+							<input type="checkbox" id="watchBox" name="watchBox" />
+						</c:otherwise>
+					</c:choose>
+						
 						<ul>
 							<li id="watch"><a>Watch This Item</a></li>
 							<li><a href='<c:url value="/contact_us"/>'>Ask a Question</a></li>
