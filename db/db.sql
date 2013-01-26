@@ -260,6 +260,6 @@ COMMENT ON COLUMN watching.bidderId IS '投標者id';
 COMMENT ON COLUMN watching.itemId IS '商品Id';
 
 Create Sequence Seq_watching;
-
+--Seq_watching.NEXTVAL
 
 commit;

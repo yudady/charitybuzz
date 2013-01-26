@@ -28,14 +28,10 @@ public class WatchController {
 		log.debug("[watch]" + bidderId);
 		log.debug("[watch]" + watchStatus);
 		if ("1".equals(watchStatus)) {
-			// insert
-			int i = watchingService.addBidderWaching(bidderId , itemId);
+			watchingService.addBidderWaching(bidderId , itemId);
 		} else {
-			int i = watchingService.delBidderWaching(bidderId , itemId);
-			// delete
+			watchingService.delBidderWaching(bidderId , itemId);
 		}
-		// .
-
 		return "watch itemId=" + itemId + " bidderId=" + bidderId
 				+ " watchStatus=" + watchStatus;
 	}
