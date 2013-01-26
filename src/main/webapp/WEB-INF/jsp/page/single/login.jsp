@@ -4,33 +4,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
+<script type="text/javascript" src='<c:url value="/resources/js/page/login.js"/>'></script>
 	<c:choose>
 		<c:when test="${bidder == null}">
-			<form action="<c:url value="/login/iframe" />" method="post">
+			
 				<span>Email Address:</span>
-				<input type="text" name="email" /> 
+				<input type="text" id="email" /> 
 				<br /> 
 				<span>Password:</span>
-				<input type="password" name="passWord" /> <br />
-				<input type="submit" value="btnLogin" />
-			</form>
+				<input type="password" id="passWord"/> <br />
+				<input type="button" value="btnLogin" id="btnLogin"/>
+			
+			
+			
 			<span>${loginFail}</span>
 			<input type="button" id="Register" value="Register" />
 		</c:when>
 		<c:otherwise>
 			<span>${bidder.screenName} ${bidder.email}| Account info |</span>
 			<form action='<c:url value="/login/logout" />' method="post">
-				<input type="hidden" name="bidderId" id="bidderId" value="${bidder.id}"/>
-				<input type="submit" name="submit" id="logout" value="Logout" />
 			</form>
+			<input type="hidden" id="bidderId" value="${bidder.id}"/>
+			<input type="submit" id="logout" value="Logout" />
 		</c:otherwise>
 	</c:choose>
 	<input type="text" id="Search" value="Search" />
-</body>
-</html>

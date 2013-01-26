@@ -5,6 +5,11 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <span id="logo">
-	<a href='<c:url value="/"/>'><img src='<c:url value="/resources/pic/logo-high-res-retina.png"/>' /></a>
+	<a href='<c:url value="/"/>'>
+		<img src='<c:url value="/resources/pic/logo-high-res-retina.png"/>' />
+	</a>
 </span>
-<iframe id="logIn" src='<c:url value="/login" />' scrolling="no" frameborder="0"></iframe>
+<div id="login">
+<jsp:include page="/login" />
+</div>
+

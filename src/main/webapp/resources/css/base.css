@@ -17,21 +17,25 @@ ul {
 }
 #header {
 	background-color: green;
-	height: 100px;
+	height: 110px;
 	margin-bottom:20px;
 }
 #logo {
     width: 500px;
 }
-#logo img{
+#logo a{
+}
+#logo a img{
     width: 470px;
     height: 67px;
 }
-iframe#logIn{
+#login{
 	width: 350px;
 	height: 100px;
-    float: right;
     background-color: red;
+    position:relative;
+    top:-65px;
+  	left:630px; 
 }
 
 

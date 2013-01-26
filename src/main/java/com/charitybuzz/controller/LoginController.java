@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.charitybuzz.domain.Bidder;
@@ -24,51 +25,42 @@ public class LoginController {
 	private BidderService bidderService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String index(HttpServletRequest request, HttpServletResponse response) {
+	public String index(HttpServletRequest request, ModelAndView mav) {
 		log.debug("[login][index]");
 		return "login";
 	}
 
-	@RequestMapping(value = "/biderLogin", method = RequestMethod.GET)
-	public String bidLogin(HttpServletRequest request,
-			HttpServletResponse response) {
-		log.debug("[login][biderLogin]");
-		return "login";
-	}
-
 	/**
-	 * iframe login
 	 * @param request
 	 * @param mav
 	 * @return
 	 */
-	@RequestMapping(value = "/iframe", method = RequestMethod.POST)
-	public ModelAndView login(HttpServletRequest request, ModelAndView mav) {
-		log.debug("[login][iframe]");
+	@RequestMapping(method = RequestMethod.POST)
+	public @ResponseBody
+	String login(HttpServletRequest request) {
+		log.debug("[login]");
 		String email = request.getParameter("email");
 		String passWord = request.getParameter("passWord");
 
 		Bidder bidder = bidderService.findByEmail(email);
-		mav.setViewName("login");
 		if (bidder == null) {
-			mav.addObject("loginFail", "login error");
+			return "bidder error";
 		} else if (bidder.getPassWord().equalsIgnoreCase(passWord)) {
 			request.getSession().setAttribute("bidder", bidder);
+			return "ok";
 		} else {
-			mav.addObject("loginFail", "login error");
 			log.warn("密碼錯誤");
+			return "密碼錯誤";
 		}
-
-		return mav;
 
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
-	public String logout(HttpServletRequest request,
-			HttpServletResponse response) {
+	public @ResponseBody
+	String logout(HttpServletRequest request, HttpServletResponse response) {
 		log.debug("[login][logout]");
 		request.getSession().removeAttribute("bidder");
-		return "login";
+		return "logout";
 	}
 
 }
