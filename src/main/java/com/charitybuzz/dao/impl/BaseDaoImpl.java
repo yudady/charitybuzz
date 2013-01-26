@@ -73,7 +73,7 @@ public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport implements
 		sql.append(column);
 		sql.append("=:");
 		sql.append(column);
-		sql.append(" WHERE ID=:id ");
+		sql.append(" WHERE status = 1 and ID=:id ");
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("id", id);
 		paramMap.put(column, obj);

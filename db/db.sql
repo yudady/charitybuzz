@@ -6,15 +6,15 @@ CREATE TABLE item (
 id NUMBER(10) NOT NULL PRIMARY KEY,
 lotNumber NUMBER(10) NOT NULL ,
 categoryId NUMBER(10) NULL ,
-title NVARCHAR2(2000) NULL ,
+title NVARCHAR2(2000) NOT NULL ,
 currentBid NUMBER(10) NULL ,
 numberBids NUMBER(10) NULL ,
 lotStart DATE NULL ,
 lotClose DATE NULL ,
 estimatedValue NUMBER(10) NULL ,
 minNextBid NUMBER(10) NULL ,
-mainPictureLocation NVARCHAR2(2000) NULL ,
-status NUMBER(10) NULL 
+mainPictureLocation NVARCHAR2(2000) NOT NULL ,
+status NUMBER(10) NOT NULL 
 )
 ;
 COMMENT ON COLUMN item.id IS '商品id';
@@ -38,12 +38,12 @@ INSERT INTO item VALUES (3,3,2,'商品訊息',300,1,null,null,2000,350,'src',1);
 
 CREATE TABLE itemDetail (
 id NUMBER(10) NOT NULL PRIMARY KEY,
-itemId NUMBER(10) NULL ,
-lotDetails NVARCHAR2(2000) NULL ,
-legalTerms NVARCHAR2(2000) NULL ,
-shipping NVARCHAR2(2000) NULL ,
+itemId NUMBER(10) NOT NULL ,
+lotDetails NVARCHAR2(2000) NOT NULL ,
+legalTerms NVARCHAR2(2000) NOT NULL ,
+shipping NVARCHAR2(2000) NOT NULL ,
 winningBidderId NUMBER(10) NULL ,
-biddingRuleId NUMBER(10) NULL 
+biddingRuleId NUMBER(10) NOT NULL 
 )
 ;
 COMMENT ON COLUMN itemDetail.id IS '商品詳細記錄id';
@@ -67,9 +67,9 @@ INSERT INTO itemDetail VALUES (3,3, 'LOTDETAILS訊息', 'LEGALTERMS訊息', 'SHI
 
 CREATE TABLE bidlog (
 id NUMBER(10) PRIMARY KEY NOT NULL,
-bidderId NUMBER(10) NULL ,
-amount NUMBER(10) NULL ,
-bidtime DATE NULL 
+bidderId NUMBER(10) NOT NULL ,
+amount NUMBER(10) NOT NULL ,
+bidtime DATE NOT NULL 
 )
 ;
 COMMENT ON COLUMN bidlog.id IS 'bid歷史紀錄id';
@@ -83,7 +83,7 @@ COMMENT ON COLUMN bidlog.bidtime IS '時間';
 
 CREATE TABLE category (
 id NUMBER(10) NOT NULL PRIMARY KEY,
-name NVARCHAR2(2000) NULL 
+name NVARCHAR2(2000) NOT NULL 
 )
 ;
 COMMENT ON COLUMN category.id IS '第一級目錄id';
@@ -110,7 +110,7 @@ INSERT INTO category VALUES ('10', 'Wellness '||'&'||' Beauty');
 CREATE TABLE subcategory (
 id NUMBER(10) PRIMARY KEY NOT NULL,
 categoryId NUMBER(10) NULL ,
-name NVARCHAR2(2000) NULL ,
+name NVARCHAR2(2000) NOT NULL ,
 descript NVARCHAR2(2000) NULL 
 )
 ;
@@ -168,9 +168,9 @@ INSERT INTO subcategory_item VALUES ('10', '10', '1');
 
 CREATE TABLE picture (
 id NUMBER NOT NULL PRIMARY KEY,
-itemId NUMBER NULL ,
+itemId NUMBER NOT NULL ,
 mark NVARCHAR2(20) NULL ,
-location NVARCHAR2(200) NULL 
+location NVARCHAR2(200) NOT NULL 
 )
 ;
 COMMENT ON COLUMN picture.id IS '圖片id';
@@ -193,7 +193,7 @@ INSERT INTO picture VALUES ('6', '2', '1', 'https://s3.amazonaws.com/images.char
 
 CREATE TABLE auctionRule (
 id NUMBER(10) NOT NULL PRIMARY KEY,
-ruleNumber NUMBER(10) NULL 
+ruleNumber NUMBER(10) NOT NULL 
 )
 ;
 COMMENT ON COLUMN auctionRule.id IS '規則id';
@@ -206,7 +206,7 @@ INSERT INTO auctionRule VALUES ('2', 2);
 
 CREATE TABLE auctionRuleDetail (
 id NUMBER(10) NOT NULL PRIMARY KEY,
-auctionRuleId NUMBER(10) NULL 
+auctionRuleId NUMBER(10) NOT NULL 
 )
 ;
 COMMENT ON COLUMN auctionRuleDetail.id IS '規則明細id';
@@ -219,9 +219,9 @@ CREATE TABLE bidder (
 id NUMBER(10) NOT NULL PRIMARY KEY,
 firstName NVARCHAR2(20) NULL ,
 lastName NVARCHAR2(20) NULL ,
-screenName NVARCHAR2(20) NULL ,
-passWord NVARCHAR2(20) NULL ,
-email NVARCHAR2(20) NULL ,
+screenName NVARCHAR2(20) NOT NULL ,
+passWord NVARCHAR2(20) NOT NULL ,
+email NVARCHAR2(20) NOT NULL ,
 promoCode NVARCHAR2(20) NULL 
 )
 ;
@@ -241,12 +241,22 @@ INSERT INTO bidder VALUES ('2', 'lin', 'kevin', 'kevin', '123456', 'kevin@yahoo.
 
 CREATE TABLE operator (
 id NUMBER(10) NOT NULL PRIMARY KEY,
-name NVARCHAR2(20) ,
-passWord NVARCHAR2(20) 
+name NVARCHAR2(20) NOT NULL,
+passWord NVARCHAR2(20) NOT NULL
 )
 ;
 COMMENT ON COLUMN operator.id IS '後台管理者帳號id';
 INSERT INTO operator VALUES ('1','111','111');
 
+
+CREATE TABLE watching (
+id NUMBER(10) NOT NULL PRIMARY KEY,
+bidderId NUMBER(10) NOT NULL ,
+itemId NUMBER(10) NOT NULL 
+)
+;
+COMMENT ON COLUMN watching.id IS '關注id';
+COMMENT ON COLUMN watching.bidderId IS '投標者id';
+COMMENT ON COLUMN watching.itemId IS '商品Id';
 
 commit;

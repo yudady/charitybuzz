@@ -56,7 +56,7 @@ public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 	@Override
 	public List<Item> findByCategoryId(Long categoryId) {
 		String sql = "select * from " + getTableName()
-				+ " where CATEGORYID=:categoryId";
+				+ " where status = 1 and CATEGORYID=:categoryId";
 		BeanPropertyRowMapper<Item> rm = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
 		Map<String, Object> args = new HashMap<String, Object>();
@@ -66,7 +66,7 @@ public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 
 	@Override
 	public List<Item> findBySubCategoryId(Long subcategoryId) {
-		String sql = "SELECT b.* FROM subcategory_item a, item b WHERE b.ID = a.itemid AND a.SUBCATALOGITEMID = :id ";
+		String sql = "SELECT b.* FROM subcategory_item a, item b WHERE b.status = 1 and b.ID = a.itemid AND a.SUBCATALOGITEMID = :id ";
 		BeanPropertyRowMapper<Item> rm = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
 		Map<String, Object> args = new HashMap<String, Object>();
