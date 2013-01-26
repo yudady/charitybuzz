@@ -4,6 +4,6 @@ import com.charitybuzz.domain.ItemDetail;
 
 public interface ItemDetailDao extends BaseDao<ItemDetail> {
 
-	public ItemDetail findItemDetailByItemId(Long itemId);
+	public ItemDetail findByItemId(Long itemId);
 
 }

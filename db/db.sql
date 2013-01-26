@@ -14,7 +14,7 @@ lotClose DATE NULL ,
 estimatedValue NUMBER(10) NULL ,
 minNextBid NUMBER(10) NULL ,
 mainPictureLocation NVARCHAR2(2000) NULL ,
-isEnd NUMBER(10) NULL 
+status NUMBER(10) NULL 
 )
 ;
 COMMENT ON COLUMN item.id IS '商品id';
@@ -28,7 +28,7 @@ COMMENT ON COLUMN item.lotClose IS '商品結束日期';
 COMMENT ON COLUMN item.estimatedValue IS '估計價值';
 COMMENT ON COLUMN item.minNextBid IS '下次最小標價';
 COMMENT ON COLUMN item.mainPictureLocation IS '主要圖片路徑';
-COMMENT ON COLUMN item.isEnd IS '是否結標';
+COMMENT ON COLUMN item.status IS '商品狀態';
 
 INSERT INTO item VALUES (1,1,1,'商品訊息',100,1,NULL,NULL,1000,150,'src',1);
 INSERT INTO item VALUES (2,2,1,'商品訊息',200,1,NULL,NULL,2000,250,'src',1);
@@ -42,7 +42,7 @@ itemId NUMBER(10) NULL ,
 lotDetails NVARCHAR2(2000) NULL ,
 legalTerms NVARCHAR2(2000) NULL ,
 shipping NVARCHAR2(2000) NULL ,
-BidderId NUMBER(10) NULL ,
+winningBidderId NUMBER(10) NULL ,
 biddingRuleId NUMBER(10) NULL 
 )
 ;
@@ -51,7 +51,7 @@ COMMENT ON COLUMN itemDetail.itemId IS '商品Id';
 COMMENT ON COLUMN itemDetail.lotDetails IS 'LOTDETAILS訊息';
 COMMENT ON COLUMN itemDetail.legalTerms IS 'LEGALTERMS訊息';
 COMMENT ON COLUMN itemDetail.shipping IS 'SHIPPING訊息';
-COMMENT ON COLUMN itemDetail.BidderId IS '當前贏家id Bidder_ID';
+COMMENT ON COLUMN itemDetail.winningBidderId IS '當前贏家id Bidder_ID';
 COMMENT ON COLUMN itemDetail.biddingRuleId IS 'Bidding_Rule_ID 使用哪個id來當規則';
 
 INSERT INTO itemDetail VALUES (1,1, 'LOTDETAILS訊息', 'LEGALTERMS訊息', 'SHIPPING訊息',1,1);

@@ -10,4 +10,6 @@ public interface BidderService {
 
 	public Bidder findByEmail(String email);
 
+	public Bidder findById(Long bidderId);
+
 }

@@ -64,10 +64,16 @@ public class ItemServiceImpl implements ItemService {
 	public List<Item> findEndBiddingByLotclose() {
 		List<Item> items = itemDao.findEndBiddingByLotclose(new Date() );
 		if (items.size() > 0) {
-			log.info("需要結帳的商品不存在");
 			return items;
 		}
+		log.info("需要結帳的商品不存在");
 		return new ArrayList<Item>();
+	}
+
+	@Override
+	public int endBidding(Long id) {
+		//把商品更新為結標
+		return itemDao.updateNameById("status", id, 0);
 	}
 
 }

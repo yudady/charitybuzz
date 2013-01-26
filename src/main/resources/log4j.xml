@@ -15,7 +15,7 @@
 		<level value="debug" />
 	</logger>
 	<logger name="com.charitybuzz.scheduler">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 	
 	

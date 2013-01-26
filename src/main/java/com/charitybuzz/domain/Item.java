@@ -63,9 +63,9 @@ public class Item {
 	 */
 	private String mainPictureLocation;
 	/**
-	 * 是否結標
+	 * 0.結標 1.拍賣中
 	 */
-	private boolean isEnd;
+	private int status;
 
 	// =======關聯資料===以下內容沒有資料庫column==========
 	/**
@@ -169,12 +169,12 @@ public class Item {
 		this.mainPictureLocation = mainPictureLocation;
 	}
 
-	public boolean isEnd() {
-		return isEnd;
+	public int getStatus() {
+		return status;
 	}
 
-	public void setEnd(boolean isEnd) {
-		this.isEnd = isEnd;
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 	public List<SubCategory> getCatalogItems() {
@@ -202,11 +202,11 @@ public class Item {
 	}
 
 	public Long getDifDay() {
-		
-		if(this.getLotClose() == null){
+
+		if (this.getLotClose() == null) {
 			return null;
 		}
-		long diff = this.getLotClose().getTime() - new Date().getTime() ;
+		long diff = this.getLotClose().getTime() - new Date().getTime();
 		return diff / (1000 * 60 * 60 * 24);
 	}
 

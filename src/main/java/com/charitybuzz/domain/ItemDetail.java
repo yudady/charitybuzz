@@ -33,9 +33,9 @@ public class ItemDetail {
 	private String shipping;
 
 	/**
-	 * 當前贏家id USER_ID
+	 * 當前贏家id winningBidderId
 	 */
-	private Long userId;
+	private Long winningBidderId;
 
 	/**
 	 * Bidding_Rule_ID 使用哪個id來當規則
@@ -50,11 +50,11 @@ public class ItemDetail {
 		this.id = id;
 	}
 
-	public Long getitemId() {
+	public Long getItemId() {
 		return itemId;
 	}
 
-	public void setitemId(Long itemId) {
+	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
 
@@ -82,12 +82,12 @@ public class ItemDetail {
 		this.shipping = shipping;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public Long getWinningBidderId() {
+		return winningBidderId;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setWinningBidderId(Long winningBidderId) {
+		this.winningBidderId = winningBidderId;
 	}
 
 	public int getBiddingRuleId() {

@@ -25,7 +25,7 @@ public class ItemDetailServiceImpl implements ItemDetailService {
 
 		ItemDetail itemDetail = null;
 		try {
-			itemDetail = itemDetailDao.findItemDetailByItemId(itemId);
+			itemDetail = itemDetailDao.findByItemId(itemId);
 		} catch (EmptyResultDataAccessException t) {
 			log.warn("商品明細不存在", t);
 		}

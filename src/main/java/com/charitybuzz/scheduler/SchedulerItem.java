@@ -8,7 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.charitybuzz.domain.Bidder;
 import com.charitybuzz.domain.Item;
+import com.charitybuzz.domain.ItemDetail;
+import com.charitybuzz.service.BidderService;
+import com.charitybuzz.service.ItemDetailService;
 import com.charitybuzz.service.ItemService;
 
 public class SchedulerItem {
@@ -21,26 +25,29 @@ public class SchedulerItem {
 	 */
 	@Resource
 	private ItemService itemService;
-
-	public void sayTenSec() {
-		log.debug("[LOG]sayTenSec");
-	}
-
-	public void say5Sec() {
-		log.debug("[LOG]say5Sec");
-	}
-
-	public void say1Min() {
-		log.debug("[LOG]say1Min");
-	}
+	@Resource
+	private ItemDetailService itemDetailService;
+	@Resource
+	private BidderService bidderService;
 
 	@Transactional
-	public void findEndBiddingByLotclose() {
-		log.debug("[LOG]findEndBiddingByLotclose");
+	public void endBidding() {
+		log.debug("[LOG]endBidding");
 		List<Item> items = itemService.findEndBiddingByLotclose();
 		for (Item item : items) {
 			log.debug("[LOG][item]" + item);
-			
+			// 把商品更新為結標
+			itemService.endBidding(item.getId());
+
+			// 通知得標者 : winning bidder
+			ItemDetail itemDetail = itemDetailService
+					.findByItemId(item.getId());
+
+			log.debug("[LOG]" + itemDetail.getWinningBidderId());
+			Bidder bidder = bidderService.findById(itemDetail
+					.getWinningBidderId());
+
+			log.debug("[LOG][winning bidder]" + bidder);
 		}
 	}
 

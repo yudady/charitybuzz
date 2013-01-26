@@ -19,4 +19,11 @@ public interface ItemService {
 	 * @return Item
 	 */
 	public List<Item> findEndBiddingByLotclose();
+
+	/**
+	 * 結標
+	 * @param id
+	 * @return
+	 */
+	public int endBidding(Long id);
 }

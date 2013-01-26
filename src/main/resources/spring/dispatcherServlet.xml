@@ -61,9 +61,11 @@
 	<task:annotation-driven />
 	<bean id="schedulerItem" class="com.charitybuzz.scheduler.SchedulerItem" />
 	<task:scheduled-tasks>
+	<!-- 
 		<task:scheduled ref="schedulerItem" method="sayTenSec" cron="*/10 * * * * ?" />
 		<task:scheduled ref="schedulerItem" method="say5Sec" cron="*/5 * * * * ?" />
-		<task:scheduled ref="schedulerItem" method="say1Min" cron="0 */1 * * * ?" />
+	 -->
+		<task:scheduled ref="schedulerItem" method="endBidding" cron="0 */1 * * * ?" />
 	</task:scheduled-tasks>
 	 
 	

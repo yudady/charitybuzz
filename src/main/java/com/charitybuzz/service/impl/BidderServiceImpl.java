@@ -34,6 +34,17 @@ public class BidderServiceImpl implements BidderService {
 			log.warn("投標者不存在", t);
 		}
 		return binder;
+	}
+
+	@Override
+	public Bidder findById(Long bidderId) {
+		Bidder binder = null;
+		try {
+			binder = bidderDao.findById(bidderId);
+		} catch (EmptyResultDataAccessException t) {
+			log.warn("投標者不存在", t);
+		}
+		return binder;
 	};
 
 }

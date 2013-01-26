@@ -48,7 +48,7 @@ public class ItemDetailDaoImpl extends BaseDaoImpl<ItemDetail> implements ItemDe
 	}
 
 	@Override
-	public ItemDetail findItemDetailByItemId(Long itemId) {
+	public ItemDetail findByItemId(Long itemId) {
 		String sql = "SELECT * FROM " + getTableName() + " WHERE itemId = ?";
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("itemId", itemId);

@@ -76,7 +76,7 @@ public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 
 	@Override
 	public List<Item> findEndBiddingByLotclose(Date date) {
-		String sql = "SELECT A.* FROM item A WHERE isend = 1 and (a.lotclose - :lotclose ) <= 0 ";
+		String sql = "SELECT A.* FROM item A WHERE status = 1 and (a.lotclose - :lotclose ) <= 0 ";
 		
 		BeanPropertyRowMapper<Item> rm = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
