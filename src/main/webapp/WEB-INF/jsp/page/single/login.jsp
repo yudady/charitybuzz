@@ -24,8 +24,9 @@
 			<input type="button" id="Register" value="Register" />
 		</c:when>
 		<c:otherwise>
-			<span>${bidder.screenName } ${bidder.email }| Account info |</span>
+			<span>${bidder.screenName} ${bidder.email}| Account info |</span>
 			<form action='<c:url value="/login/logout" />' method="post">
+				<input type="hidden" name="bidderId" id="bidderId" value="${bidder.id}"/>
 				<input type="submit" name="submit" id="logout" value="Logout" />
 			</form>
 		</c:otherwise>

@@ -8,17 +8,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 
 @Controller
-@RemoteProxy(name="dwrService")
+@RemoteProxy(name="watch")
 @Transactional
 public class WatchController {
+	
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
 	
 	@RemoteMethod
-	public String index() {
-		log.debug("[watch]");
-		return "watch";
+	public String item(int itemId) {
+		log.debug("[watch]" + itemId);
+		
+		
+		return "watch" + itemId;
 	}
 
 }

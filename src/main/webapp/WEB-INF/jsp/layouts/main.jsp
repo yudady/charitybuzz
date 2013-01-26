@@ -17,6 +17,8 @@
 		path = path || "";
 		return "" + '<c:url value="/"/>' + path ;
 	}
+	 var welcome = '<spring:message code="welcome" />';
+	 
 </script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.9.0.min.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery-ui-1.10.0.custom.min.js"/>'></script>

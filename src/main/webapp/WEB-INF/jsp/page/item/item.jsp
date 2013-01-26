@@ -4,17 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-<link type="text/css" rel="stylesheet"
-	href='<c:url value="/resources/css/item.css"/>' />
+<link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/item.css"/>' />
 <script type="text/javascript" src='<c:url value="/resources/js/page/item.js" />'></script>
 <script type='text/javascript' src='<c:url value="/dwr/engine.js"/>'></script>
 <script type='text/javascript' src='<c:url value="/dwr/util.js"/>'></script>
-<script type='text/javascript' src='<c:url value="/dwr/interface/dwrService.js"/>'></script>
-</head>
-<body>
+<script type='text/javascript' src='<c:url value="/dwr/interface/watch.js"/>'></script>
 	<div id="HomePageOnly-top">
 		<div id="sidebar">
 			<jsp:include page="/sidebar" />
@@ -234,7 +228,7 @@
 					</div>
 					<div id="watchQuestion">
 						<ul>
-							<li><a href='<c:url value="/"/>'>Watch This Item</a></li>
+							<li><a id="watch">Watch This Item</a></li>
 							<li><a href='<c:url value="/contact_us"/>'>Ask a Question</a></li>
 						</ul>
 					</div>
@@ -257,5 +251,3 @@
 		</div>
 <!-- bidding_right_column -->
 	</div>
-</body>
-</html>

@@ -4,16 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link type="text/css" rel="stylesheet"
-	href='<c:url value="/resources/css/items.css"/>' />
-<script type="text/javascript"
-	src='<c:url value="/resources/js/page/items.js" />'></script>
-</head>
-<body>
+<link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/items.css"/>' />
+<script type="text/javascript" src='<c:url value="/resources/js/page/items.js" />'></script>
 	<div id="HomePageOnly-top">
 		<div id="sidebar">
 			<jsp:include page="/sidebar" />
@@ -49,5 +41,3 @@
 			</c:forEach>
 		</div>
 	</div>
-</body>
-</html>
