@@ -53,10 +53,6 @@
   
   
   
-  	<bean id="bidderJdbcDao" class="com.charitybuzz.dao.impl.UserDaoImpl">
-		<constructor-arg ref="dataSource"/>
-	</bean>
-  	<bean id="itemJdbcDao" class="com.charitybuzz.dao.impl.itemDaoImpl">
-		<constructor-arg ref="dataSource"/>
-	</bean>
+	<context:annotation-config/>
+	<context:component-scan base-package="com.charitybuzz" />
 </beans>

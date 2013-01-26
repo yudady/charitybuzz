@@ -24,11 +24,25 @@ tiles		webapp\WEB-INF\jsp\tiles-definitions.xml
 3.apache titles
 
 =========================
-fix sidebar
+1. 得標 :  win the bid
+2. 流標 :  listed/re-listing the bid
+
+3.另外常用在拍賣場上的英文
+
+            下標 : place bid
+            競標 : bidding
+            結標 : end of bidding
+            棄標 : non-paying bid (NPB)
+            得標者 : winning bidder
+=========================
 
 TODO
-item 分割2個表
 財務結算
+1.每分鐘結帳一次
+2.確定得標者
+
+關注
+後台
 
 
 

@@ -1,5 +1,6 @@
 package com.charitybuzz.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -23,7 +24,7 @@ public class ItemDaoImplTest {
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name = "itemJdbcDao")
+	@Resource
 	private ItemDao dao;
 
 	@Test
@@ -44,7 +45,8 @@ public class ItemDaoImplTest {
 	public void insert() {
 		Item domain = new Item();
 		domain.setId(100L);
-		//2L, 1L,"lotDetails", "legalTerms","shipping", 1d, new Date(), new Date(), 1L, 100d
+		// 2L, 1L,"lotDetails", "legalTerms","shipping", 1d, new Date(), new
+		// Date(), 1L, 100d
 		log.debug("[LOG]" + dao.insert(domain));
 	}
 
@@ -66,6 +68,14 @@ public class ItemDaoImplTest {
 	public void findByUserId() {
 		Item u = dao.findById(1L);
 		log.debug("[LOG]" + u);
+	}
+
+	@Test
+	public void findByLotclose() {
+		List<Item> items = dao.findEndBiddingByLotclose(new Date());
+		for (Item item : items) {
+			log.debug("[LOG]" + item);
+		}
 	}
 
 }

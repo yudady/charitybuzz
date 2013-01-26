@@ -23,7 +23,7 @@ public class BidderDaoImplTest {
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Resource(name = "bidderJdbcDao")
+	@Resource
 	private BidderDao userDao;
 
 	@Test

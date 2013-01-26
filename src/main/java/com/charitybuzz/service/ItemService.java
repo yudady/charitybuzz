@@ -14,4 +14,9 @@ public interface ItemService {
 
 	public List<Item> findBySubCategoryId(Long subcategoryId);
 
+	/**
+	 * 找出需要結帳的商品
+	 * @return Item
+	 */
+	public List<Item> findEndBiddingByLotclose();
 }

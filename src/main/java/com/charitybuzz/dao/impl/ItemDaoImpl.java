@@ -1,5 +1,6 @@
 package com.charitybuzz.dao.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,6 +71,17 @@ public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 				.newInstance(getClazz());
 		Map<String, Object> args = new HashMap<String, Object>();
 		args.put("id", subcategoryId);
+		return this.getSimpleJdbcTemplate().query(sql, rm, args);
+	}
+
+	@Override
+	public List<Item> findEndBiddingByLotclose(Date date) {
+		String sql = "SELECT A.* FROM item A WHERE isend = 1 and (a.lotclose - :lotclose ) <= 0 ";
+		
+		BeanPropertyRowMapper<Item> rm = ParameterizedBeanPropertyRowMapper
+				.newInstance(getClazz());
+		Map<String, Object> args = new HashMap<String, Object>();
+		args.put("lotclose", new java.sql.Date(date.getTime()));
 		return this.getSimpleJdbcTemplate().query(sql, rm, args);
 	}
 

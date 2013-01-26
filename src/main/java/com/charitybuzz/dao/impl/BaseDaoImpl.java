@@ -41,8 +41,6 @@ public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport implements
 	@SuppressWarnings("unchecked")
 	public T findById(Long userId) {
 		String sql = "SELECT * FROM " + getTableName() + " WHERE ID = ?";
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("id", userId);
 		return this.getSimpleJdbcTemplate().queryForObject(sql,
 				new BeanPropertyRowMapper<T>(getClazz()), userId);
 

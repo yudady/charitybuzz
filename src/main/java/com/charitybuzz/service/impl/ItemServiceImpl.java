@@ -1,6 +1,7 @@
 package com.charitybuzz.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -54,6 +55,16 @@ public class ItemServiceImpl implements ItemService {
 	public List<Item> findBySubCategoryId(Long subcategoryId) {
 		List<Item> items = itemDao.findBySubCategoryId(subcategoryId);
 		if (items.size() > 0) {
+			return items;
+		}
+		return new ArrayList<Item>();
+	}
+
+	@Override
+	public List<Item> findEndBiddingByLotclose() {
+		List<Item> items = itemDao.findEndBiddingByLotclose(new Date() );
+		if (items.size() > 0) {
+			log.info("需要結帳的商品不存在");
 			return items;
 		}
 		return new ArrayList<Item>();
