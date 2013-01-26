@@ -214,7 +214,14 @@
 			<version>11.2.0</version>
 		</dependency>
 		
-		
+		<!-- dwr -->
+		<dependency>
+			<groupId>org.directwebremoting</groupId>
+			<artifactId>dwr</artifactId>
+			<version>3.0.M1</version>
+		</dependency>
+            
+            
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

@@ -7,11 +7,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet"
 	href='<c:url value="/resources/css/item.css"/>' />
-<script type="text/javascript"
-	src='<c:url value="/resources/js/page/item.js" />'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/page/item.js" />'></script>
+<script type='text/javascript' src='<c:url value="/dwr/engine.js"/>'></script>
+<script type='text/javascript' src='<c:url value="/dwr/util.js"/>'></script>
+<script type='text/javascript' src='<c:url value="/dwr/interface/dwrService.js"/>'></script>
 </head>
 <body>
 	<div id="HomePageOnly-top">

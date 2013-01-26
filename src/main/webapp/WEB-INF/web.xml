@@ -18,7 +18,14 @@
 		<servlet-name>dispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	<!-- Mapping for DWR -->
+	<servlet-mapping>
+	  <servlet-name>dispatcherServlet</servlet-name>
+	  <url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	
 	<error-page>
 		<error-code>404</error-code>
 		<location>/code404.html</location>
