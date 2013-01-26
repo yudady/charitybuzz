@@ -49,11 +49,9 @@ $(function() {
 				return;
 			}
 			
-			
-			
 			$.ajax({
 				type: "POST",
-				url: getSafeUrl("bid"),
+				url: charitybuzz.getSafeUrl("bid"),
 				data: {
 					itemId : itemId,
 					currentBid : currentBid
@@ -65,7 +63,7 @@ $(function() {
 			});
 		}else{
 			//window.location.href = getSafeUrl("login/bidLogin");
-			alert(welcome);
+			alert(charitybuzz.welcome);
 			alert(' 請先登入');
 		}
 		
