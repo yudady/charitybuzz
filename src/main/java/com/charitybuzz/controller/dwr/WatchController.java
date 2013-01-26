@@ -1,5 +1,7 @@
 package com.charitybuzz.controller.dwr;
 
+import javax.annotation.Resource;
+
 import org.directwebremoting.annotations.RemoteMethod;
 import org.directwebremoting.annotations.RemoteProxy;
 import org.slf4j.Logger;
@@ -7,21 +9,35 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.charitybuzz.service.WatchingService;
+
 @Controller
-@RemoteProxy(name="watch")
+@RemoteProxy(name = "watch")
 @Transactional
 public class WatchController {
-	
+
 	/** logger. */
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	
+	@Resource
+	private WatchingService watchingService;
+
 	@RemoteMethod
-	public String item(int itemId) {
+	public String item(Long itemId, Long bidderId, String watchStatus) {
 		log.debug("[watch]" + itemId);
-		
-		
-		return "watch" + itemId;
+		log.debug("[watch]" + bidderId);
+		log.debug("[watch]" + watchStatus);
+		if ("1".equals(watchStatus)) {
+			// insert
+			int i = watchingService.addBidderWaching(bidderId , itemId);
+		} else {
+			int i = watchingService.delBidderWaching(bidderId , itemId);
+			// delete
+		}
+		// .
+
+		return "watch itemId=" + itemId + " bidderId=" + bidderId
+				+ " watchStatus=" + watchStatus;
 	}
 
 }

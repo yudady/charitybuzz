@@ -227,8 +227,9 @@
 						<a target="_blank" href="http://www.gardenofdreamsfoundation.org/">The Garden of Dreams Foundation</a>
 					</div>
 					<div id="watchQuestion">
+						<input type="checkbox" id="watchBox" name="watchBox" />
 						<ul>
-							<li><a id="watch">Watch This Item</a></li>
+							<li id="watch"><a>Watch This Item</a></li>
 							<li><a href='<c:url value="/contact_us"/>'>Ask a Question</a></li>
 						</ul>
 					</div>

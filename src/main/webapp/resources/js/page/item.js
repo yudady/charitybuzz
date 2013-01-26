@@ -33,13 +33,13 @@ $(function() {
 	 * bidding
 	 */
 	$("#bid_submit").click(function(){
-		if (isBidderLogin()){
+		if (charitybuzz.isBidderLogin()){
 			$.log("login");
 			
 			var itemId = $("#bid_itemId").val();
 			var currentBid = $("#bid_amount").val() ;
 			if(currentBid == ""){
-				alert(' 請先輸入金額');
+				alert(charitybuzz.itemNoMoney);
 				return;
 			}
 			
@@ -62,19 +62,35 @@ $(function() {
 				}
 			});
 		}else{
-			//window.location.href = getSafeUrl("login/bidLogin");
-			alert(charitybuzz.welcome);
-			alert(' 請先登入');
+			alert(charitybuzz.itemNoLogin);
 		}
 		
 	});
 	
-	
 	$("#watch").click(function(){
+		
+		
+		var bidderId = charitybuzz.getBidderId();
+		if(!bidderId){
+			alert(charitybuzz.itemNoLogin);
+			return ;
+		}
+		
+		
 		var itemId = $("#bid_itemId").val() ;
-		watch.item( itemId , {
+		var watchStatus = "";
+		
+		if ($("#watchBox").prop("checked")){
+			watchStatus = "0";
+			$("#watchBox").prop("checked", false);
+		}else{
+			$("#watchBox").prop("checked", true);
+			watchStatus = "1";
+		}
+		
+		watch.item( itemId ,bidderId ,watchStatus , {
 			callback : function(data){
-				alert(data);
+				$.log(data);
 			},
 			errorHandler : function(){
 				alert("We can't add those values!");

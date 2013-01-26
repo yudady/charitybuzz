@@ -259,4 +259,7 @@ COMMENT ON COLUMN watching.id IS '關注id';
 COMMENT ON COLUMN watching.bidderId IS '投標者id';
 COMMENT ON COLUMN watching.itemId IS '商品Id';
 
+Create Sequence Seq_watching;
+
+
 commit;

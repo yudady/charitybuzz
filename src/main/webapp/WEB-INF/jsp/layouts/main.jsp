@@ -25,10 +25,20 @@
 			getSafeUrl : function(path) {
 				return baseUrl(path) ;
 			},
+			isBidderLogin : function(){
+				return $('#logIn').contents().find("#logout").is(":visible") ;
+			},
+			getBidderId : function(){
+				return $('#logIn').contents().find("#bidderId").val() ;
+			},
 			//js spring message code
-			welcome : '<spring:message code="welcome" />'
+			itemNoLogin : '<spring:message code="item.js.no.login" />',
+			itemNoMoney : '<spring:message code="item.js.no.money" />'
 		};
 	}();
+	
+	
+	
 </script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.9.0.min.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery-ui-1.10.0.custom.min.js"/>'></script>
