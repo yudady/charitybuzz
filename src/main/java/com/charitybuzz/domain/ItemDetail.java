@@ -40,7 +40,7 @@ public class ItemDetail {
 	/**
 	 * Bidding_Rule_ID 使用哪個id來當規則
 	 */
-	private int biddingRuleId;
+	private int auctionRuleId;
 
 	public Long getId() {
 		return id;
@@ -90,12 +90,12 @@ public class ItemDetail {
 		this.winningBidderId = winningBidderId;
 	}
 
-	public int getBiddingRuleId() {
-		return biddingRuleId;
+	public int getAuctionRuleId() {
+		return auctionRuleId;
 	}
 
-	public void setBiddingRuleId(int biddingRuleId) {
-		this.biddingRuleId = biddingRuleId;
+	public void setAuctionRuleId(int auctionRuleId) {
+		this.auctionRuleId = auctionRuleId;
 	}
 
 	@Override

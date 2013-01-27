@@ -81,7 +81,7 @@ public class Item {
 	private List<Picture> pictures;
 
 	private Long difDay;
-	
+
 	// ====================================================
 
 	public Long getId() {
@@ -206,7 +206,12 @@ public class Item {
 			return null;
 		}
 		long diff = this.getLotClose().getTime() - new Date().getTime();
-		return diff / (1000 * 60 * 60 * 24);
+		this.setDifDay(diff / (1000 * 60 * 60 * 24));
+		return this.difDay;
+	}
+
+	void setDifDay(Long difDay) {
+		this.difDay = difDay;
 	}
 
 	@Override

@@ -43,7 +43,7 @@ lotDetails NVARCHAR2(2000) NOT NULL ,
 legalTerms NVARCHAR2(2000) NOT NULL ,
 shipping NVARCHAR2(2000) NOT NULL ,
 winningBidderId NUMBER(10) NULL ,
-biddingRuleId NUMBER(10) NOT NULL 
+auctionRuleId NUMBER(10) NOT NULL 
 )
 ;
 COMMENT ON COLUMN itemDetail.id IS '商品詳細記錄id';
@@ -52,7 +52,7 @@ COMMENT ON COLUMN itemDetail.lotDetails IS 'LOTDETAILS訊息';
 COMMENT ON COLUMN itemDetail.legalTerms IS 'LEGALTERMS訊息';
 COMMENT ON COLUMN itemDetail.shipping IS 'SHIPPING訊息';
 COMMENT ON COLUMN itemDetail.winningBidderId IS '當前贏家id Bidder_ID';
-COMMENT ON COLUMN itemDetail.biddingRuleId IS 'Bidding_Rule_ID 使用哪個id來當規則';
+COMMENT ON COLUMN itemDetail.auctionRuleId IS '使用哪個AUCTIONRULE_ID來當規則';
 
 INSERT INTO itemDetail VALUES (1,1, 'LOTDETAILS訊息', 'LEGALTERMS訊息', 'SHIPPING訊息',1,1);
 INSERT INTO itemDetail VALUES (2,2, 'LOTDETAILS訊息', 'LEGALTERMS訊息', 'SHIPPING訊息',1,1);
