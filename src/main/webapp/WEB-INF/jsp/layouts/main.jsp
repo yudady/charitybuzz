@@ -26,10 +26,10 @@
 				return baseUrl(path) ;
 			},
 			isBidderLogin : function(){
-				return $('#logIn').contents().find("#logout").is(":visible") ;
+				return $("#login #logout").is(":visible") ;
 			},
 			getBidderId : function(){
-				return $('#logIn').contents().find("#bidderId").val() ;
+				return $("#login #bidderId").val() ;
 			},
 			//js spring message code
 			itemNoLogin : '<spring:message code="item.js.no.login" />',

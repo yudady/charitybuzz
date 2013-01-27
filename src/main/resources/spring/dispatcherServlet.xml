@@ -68,7 +68,9 @@
 	
 	<!-- spring 3.0 定時調度器-->
 	<task:annotation-driven />
-	<bean id="schedulerItem" class="com.charitybuzz.scheduler.SchedulerItem" />
+	<bean id="schedulerItem" class="com.charitybuzz.scheduler.SchedulerItem" >
+		<property name="open" value="${scheduler.open}"/>
+	</bean>
 	<task:scheduled-tasks>
 	<!-- 
 		<task:scheduled ref="schedulerItem" method="sayTenSec" cron="*/10 * * * * ?" />
@@ -83,6 +85,7 @@
 		
 		
 	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 	<dwr:annotation-config />
 	<dwr:url-mapping />
 	<dwr:controller id="dwrController" debug="true" />
