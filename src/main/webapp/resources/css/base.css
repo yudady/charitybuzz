@@ -16,9 +16,7 @@ ul {
     margin-top:20px;
 }
 #header {
-	background-color: green;
 	height: 110px;
-	margin-bottom:20px;
 }
 #logo {
     width: 500px;
@@ -32,7 +30,6 @@ ul {
 #login{
 	width: 350px;
 	height: 100px;
-    background-color: red;
     position:relative;
     top:-65px;
   	left:630px; 
@@ -40,19 +37,20 @@ ul {
 
 
 #page {
-	background-color: blue;
+    background-color: #CCC;
 }
 #nav {
+	font-size:16px;
 	width: 500px;
-	float: left;
+	margin-left: 10px;
+    position:relative;
+    top:20px;
 }
 #nav ul {
-	background:#fff ;
 	color:green;
 	height:30px;
 	line-height:30px;
 	text-align:left;
-	background-color: pink;
 }
 #nav ul li {
 	display:inline;
@@ -65,16 +63,17 @@ ul {
 	color:#f60;
 }
 #social {
+	font-size:16px;
 	width: 400px;
-	float: right;
+    position:relative;
+    top:-10px;
+  	left:530px; 
 }
 #social ul {
-	background:#fff ;
 	color:green;
 	height:30px;
 	line-height:30px;
 	text-align:left;
-	background-color: orange;
 }
 #social ul li {
 	display:inline;
