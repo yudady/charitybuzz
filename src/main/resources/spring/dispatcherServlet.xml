@@ -28,7 +28,7 @@
 		<property name="locations">
 			<list>
 				<!-- 標准配置 -->
-				<value>classpath*:/spring/jdbc.properties</value>
+				<value>classpath*:/system.properties</value>
 			</list>
 		</property>
 	</bean>

@@ -3,7 +3,7 @@ package com.charitybuzz.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +47,7 @@ public class ItemController {
 
 	@RequestMapping(value = "/{itemId}", method = RequestMethod.GET)
 	public ModelAndView index(@PathVariable Long itemId,
-			HttpServletRequest request, ModelAndView mav) {
+			HttpSession session, ModelAndView mav) {
 		log.debug("[itemId]=" + itemId);
 		Item item = itemService.findById(itemId);
 		mav.setViewName("item");
@@ -70,13 +70,16 @@ public class ItemController {
 			return mav;
 		}
 		item.setPictures(pictures);
-		if(request.getSession() != null && request.getSession().getAttribute("bidder") != null){
-			Bidder bidder = (Bidder) request.getSession().getAttribute("bidder");
+		if(session.getAttribute("bidder") != null){
+			Bidder bidder = (Bidder) session.getAttribute("bidder");
 			if (bidder != null) {
 				boolean isWatching = watchingService.isWatch(bidder.getId() , itemId);
 				mav.addObject("isWatching", isWatching);
 			}
 		}
+		
+		//TODO
+		//auctionRuleId
 		return mav;
 	}
 
