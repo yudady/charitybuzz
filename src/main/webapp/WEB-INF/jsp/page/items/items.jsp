@@ -13,31 +13,37 @@
 		<div id="mainRight">
 
 			<c:forEach items="${items}" var="item">
-				<div>
-					<a href='<c:url value="/item/${item.id}" />'><img
-						class="mainPictureLocation"
-						src='<c:url value="/resources/upload/mainpic/${item.mainPictureLocation}" />' /></a>
-					<!-- /lotPhoto -->
-					<h3>
+				<div class="mainRightItem">
+					<span>
+						<a href='<c:url value="/item/${item.id}" />'>
+							<img class="mainPictureLocation" src='<c:url value="/resources/upload/mainpic/${item.mainPictureLocation}" />' />
+						</a>
+					</span>
+					<span class="itemsDetail" >
 						<a href='<c:url value="/item/${item.id}" />'>${item.title}</a>
-					</h3>
-					<dl>
-						<dt>Current Bid:</dt>
-						<dd>${item.currentBid}</dd>
-						<dt>Number of Bids:</dt>
-						<dd>????</dd>
-						<dt>Minimum Next Bid:</dt>
-						<dd>${item.minNextBid}</dd>
-						<dt>Estimated Value:</dt>
-						<dd>${item.estimatedValue}</dd>
-						<dt>Lot Number:</dt>
-						<dd>${item.id}</dd>
-						<dt>Lot Closes:</dt>
-						<dd>${item.lotClose}</dd>
-					</dl>
-					<a href="#"><span>Bid now</span></a>
+						<table>
+							<tr>
+								<th>Current Bid:</th><td>${item.currentBid}1</td>
+							</tr>
+							<tr>
+								<th>Number of Bids:</th><td>????</td>
+							</tr>
+							<tr>
+								<th>Minimum Next Bid:</th><td>${item.minNextBid}</td>
+							</tr>
+							<tr>
+								<th>Estimated Value:</th><td>${item.estimatedValue}</td>
+							</tr>
+							<tr>
+								<th>Lot Number:</th><td>${item.id}</td>
+							</tr>
+							<tr>
+								<th>Lot Closes:</th><td>${item.lotClose}</td>
+							</tr>
+						</table>
+						<a class="itemsDetailBidNow" href="#" ><span>Bid now</span></a>
+					</span>
 				</div>
-				<hr />
 			</c:forEach>
 		</div>
 	</div>

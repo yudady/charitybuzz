@@ -7,13 +7,26 @@
 #mainRight {
 	width: 730px;
 	float:left;
-	background-color: #CCC;
-	margin-top: 10px;
+	background-color: white;
 }
-#mainRight a{
-	background-color: yellow;
+#mainRight .mainRightItem{
+	margin:20px; 
 }
-#mainRight .mainPictureLocation {
+#mainRight a img.mainPictureLocation {
 	width: 200px;
 	height: 175px;
+}
+#mainRight .itemsDetail {
+	width: 400px;
+	float: right;
+}
+#mainRight .itemsDetail a{
+	font-size:24px;
+	text-decoration:none;
+}
+#mainRight .itemsDetail a.itemsDetailBidNow{
+	margin-left: 300px;
+}
+#mainRight th{
+	width: 150px;
 }
