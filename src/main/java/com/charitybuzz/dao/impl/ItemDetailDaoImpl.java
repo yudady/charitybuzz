@@ -31,11 +31,6 @@ public class ItemDetailDaoImpl extends BaseDaoImpl<ItemDetail> implements ItemDe
 	}
 
 	@Override
-	public String getTableName() {
-		return "itemdetail";
-	}
-
-	@Override
 	public int insert(ItemDetail item) {
 		// TODO Auto-generated method stub
 		return 0;

@@ -1,8 +1,17 @@
 Max Bid
-This item supports Max Bidding! The bid you enter will automatically be a Max Bid. If your Max Bid is higher than the next Bid Increment, the bid will only be raised to the next Bid Increment. If someone else bids on this item for an amount less than your Max Bid, then you will automatically beat them and your bid will be increased to the Bid Increment necessary to beat them (or increased to your Max Bid itself, if that's lower).
+This item supports Max Bidding! 
+The bid you enter will automatically be a Max Bid. 
+If your Max Bid is higher than the next Bid Increment, 
+the bid will only be raised to the next Bid Increment. 
+If someone else bids on this item for an amount less than your Max Bid, 
+then you will automatically beat them 
+and your bid will be increased to the Bid Increment necessary to beat them 
+(or increased to your Max Bid itself, if that's lower).
 
 Bid Increment
-To keep bidding competitive and interesting, you are required to increase the bid by an amount comparable to the current bid itself. Here's the guide:
+To keep bidding competitive and interesting, 
+you are required to increase the bid by an amount comparable to the current bid itself. 
+Here's the guide:
 
 Current Bid Amount						Bid Increment
 250 or less								25

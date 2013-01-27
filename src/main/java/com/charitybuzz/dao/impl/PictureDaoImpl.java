@@ -31,10 +31,6 @@ public class PictureDaoImpl extends BaseDaoImpl<Picture> implements PictureDao {
 		return Picture.class;
 	}
 
-	@Override
-	public String getTableName() {
-		return "picture";
-	}
 
 	@Override
 	public int insert(Picture picture) {

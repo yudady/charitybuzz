@@ -190,30 +190,44 @@ INSERT INTO picture VALUES ('6', '2', '1', 'https://s3.amazonaws.com/images.char
 
 
 
-
+--==============================================
 CREATE TABLE auctionRule (
 id NUMBER(10) NOT NULL PRIMARY KEY,
-ruleNumber NUMBER(10) NOT NULL 
+name NVARCHAR2(2000) NULL ,
+maxBidDesc NVARCHAR2(2000) NULL ,
+maxBidIncrementDesc NVARCHAR2(2000) NULL 
 )
 ;
 COMMENT ON COLUMN auctionRule.id IS '規則id';
-
-
-INSERT INTO auctionRule VALUES ('1', 1);
-INSERT INTO auctionRule VALUES ('2', 2);
-
-
-
+COMMENT ON COLUMN auctionRule.name IS '描述';
+COMMENT ON COLUMN auctionRule.maxBidDesc IS '描述';
+COMMENT ON COLUMN auctionRule.maxBidIncrementDesc IS '描述';
+drop sequence seq_auctionRule;
+create sequence seq_auctionRule;
+INSERT INTO auctionRule VALUES (seq_auctionrule.nextval, 'name','maxBidDesc','maxBidIncrementDesc');
+--==============================================
 CREATE TABLE auctionRuleDetail (
 id NUMBER(10) NOT NULL PRIMARY KEY,
-auctionRuleId NUMBER(10) NOT NULL 
+auctionRuleId NUMBER(10) NOT NULL ,
+amountValue NUMBER(10) NOT NULL ,
+incrementValue NUMBER(10) NOT NULL
 )
 ;
 COMMENT ON COLUMN auctionRuleDetail.id IS '規則明細id';
 COMMENT ON COLUMN auctionRuleDetail.auctionRuleId IS '規則id';
-INSERT INTO auctionRuleDetail VALUES ('1', 1);
-INSERT INTO auctionRuleDetail VALUES ('2', 2);
-
+COMMENT ON COLUMN auctionRuleDetail.amountValue IS '最大值';
+COMMENT ON COLUMN auctionRuleDetail.incrementValue IS '增加值';
+drop sequence seq_auctionRuleDetail;
+create sequence seq_auctionRuleDetail;
+INSERT INTO auctionRuleDetail VALUES (seq_auctionRuleDetail.nextval, 2 , 250 , 25);
+INSERT INTO auctionRuleDetail VALUES (seq_auctionRuleDetail.nextval, 2 , 500 , 50);
+INSERT INTO auctionRuleDetail VALUES (seq_auctionRuleDetail.nextval, 2 , 1000 , 100);
+INSERT INTO auctionRuleDetail VALUES (seq_auctionRuleDetail.nextval, 2 , 5000 , 250);
+INSERT INTO auctionRuleDetail VALUES (seq_auctionRuleDetail.nextval, 2 , 10000 , 500);
+INSERT INTO auctionRuleDetail VALUES (seq_auctionRuleDetail.nextval, 2 , 25000 , 1000);
+INSERT INTO auctionRuleDetail VALUES (seq_auctionRuleDetail.nextval, 2 , 50000 , 2500);
+INSERT INTO auctionRuleDetail VALUES (seq_auctionRuleDetail.nextval, 2 , 10000000 , 5000);
+--==============================================
 
 CREATE TABLE bidder (
 id NUMBER(10) NOT NULL PRIMARY KEY,

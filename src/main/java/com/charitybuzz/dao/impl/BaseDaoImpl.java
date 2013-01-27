@@ -20,7 +20,13 @@ public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport implements
 	@SuppressWarnings("rawtypes")
 	public abstract Class getClazz();
 
-	public abstract String getTableName();
+	public String getTableName() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(" ");
+		sb.append(this.getClass().getSimpleName().replace("DaoImpl", ""));
+		sb.append(" ");
+		return sb.toString();
+	};
 
 	@SuppressWarnings("unchecked")
 	public List<T> findAll() {

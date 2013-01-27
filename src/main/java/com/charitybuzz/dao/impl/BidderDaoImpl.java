@@ -32,11 +32,6 @@ public class BidderDaoImpl extends BaseDaoImpl<Bidder> implements BidderDao {
 	}
 
 	@Override
-	public String getTableName() {
-		return "bidder";
-	}
-
-	@Override
 	public int insert(Bidder user) {
 		String sql = "INSERT INTO bidder (id,firstName,lastName,screenName,passWord,email,promoCode) "
 				+ " VALUES (:id, :firstName, :lastName, :screenName, :passWord, :email, :promoCode) ";

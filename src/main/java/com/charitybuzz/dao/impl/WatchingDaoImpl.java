@@ -32,11 +32,6 @@ public class WatchingDaoImpl extends BaseDaoImpl<Watching>
 	}
 
 	@Override
-	public String getTableName() {
-		return "Watching";
-	}
-
-	@Override
 	public int insert(Watching watching) {
 		String sql = "INSERT INTO "
 				+ getTableName()

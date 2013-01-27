@@ -33,11 +33,6 @@ public class SubCategoryDaoImpl extends BaseDaoImpl<SubCategory> implements
 	}
 
 	@Override
-	public String getTableName() {
-		return "subCategory";
-	}
-
-	@Override
 	public int insert(SubCategory catalogItem) {
 		String sql = " ";
 		return super.insert(sql, catalogItem);

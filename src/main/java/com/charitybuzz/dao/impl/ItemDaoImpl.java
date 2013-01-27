@@ -34,11 +34,6 @@ public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 	}
 
 	@Override
-	public String getTableName() {
-		return "item";
-	}
-
-	@Override
 	public int insert(Item item) {
 		String sql = "INSERT INTO t_item (ID,LOTDETAILS,LEGALTERMS,SHIPPING,CURRENTBID,STARTDATE,ENDDATE,USERID,ESTIMATEDVALUE) "
 				+ " VALUES (:id, :lotDetails, :legalTerms, :shipping, :currentBid, :startDate, :endDate , :userId, :estimatedValue) ";

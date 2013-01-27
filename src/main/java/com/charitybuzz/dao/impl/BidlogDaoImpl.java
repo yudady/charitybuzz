@@ -28,11 +28,6 @@ public class BidlogDaoImpl extends BaseDaoImpl<Bidlog>
 	}
 
 	@Override
-	public String getTableName() {
-		return "bidlog";
-	}
-
-	@Override
 	public int insert(Bidlog itemHistory) {
 		String sql = "";
 		return super.insert(sql, itemHistory);
