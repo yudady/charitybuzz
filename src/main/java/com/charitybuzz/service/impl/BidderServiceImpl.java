@@ -29,7 +29,7 @@ public class BidderServiceImpl implements BidderService {
 	public Bidder findByEmail(String email) {
 		Bidder binder = null;
 		try {
-			binder = bidderDao.findByEmail(email);
+			binder = bidderDao.findByColumns(new String[]{"email"}, new Object[]{email});
 		} catch (EmptyResultDataAccessException t) {
 			log.warn("投標者不存在", t);
 		}

@@ -33,51 +33,42 @@ public class ItemDaoImpl extends BaseDaoImpl<Item> implements ItemDao {
 		return Item.class;
 	}
 
-	@Override
-	public int insert(Item item) {
-		String sql = "INSERT INTO t_item (ID,LOTDETAILS,LEGALTERMS,SHIPPING,CURRENTBID,STARTDATE,ENDDATE,USERID,ESTIMATEDVALUE) "
-				+ " VALUES (:id, :lotDetails, :legalTerms, :shipping, :currentBid, :startDate, :endDate , :userId, :estimatedValue) ";
-		return super.insert(sql, item);
-	}
-
-	@Override
-	public int update(Item item) {
-		String sql = " UPDATE t_item SET LOTDETAILS=:lotDetails, LEGALTERMS=:legalTerms,"
-				+ "SHIPPING=:shipping,CURRENTBID=:currentBid,STARTDATE=:startDate,ENDDATE=:endDate,"
-				+ "USERID=:userId,ESTIMATEDVALUE=:estimatedValue WHERE ID=:id ";
-		return super.update(sql, item);
-	}
 
 	@Override
 	public List<Item> findByCategoryId(Long categoryId) {
 		String sql = "select * from " + getTableName()
 				+ " where status = 1 and CATEGORYID=:categoryId";
-		BeanPropertyRowMapper<Item> rm = ParameterizedBeanPropertyRowMapper
+		BeanPropertyRowMapper<Item> rowMapper = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
-		Map<String, Object> args = new HashMap<String, Object>();
-		args.put("categoryId", categoryId);
-		return this.getSimpleJdbcTemplate().query(sql, rm, args);
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("categoryId", categoryId);
+		return this.getNamedParameterJdbcTemplate().query(sql, paramMap,
+				rowMapper);
+
 	}
 
 	@Override
 	public List<Item> findBySubCategoryId(Long subcategoryId) {
 		String sql = "SELECT b.* FROM subcategory_item a, item b WHERE b.status = 1 and b.ID = a.itemid AND a.SUBCATALOGITEMID = :id ";
-		BeanPropertyRowMapper<Item> rm = ParameterizedBeanPropertyRowMapper
+		BeanPropertyRowMapper<Item> rowMapper = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
-		Map<String, Object> args = new HashMap<String, Object>();
-		args.put("id", subcategoryId);
-		return this.getSimpleJdbcTemplate().query(sql, rm, args);
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("id", subcategoryId);
+		return this.getNamedParameterJdbcTemplate().query(sql, paramMap,
+				rowMapper);
+
 	}
 
 	@Override
 	public List<Item> findEndBiddingByLotclose(Date date) {
 		String sql = "SELECT A.* FROM item A WHERE status = 1 and (a.lotclose - :lotclose ) <= 0 ";
-		
-		BeanPropertyRowMapper<Item> rm = ParameterizedBeanPropertyRowMapper
+		BeanPropertyRowMapper<Item> rowMapper = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
-		Map<String, Object> args = new HashMap<String, Object>();
-		args.put("lotclose", new java.sql.Date(date.getTime()));
-		return this.getSimpleJdbcTemplate().query(sql, rm, args);
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("lotclose", new java.sql.Date(date.getTime()));
+		return this.getNamedParameterJdbcTemplate().query(sql, paramMap,
+				rowMapper);
+
 	}
 
 }

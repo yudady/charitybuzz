@@ -54,6 +54,7 @@ public class BidController {
 			
 			return new ReturnMsg("success");
 		}
+		//TODO warie bidlog
 		log.debug("[LOG][item.getMinNextBid()]" + item.getMinNextBid());
 		return new ReturnMsg("fail", 1);
 	}

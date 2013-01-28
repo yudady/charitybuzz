@@ -247,7 +247,7 @@ COMMENT ON COLUMN bidder.passWord IS 'passWord';
 COMMENT ON COLUMN bidder.email IS 'email';
 COMMENT ON COLUMN bidder.promoCode IS 'promoCode';
 
-
+create sequence seq_bidder;
 
 INSERT INTO bidder VALUES ('1', 'lin', 'tommy', 'yudady', '123456', 'yu_dady@yahoo.com.tw', '123456');
 INSERT INTO bidder VALUES ('2', 'lin', 'kevin', 'kevin', '123456', 'kevin@yahoo.com.tw', '123456');
@@ -272,6 +272,7 @@ itemId NUMBER(10) NOT NULL
 COMMENT ON COLUMN watching.id IS '關注id';
 COMMENT ON COLUMN watching.bidderId IS '投標者id';
 COMMENT ON COLUMN watching.itemId IS '商品Id';
+
 
 Create Sequence Seq_watching;
 --Seq_watching.NEXTVAL

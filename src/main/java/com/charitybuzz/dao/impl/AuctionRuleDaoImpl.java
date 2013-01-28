@@ -9,8 +9,8 @@ import com.charitybuzz.dao.AuctionRuleDao;
 import com.charitybuzz.domain.AuctionRule;
 
 @Repository
-public class AuctionRuleDaoImpl extends BaseDaoImpl<AuctionRule>
-		implements AuctionRuleDao {
+public class AuctionRuleDaoImpl extends BaseDaoImpl<AuctionRule> implements
+		AuctionRuleDao {
 
 	/**
 	 * 注入DataSource
@@ -26,20 +26,5 @@ public class AuctionRuleDaoImpl extends BaseDaoImpl<AuctionRule>
 	public Class<AuctionRule> getClazz() {
 		return AuctionRule.class;
 	}
-
-
-	@Override
-	public int insert(AuctionRule t) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int update(AuctionRule t) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
 
 }

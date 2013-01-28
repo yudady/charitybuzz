@@ -4,23 +4,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
-import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 
 import com.charitybuzz.dao.BaseDao;
 
-public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport implements
-		BaseDao<T> {
-
+public abstract class BaseDaoImpl<T> extends NamedParameterJdbcDaoSupport
+		implements BaseDao<T> {
+	
+	/** logger. */
+	Logger log = LoggerFactory.getLogger(this.getClass());
+	
+	
 	@SuppressWarnings("rawtypes")
-	public abstract Class getClazz();
+	protected abstract Class getClazz();
 
-	public String getTableName() {
+	protected String getTableName() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(" ");
 		sb.append(this.getClass().getSimpleName().replace("DaoImpl", ""));
@@ -29,80 +31,56 @@ public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport implements
 	};
 
 	@SuppressWarnings("unchecked")
+	@Override
 	public List<T> findAll() {
 		String sql = "select * from " + getTableName() + " order by id desc";
-		BeanPropertyRowMapper<T> rm = ParameterizedBeanPropertyRowMapper
+		BeanPropertyRowMapper<T> rowMapper = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
-		return this.getSimpleJdbcTemplate().query(sql, rm,
-				new HashMap<String, Object>());
+		return this.getJdbcTemplate().query(sql, rowMapper);
 	}
 
-	public int insert(String sql, T user) {
-		SqlParameterSource ps = new BeanPropertySqlParameterSource(user);
-		KeyHolder keyHolder = new GeneratedKeyHolder();
-		return this.getSimpleJdbcTemplate().getNamedParameterJdbcOperations()
-				.update(sql, ps, keyHolder);
-	}
-
-	@SuppressWarnings("unchecked")
-	public T findById(Long userId) {
-		String sql = "SELECT * FROM " + getTableName() + " WHERE ID = ?";
-		return this.getSimpleJdbcTemplate().queryForObject(sql,
-				new BeanPropertyRowMapper<T>(getClazz()), userId);
+	@Override
+	public T findById(Long Id) {
+		List<T> lists = this.findListByColumn("id", Id);
+		if(lists.size() > 0){
+			return lists.get(0);
+		}
+		return null;
 
 	}
 
+	@Override
 	public int findTotalCount() {
 		String sql = " select count(id) from " + getTableName();
-		return this.getSimpleJdbcTemplate().queryForInt(sql,
+		return this.getNamedParameterJdbcTemplate().queryForInt(sql,
 				new HashMap<String, Object>());
 	}
 
-	public int update(String sql, T user) {
-		SqlParameterSource sp = new BeanPropertySqlParameterSource(user);
-		return this.getSimpleJdbcTemplate().update(sql, sp);
-	}
-
+	@Override
 	public int delete(Long userId) {
 		String sql = "delete from " + getTableName() + " where id=:id";
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("id", userId);
-		return this.getSimpleJdbcTemplate().getNamedParameterJdbcOperations()
-				.update(sql, paramMap);
+		return this.getNamedParameterJdbcTemplate().update(sql, paramMap);
 	}
 
-	public int updateNameById(String column, Long id, Object obj) {
-		StringBuilder sql = new StringBuilder();
-		sql.append(" UPDATE ");
-		sql.append(getTableName());
-		sql.append(" SET ");
-		sql.append(column);
-		sql.append("=:");
-		sql.append(column);
-		sql.append(" WHERE status = 1 and ID=:id ");
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("id", id);
-		paramMap.put(column, obj);
-		System.out.println("[LOG][SQL]" + sql.toString());
-		return this.getSimpleJdbcTemplate().getNamedParameterJdbcOperations()
-				.update(sql.toString(), paramMap);
-	}
-
+	@Override
 	public int updateNamesById(String[] columns, Long id, Object[] objs) {
-		StringBuilder sql = new StringBuilder();
-		sql.append(" UPDATE ");
-		sql.append(getTableName());
-		sql.append(" SET ");
+		StringBuilder sb = new StringBuilder();
+		sb.append(" UPDATE ");
+		sb.append(getTableName());
+		sb.append(" SET ");
 		for (int i = 0; i < columns.length; i++) {
 			String column = columns[i];
-			sql.append(column);
-			sql.append("=:");
-			sql.append(column);
+			sb.append(column);
+			sb.append("=:");
+			sb.append(column);
 			if (i < (columns.length - 1)) {
-				sql.append(" , ");
+				sb.append(" , ");
 			}
 		}
-		sql.append(" WHERE ID=:id ");
+		sb.append(" WHERE ID=:id ");
+		log.debug("[SQL]" + sb.toString());
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("id", id);
 		for (int i = 0; i < columns.length; i++) {
@@ -110,7 +88,81 @@ public abstract class BaseDaoImpl<T> extends SimpleJdbcDaoSupport implements
 			Object obj = objs[i];
 			paramMap.put(column, obj);
 		}
-		return this.getSimpleJdbcTemplate().getNamedParameterJdbcOperations()
-				.update(sql.toString(), paramMap);
+		return this.getNamedParameterJdbcTemplate().update(sb.toString(),
+				paramMap);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public T findByColumns(String[] columns, Object[] objs) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("SELECT * FROM ");
+		sb.append(getTableName());
+		sb.append(" WHERE 1=1");
+		for (int i = 0; i < columns.length; i++) {
+			String column = columns[i];
+			sb.append(" AND ");
+			sb.append(column);
+			sb.append("=:");
+			sb.append(column);
+		}
+		log.debug("[SQL]" + sb.toString());
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		for (int i = 0; i < columns.length; i++) {
+			String column = columns[i];
+			Object obj = objs[i];
+			paramMap.put(column, obj);
+		}
+		return (T) this.getNamedParameterJdbcTemplate().queryForObject(
+				sb.toString(), paramMap, getClazz());
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> findListByColumn(String nameId, Long id) {
+		String sql = "select * from " + getTableName() + " where " + nameId
+				+ "=:" + nameId;
+
+		BeanPropertyRowMapper<T> rowMapper = ParameterizedBeanPropertyRowMapper
+				.newInstance(getClazz());
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put(nameId, id);
+		return (List<T>) this.getNamedParameterJdbcTemplate().query(sql,
+				paramMap, rowMapper);
+
+	}
+
+	@Override
+	public int insert(String[] columns, Object[] objs) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("INSERT INTO ");
+		sb.append(getTableName().trim());
+		sb.append(" (id");
+
+		for (int i = 0; i < columns.length; i++) {
+			String column = columns[i];
+			sb.append("," + column);
+		}
+		sb.append(" ) VALUES ( seq_");
+		sb.append(getTableName().trim());
+		sb.append(".NEXTVAL");
+		for (int i = 0; i < columns.length; i++) {
+			String column = columns[i];
+			sb.append(", :" + column);
+		}
+		sb.append(" ) ");
+
+		log.debug("[SQL]" + sb.toString());
+
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		for (int i = 0; i < columns.length; i++) {
+			String column = columns[i];
+			Object obj = objs[i];
+			paramMap.put(column, obj);
+		}
+		return this.getNamedParameterJdbcTemplate().update(sb.toString(),
+				paramMap);
+
 	}
 }

@@ -32,6 +32,14 @@ public class ItemDaoImplTest {
 	private ItemDetailDao itemDetailDao;
 
 	@Test
+	public void ItemDetails() {
+		List<ItemDetail> ids = itemDetailDao.findListByColumn("itemId", 1L);
+		for (ItemDetail it : ids) {
+			log.debug("[LOG]" + it);
+		}
+	}
+
+	@Test
 	public void findTotalCount() {
 		log.debug("[LOG]" + itemDao.findTotalCount());
 	}
@@ -49,9 +57,6 @@ public class ItemDaoImplTest {
 	public void insert() {
 		Item domain = new Item();
 		domain.setId(100L);
-		// 2L, 1L,"lotDetails", "legalTerms","shipping", 1d, new Date(), new
-		// Date(), 1L, 100d
-		log.debug("[LOG]" + itemDao.insert(domain));
 	}
 
 	@Test
@@ -59,7 +64,6 @@ public class ItemDaoImplTest {
 	public void update() {
 		Item domain = new Item();
 		domain.setId(2L);
-		log.debug("[LOG]" + itemDao.update(domain));
 	}
 
 	@Test
@@ -80,25 +84,26 @@ public class ItemDaoImplTest {
 		List<Item> items = itemDao.findEndBiddingByLotclose(new Date());
 		for (Item item : items) {
 			log.debug("[LOG]" + item);
-			//把商品更新為結標
-			itemDao.updateNameById("status", item.getId(), 0);
+			// 把商品更新為結標
+			itemDao.updateNamesById(new String[] { "status" }, item.getId(),
+					new Object[] { 0 });
 			ItemDetail itemDetail = itemDetailDao.findByItemId(item.getId());
-			//winning bidder
+			// winning bidder
 			log.debug("[LOG]" + itemDetail.getWinningBidderId());
 		}
 	}
-	
-	
+
 	@Test
 	@Rollback(false)
 	public void noEndBidding() {
 		List<Item> items = itemDao.findAll();
 		for (Item item : items) {
 			log.debug("[LOG]" + item);
-			//把商品更新為未結標
-			itemDao.updateNameById("status", item.getId(), 1);
+			// 把商品更新為未結標
+			itemDao.updateNamesById(new String[] { "status" }, item.getId(),
+					new Object[] { 1 });
 			ItemDetail itemDetail = itemDetailDao.findByItemId(item.getId());
-			//winning bidder
+			// winning bidder
 			log.debug("[LOG]" + itemDetail.getWinningBidderId());
 		}
 	}

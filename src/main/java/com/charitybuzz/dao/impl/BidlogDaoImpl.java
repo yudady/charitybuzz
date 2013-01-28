@@ -9,8 +9,7 @@ import com.charitybuzz.dao.BidlogDao;
 import com.charitybuzz.domain.Bidlog;
 
 @Repository
-public class BidlogDaoImpl extends BaseDaoImpl<Bidlog>
-		implements BidlogDao {
+public class BidlogDaoImpl extends BaseDaoImpl<Bidlog> implements BidlogDao {
 
 	/**
 	 * 注入DataSource
@@ -25,18 +24,6 @@ public class BidlogDaoImpl extends BaseDaoImpl<Bidlog>
 	@Override
 	public Class<Bidlog> getClazz() {
 		return Bidlog.class;
-	}
-
-	@Override
-	public int insert(Bidlog itemHistory) {
-		String sql = "";
-		return super.insert(sql, itemHistory);
-	}
-
-	@Override
-	public int update(Bidlog itemHistory) {
-		String sql = " ";
-		return super.update(sql, itemHistory);
 	}
 
 }

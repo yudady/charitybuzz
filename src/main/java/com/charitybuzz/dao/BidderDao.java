@@ -4,6 +4,4 @@ import com.charitybuzz.domain.Bidder;
 
 public interface BidderDao extends BaseDao<Bidder> {
 
-	Bidder findByEmail(String email);
-
 }

@@ -27,17 +27,4 @@ public class CategoryDaoImpl extends BaseDaoImpl<Category> implements
 		return Category.class;
 	}
 
-
-	@Override
-	public int insert(Category category) {
-		String sql = " ";
-		return super.insert(sql, category);
-	}
-
-	@Override
-	public int update(Category category) {
-		String sql = " ";
-		return super.update(sql, category);
-	}
-
 }

@@ -16,7 +16,8 @@ public class WatchingServiceImpl implements WatchingService {
 
 	@Override
 	public int addBidderWaching(Long bidderId, Long itemId) {
-		return watchingDao.insert(bidderId, itemId);
+		return watchingDao.insert(new String[] { "bidderId", "itemId" },
+				new Object[] { bidderId, itemId });
 	}
 
 	@Override

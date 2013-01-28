@@ -18,8 +18,8 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	private SubCategoryDao subCategoryDao;
 
 	@Override
-	public List<SubCategory> findItensByCategoryId(Long id) {
-		List<SubCategory> catalogItems = subCategoryDao.findByCategoryId(id);
+	public List<SubCategory> findItensByCategoryId(Long categoryId) {
+		List<SubCategory> catalogItems = subCategoryDao.findListByColumn("categoryId", categoryId);
 		if (catalogItems.size() > 0) {
 			return catalogItems;
 		}

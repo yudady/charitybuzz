@@ -1,11 +1,7 @@
 package com.charitybuzz.dao;
 
-import java.util.List;
-
 import com.charitybuzz.domain.AuctionRuleDetail;
 
 public interface AuctionRuleDetailDao extends BaseDao<AuctionRuleDetail> {
-
-	List<AuctionRuleDetail> findByAuctionRuleId(Long id);
 
 }

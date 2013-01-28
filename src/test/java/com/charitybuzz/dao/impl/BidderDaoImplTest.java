@@ -42,9 +42,7 @@ public class BidderDaoImplTest {
 	@Test
 	@Rollback(true)
 	public void insert() {
-		Bidder user = new Bidder();
-		user.setId(3L);
-		log.debug("[LOG]" + userDao.insert(user));
+		log.debug("[LOG]" + userDao.insert(new String[]{"email"}, new Object[]{"email"}));
 	}
 
 	@Test
@@ -52,13 +50,13 @@ public class BidderDaoImplTest {
 	public void update() {
 		Bidder user = new Bidder();
 		user.setId(3L);
-		log.debug("[LOG]" + userDao.update(user));
+		//log.debug("[LOG]" + userDao.update(user));
 	}
 
 	@Test
 	@Rollback(true)
 	public void name() {
-		log.debug("[LOG]" + userDao.updateNameById("email", 1L, "111"));
+		log.debug("[LOG]" + userDao.updateNamesById(new String[]{"email"}, 1L, new Object[]{"111"}));
 	}
 
 	@Test

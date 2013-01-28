@@ -21,7 +21,7 @@ public class AuctionRuleDetailServiceImpl implements AuctionRuleDetailService {
 	public List<AuctionRuleDetail> findByAuctionRuleId(Long id) {
 
 		List<AuctionRuleDetail> auctionRuleDetails = auctionRuleDetailDao
-				.findByAuctionRuleId(id);
+				.findListByColumn("auctionRuleId", id);
 		if (auctionRuleDetails.size() > 0) {
 			return auctionRuleDetails;
 		}

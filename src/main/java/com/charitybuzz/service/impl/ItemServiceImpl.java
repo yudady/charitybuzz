@@ -41,7 +41,7 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	@Transactional
 	public int updateCurrentBidById(Long itemId, Double currentBid) {
-		return itemDao.updateNameById("currentBid", itemId, currentBid);
+		return itemDao.updateNamesById(new String[]{"currentBid"}, itemId, new Object[]{currentBid});
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public int endBidding(Long id) {
 		// 把商品更新為結標
-		return itemDao.updateNameById("status", id, 0);
+		return itemDao.updateNamesById(new String[]{"status"}, id, new Object[]{0});
 	}
 
 	@Override

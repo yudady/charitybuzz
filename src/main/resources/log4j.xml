@@ -22,15 +22,33 @@
 	<logger name="org.directwebremoting.spring.DwrHandlerMapping">
 		<level value="info" />
 	</logger>
+	<logger name="org.directwebremoting.dwrp.DefaultConverterManager">
+		<level value="info" />
+	</logger>
+	<logger name="org.directwebremoting.impl.DefaultCreatorManager">
+		<level value="info" />
+	</logger>
+	<logger name="org.directwebremoting.impl.DefaultContainer">
+		<level value="info" />
+	</logger>
+	<logger name="org.directwebremoting.spring.SpringContainer">
+		<level value="info" />
+	</logger>
 	
 	
 	
 	<!-- apache title -->
 	<logger name="org.apache.commons.digester">
 		<level value="info" />
-	</logger>	
+	</logger>
+	
+	
+	
 	<!-- springframework -->
 	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>	
+	<logger name="org.springframework.aop">
 		<level value="info" />
 	</logger>	
 	<logger name="org.springframework.beans">
