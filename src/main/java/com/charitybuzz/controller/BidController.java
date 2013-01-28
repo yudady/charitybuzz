@@ -29,7 +29,7 @@ public class BidController {
 	 */
 	@Resource
 	private PictureService pictureService;
-
+	
 	@RequestMapping()
 	public @ResponseBody
 	ReturnMsg index(ItemForm form){

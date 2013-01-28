@@ -7,7 +7,6 @@ public class ReturnMsg {
 	private int errorCode;
 
 	public ReturnMsg(String msg) {
-		super();
 		this.msg = msg;
 	}
 

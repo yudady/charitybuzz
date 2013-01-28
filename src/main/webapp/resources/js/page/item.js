@@ -51,6 +51,7 @@ $(function() {
 			
 			$.ajax({
 				type: "POST",
+				dataType :"json",
 				url: charitybuzz.getSafeUrl("bid"),
 				data: {
 					itemId : itemId,
@@ -58,7 +59,7 @@ $(function() {
 				},
 				success: function(data){
 					$.log(data);
-					alert(data.msg);
+					alert(data.errorCode);
 				}
 			});
 		}else{
