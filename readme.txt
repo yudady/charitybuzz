@@ -19,6 +19,11 @@ jsp			webapp\WEB-INF\jsp\page\contactus\contact_us.jsp
 tiles		webapp\WEB-INF\jsp\tiles-definitions.xml
 
 =================================
+Spring-DWR註解方式集成時，在不連網時報cvc-complex-type.2.4.c異常
+問題在於Spring配置文件中申明xsi時引用http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd
+而本地DWR報中版本為spring-dwr-2.0.xsd，所以必須聯網才能找到該XSD定義，改成2就可以
+http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd
+=================================
 1.oracle (application.properties)
 2.spring springjdbc
 3.apache titles
