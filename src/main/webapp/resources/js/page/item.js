@@ -1,4 +1,9 @@
 $(function() {
+	
+
+	
+	
+	
 	$("#tabs").tabs();
 
 	$("#more-details a").click(function(){
@@ -39,13 +44,13 @@ $(function() {
 			var itemId = $("#bid_itemId").val();
 			var currentBid = $("#bid_amount").val() ;
 			if(currentBid == ""){
-				alert(charitybuzz.itemNoMoney);
+				charitybuzz.openAlertDialog(charitybuzz.itemNoMoney);
 				return;
 			}
 			
 			var bid_minNextBid = $("#bid_minNextBid").val() || 0;
 			if((parseInt(bid_minNextBid) - parseInt(bid_amount)) > 0){
-				alert("not enough");
+				charitybuzz.openAlertDialog("not enough");
 				return;
 			}
 			
@@ -65,7 +70,7 @@ $(function() {
 				}
 			});
 		}else{
-			alert(charitybuzz.itemNoLogin);
+			charitybuzz.openAlertDialog(charitybuzz.itemNoLogin);
 		}
 		
 	});
@@ -75,7 +80,7 @@ $(function() {
 		
 		var bidderId = charitybuzz.getBidderId();
 		if(!bidderId){
-			alert(charitybuzz.itemNoLogin);
+			charitybuzz.openAlertDialog(charitybuzz.itemNoLogin);
 			return ;
 		}
 		
@@ -96,8 +101,9 @@ $(function() {
 				$.log(data);
 			},
 			errorHandler : function(){
-				alert("We can't add those values!");
+				charitybuzz.openAlertDialog("We can't add those values!");
 			}
 		});
 	});
+	
 });

@@ -7,6 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src='<c:url value="/resources/js/jquery-1.9.0.min.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/jquery-ui-1.10.0.custom.min.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/jquery.log.js"/>'></script>
 <script type="text/javascript">
 
 	/**
@@ -19,30 +22,41 @@
 			return "" + '<c:url value="/"/>' + path;
 		}
 		
-		
-		
+
+		function dialog(message) {
+			var setting = message || "dialog need text message";
+				
+			$("#dialog").html("<br/><br/><br/><div>" + setting + "</div><br/>").dialog({
+				buttons : {
+					"OK" : function() {
+						$(this).dialog("close");
+					}
+				}
+			});
+			$(".ui-dialog-titlebar").hide();
+		}
+
+		//=============		
 		return {
 			getSafeUrl : function(path) {
-				return baseUrl(path) ;
+				return baseUrl(path);
 			},
-			isBidderLogin : function(){
-				return $("#login #logout").is(":visible") ;
+			isBidderLogin : function() {
+				return $("#login #logout").is(":visible");
 			},
-			getBidderId : function(){
-				return $("#login #bidderId").val() ;
+			getBidderId : function() {
+				return $("#login #bidderId").val();
+			},
+			//{title:"item",text:"""}
+			openAlertDialog : function(message) {
+				return dialog(message);
 			},
 			//js spring message code
 			itemNoLogin : '<spring:message code="item.js.no.login" />',
 			itemNoMoney : '<spring:message code="item.js.no.money" />'
 		};
 	}();
-	
-	
-	
 </script>
-<script type="text/javascript" src='<c:url value="/resources/js/jquery-1.9.0.min.js"/>'></script>
-<script type="text/javascript" src='<c:url value="/resources/js/jquery-ui-1.10.0.custom.min.js"/>'></script>
-<script type="text/javascript" src='<c:url value="/resources/js/jquery.log.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/page/base.js"/>'></script>
 <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/smoothness/jquery-ui-1.10.0.custom.min.css"/>'/>
 <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/base.css"/>'/>
