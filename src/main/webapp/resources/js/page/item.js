@@ -59,7 +59,9 @@ $(function() {
 				},
 				success: function(data){
 					$.log(data);
-					alert(data.errorCode);
+					if(!data.errorCode){
+						window.location.href = window.location.href;
+					}
 				}
 			});
 		}else{

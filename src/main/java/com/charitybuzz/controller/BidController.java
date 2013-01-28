@@ -33,14 +33,14 @@ public class BidController {
 	@RequestMapping()
 	public @ResponseBody
 	ReturnMsg index(ItemForm form){
-		log.debug("[itemId]" + form.getItemId());
-		log.debug("[currentBid]" + form.getCurrentBid());
-//TODO fix item need reload
+		log.debug("[LOG][itemId]" + form.getItemId());
+		log.debug("[LOG][currentBid]" + form.getCurrentBid());
 		Item item = itemService.findById(form.getItemId());
 		if (item.getMinNextBid() <= form.getCurrentBid()) {
 			itemService.updateCurrentBidById(form.getItemId(),form.getCurrentBid());
 			return new ReturnMsg("success");
 		}
+		log.debug("[LOG][item.getMinNextBid()]" + item.getMinNextBid());
 		return new ReturnMsg("fail", 1);
 	}
 

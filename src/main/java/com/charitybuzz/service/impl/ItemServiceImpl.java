@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.charitybuzz.dao.ItemDao;
 import com.charitybuzz.domain.Item;
@@ -38,6 +39,7 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
+	@Transactional
 	public int updateCurrentBidById(Long itemId, Double currentBid) {
 		return itemDao.updateNameById("currentBid", itemId, currentBid);
 	}
