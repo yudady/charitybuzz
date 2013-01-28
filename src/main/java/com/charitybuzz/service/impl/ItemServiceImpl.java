@@ -64,7 +64,7 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public List<Item> findEndBiddingByLotclose() {
-		List<Item> items = itemDao.findEndBiddingByLotclose(new Date() );
+		List<Item> items = itemDao.findEndBiddingByLotclose(new Date());
 		if (items.size() > 0) {
 			return items;
 		}
@@ -74,8 +74,16 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public int endBidding(Long id) {
-		//把商品更新為結標
+		// 把商品更新為結標
 		return itemDao.updateNameById("status", id, 0);
+	}
+
+	@Override
+	public int updateCurrentBidMinNextBidById(Long itemId, Double currentBid,
+			Double minNextBid) {
+		return itemDao
+				.updateNamesById(new String[] { "currentBid", "minNextBid" },
+						itemId, new Object[] { currentBid, minNextBid });
 	}
 
 }

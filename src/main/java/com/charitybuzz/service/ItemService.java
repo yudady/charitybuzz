@@ -26,4 +26,7 @@ public interface ItemService {
 	 * @return
 	 */
 	public int endBidding(Long id);
+
+	public int updateCurrentBidMinNextBidById(Long itemId, Double currentBid,
+			Double minNextBid);
 }
