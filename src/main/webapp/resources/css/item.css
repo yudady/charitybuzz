@@ -16,6 +16,12 @@
 	background-color: #CCC;
 	margin-top: 10px;
 }
+
+
+
+#more-details {
+	clear: both;
+}
 #more-details dl{
 	height: 80px;
 	display: none;
@@ -25,15 +31,19 @@
 
 #watchQuestion {
 	width: 300px;
+	margin-top: 10px;
 }
 #watchQuestion ul {
 	height:30px;
 	line-height:30px;
 	text-align:center;
+	position: relative;
+	top: -20px;
+	left: 20px;
 }
 #watchQuestion ul li {
 	display:block;
-	width: 140px;
+	width: 100px;
 	float: left;
 	background-color: white;
 	margin:5px;

@@ -18,6 +18,11 @@
 		<level value="debug" />
 	</logger>
 	
+	<!-- dwr -->
+	<logger name="org.directwebremoting.spring.DwrHandlerMapping">
+		<level value="info" />
+	</logger>
+	
 	
 	
 	<!-- apache title -->
