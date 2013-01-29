@@ -4,8 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/bidderlog.css"/>' />
-<script type="text/javascript" src='<c:url value="/resources/js/page/bidderlog.js" />'></script>
+<link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/bidlog.css"/>' />
+<script type="text/javascript" src='<c:url value="/resources/js/page/bidlog.js" />'></script>
 <div id="sidebar">
 	<jsp:include page="/sidebar" />
 </div>

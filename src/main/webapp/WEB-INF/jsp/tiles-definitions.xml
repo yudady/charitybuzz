@@ -32,9 +32,10 @@
 		<put-attribute name="title" value="item" />
 		<put-attribute name="body" value="/WEB-INF/jsp/page/item/item.jsp" />
 	</definition>
-	<definition name="bidderlog" extends="template-main">
+	<!-- bidlog -->
+	<definition name="bidlog" extends="template-main">
 		<put-attribute name="title" value="item" />
-		<put-attribute name="body" value="/WEB-INF/jsp/page/bidderlog/bidderlog.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/page/bidlog/bidlog.jsp" />
 	</definition>
 	
 	
