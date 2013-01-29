@@ -43,15 +43,8 @@ public class WatchingDaoImpl extends BaseDaoImpl<Watching> implements
 
 	@Override
 	public Watching findByBidderIdItemId(Long bidderId, Long itemId) {
-		String sql = "SELECT * FROM " + getTableName()
-				+ " WHERE bidderId = ? and itemId = ? ";
-
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("bidderId", bidderId);
-		paramMap.put("itemId", itemId);
-		return this.getNamedParameterJdbcTemplate().queryForObject(sql,
-				paramMap, Watching.class);
-
+		return this.findByColumns(new String[] { "bidderId", "itemId" },
+				new Object[] { bidderId, itemId });
 	}
 
 }
