@@ -14,13 +14,13 @@
 		">
 	
 	<security:http use-expressions="true" auto-config="true">
-	    <!-- 需要過滤不被攔截的請求 -->
-		<security:intercept-url pattern="/item/*" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/item/*/1/2/3" access="hasRole('loginBidder')" />
+		<security:intercept-url pattern="/admin/**" access="hasRole('loginAdmin')" />
 		<security:intercept-url pattern="/login" access="isAnonymous()" />
 		<security:intercept-url pattern="/**" access="permitAll" />
 		<security:form-login 
 			login-processing-url="/j_spring_security_check"
-			login-page="/login" 
+			login-page="/loginPage" 
 			default-target-url="/"
 			authentication-failure-url="/login.jsp?error=1" />
 		<security:logout logout-url="/j_spring_security_logout" />

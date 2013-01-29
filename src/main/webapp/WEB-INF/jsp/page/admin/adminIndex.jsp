@@ -3,9 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/contact_us.css"/>'/>
-<script type="text/javascript" src='<c:url value="/resources/js/page/contact_us.js" />'></script>
-	<div id="sidebar">
-		<jsp:include page="/sidebar" />
-	</div>
-	<div id="mainRight">contact_us.jsp</div>
+<link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/admin/contact_us.css"/>'/>
+<script type="text/javascript" src='<c:url value="/resources/js/page/admin/adminIndex.js" />'></script>
+<div id="mainRight">adminIndex</div>

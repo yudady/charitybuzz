@@ -14,9 +14,9 @@ public class SecurityManager implements UserDetailsService {
 			throws UsernameNotFoundException, DataAccessException {
 		// TODO Auto-generated method stub
 		ArrayList<User> userList = new ArrayList<User>();
-		userList.add(new User("111", "111"));
-		userList.add(new User("Tom", "654321"));
-		userList.add(new User("Terry", "321456"));
+		userList.add(new User(1,"111", "111"));
+		userList.add(new User(2,"Tom", "654321"));
+		userList.add(new User(2,"Terry", "321456"));
 		for (int i = 0; i < userList.size(); i++) {
 			User user = (User) userList.get(i);
 			if (user.getUsername().equals(username))

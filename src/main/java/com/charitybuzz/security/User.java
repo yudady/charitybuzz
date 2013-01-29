@@ -14,53 +14,60 @@ public class User implements UserDetails {
 
 	private String name;
 	private String password;
+	private int authority;
 
-	public User(String name, String password) {
+	public User(int authority, String name, String password) {
 		this.name = name;
 		this.password = password;
+		this.authority = authority;
 	}
 
 	@Override
 	public Collection<GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
 		List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-		grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+
+		switch (authority) {
+		case 1:
+			grantedAuthorities.add(new SimpleGrantedAuthority("loginBidder"));
+			break;
+		case 2:
+			grantedAuthorities.add(new SimpleGrantedAuthority("loginBidder"));
+			grantedAuthorities.add(new SimpleGrantedAuthority("loginAdmin"));
+			break;
+		default:
+			break;
+		}
+
 		return grantedAuthorities;
 	}
 
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
 		return password;
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return name;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 

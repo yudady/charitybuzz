@@ -3,8 +3,33 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-	
-	<!-- 定義模板 -->
+
+
+	<!-- 定義後台模板 -->
+	<definition name="template-admin" template="/WEB-INF/jsp/layouts/admin.jsp">
+		<put-attribute name="title" value="admin" />
+		<put-attribute name="body" value="" />
+	</definition>
+	<!-- index -->
+	<definition name="adminIndex" extends="template-admin">
+		<put-attribute name="title" value="adminIndex" />
+		<put-attribute name="body" value="/WEB-INF/jsp/page/admin/adminIndex.jsp" />
+	</definition>
+	<definition name="loginPage" extends="template-admin">
+		<put-attribute name="title" value="loginPage" />
+		<put-attribute name="body" value="/WEB-INF/jsp/page/loginPage.jsp" />
+	</definition>
+
+
+
+	<!-- iframe login -->
+	<definition name="login" extends="template-single">
+		<put-attribute name="title" value="login" />
+		<put-attribute name="body" value="/WEB-INF/jsp/page/single/loginPage.jsp" />
+	</definition>
+
+
+	<!-- 定義前台模板 -->
 	<definition name="template-main" template="/WEB-INF/jsp/layouts/main.jsp">
 		<put-attribute name="title" value="main" />
 		<put-attribute name="header" value="/WEB-INF/jsp/tiles/header.jsp" />
@@ -24,7 +49,7 @@
 	</definition>
 	<!-- categories -->
 	<definition name="items" extends="template-main">
-		<put-attribute name="title" value="contactus" />
+		<put-attribute name="title" value="items" />
 		<put-attribute name="body" value="/WEB-INF/jsp/page/items/items.jsp" />
 	</definition>
 	<!-- item -->
@@ -34,7 +59,7 @@
 	</definition>
 	<!-- bidlog -->
 	<definition name="bidlog" extends="template-main">
-		<put-attribute name="title" value="item" />
+		<put-attribute name="title" value="bidlog" />
 		<put-attribute name="body" value="/WEB-INF/jsp/page/bidlog/bidlog.jsp" />
 	</definition>
 	
@@ -54,7 +79,7 @@
 	</definition>
 	<!-- sidebar -->
 	<definition name="sidebar" extends="template-single">
-		<put-attribute name="title" value="login" />
+		<put-attribute name="title" value="sidebar" />
 		<put-attribute name="body" value="/WEB-INF/jsp/page/single/sidebar.jsp" />
 	</definition>
 	
