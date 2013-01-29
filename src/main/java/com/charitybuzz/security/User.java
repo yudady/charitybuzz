@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class User implements UserDetails {
@@ -24,7 +24,7 @@ public class User implements UserDetails {
 	public Collection<GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
 		List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-		grantedAuthorities.add(new GrantedAuthorityImpl("ROLE_USER"));
+		grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 		return grantedAuthorities;
 	}
 
