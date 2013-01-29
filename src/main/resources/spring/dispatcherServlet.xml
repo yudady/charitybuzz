@@ -123,11 +123,34 @@
 		<property name="basename" value="/WEB-INF/messages/messages" />
 		<property name="cacheSeconds" value="0" />
 	</bean>
+	
+	
+	
 	<mvc:interceptors>
+		<!-- 
+		<mvc:interceptor>
+			<mvc:mapping path="/categories/*/subcategories/*"/>    
+			<bean class="com.charitybuzz.interceptor.SessionInterceptor">
+				<property name="excludedUrls">
+					<list>
+						<value>/categories/1/subcategories/1</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:interceptor>
+		-->
+	
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
 	</mvc:interceptors>
 	
-	
+	<bean id="handlerExceptionResolver"
+	    class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	    <property name="exceptionMappings">
+	        <props>
+	            <prop key="com.charitybuzz.exception.BidderException">redirect:/login</prop>
+	        </props>
+	    </property>
+	</bean>
 	
 	
 	<!-- need view name in tiles-definitions.xml -->
