@@ -96,7 +96,7 @@ $(function() {
 			watchStatus = "1";
 		}
 		
-		watch.item( itemId ,bidderId ,watchStatus , {
+		watch.item( itemId , watchStatus , {
 			callback : function(data){
 				$.log(data);
 			},

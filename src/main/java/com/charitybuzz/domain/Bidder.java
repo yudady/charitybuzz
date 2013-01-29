@@ -2,12 +2,16 @@ package com.charitybuzz.domain;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 /**
  * 投標者
  * @author Administrator
  *
  */
+@Component
+@Scope("session")
 public class Bidder {
 
 	
