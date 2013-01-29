@@ -14,11 +14,10 @@ import com.charitybuzz.dao.BaseDao;
 
 public abstract class BaseDaoImpl<T> extends NamedParameterJdbcDaoSupport
 		implements BaseDao<T> {
-	
+
 	/** logger. */
 	Logger log = LoggerFactory.getLogger(this.getClass());
-	
-	
+
 	@SuppressWarnings("rawtypes")
 	protected abstract Class getClazz();
 
@@ -42,7 +41,7 @@ public abstract class BaseDaoImpl<T> extends NamedParameterJdbcDaoSupport
 	@Override
 	public T findById(Long Id) {
 		List<T> lists = this.findListByColumn("id", Id);
-		if(lists.size() > 0){
+		if (lists.size() > 0) {
 			return lists.get(0);
 		}
 		return null;
@@ -92,9 +91,33 @@ public abstract class BaseDaoImpl<T> extends NamedParameterJdbcDaoSupport
 				paramMap);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public T findByColumns(String[] columns, Object[] objs) {
+		List<T> ts = this.findListByColumns(columns, objs);
+		if (ts.size() == 1) {
+			return ts.get(0);
+		}
+		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> findListByColumn(String nameId, Long id) {
+		String sql = "select * from " + getTableName() + " where " + nameId
+				+ "=:" + nameId;
+
+		BeanPropertyRowMapper<T> rowMapper = ParameterizedBeanPropertyRowMapper
+				.newInstance(getClazz());
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put(nameId, id);
+		return (List<T>) this.getNamedParameterJdbcTemplate().query(sql,
+				paramMap, rowMapper);
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> findListByColumns(String[] columns, Object[] objs) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("SELECT * FROM ");
 		sb.append(getTableName());
@@ -113,22 +136,16 @@ public abstract class BaseDaoImpl<T> extends NamedParameterJdbcDaoSupport
 			Object obj = objs[i];
 			paramMap.put(column, obj);
 		}
-		return (T) this.getNamedParameterJdbcTemplate().queryForObject(
-				sb.toString(), paramMap, getClazz());
-
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<T> findListByColumn(String nameId, Long id) {
-		String sql = "select * from " + getTableName() + " where " + nameId
-				+ "=:" + nameId;
 
 		BeanPropertyRowMapper<T> rowMapper = ParameterizedBeanPropertyRowMapper
 				.newInstance(getClazz());
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put(nameId, id);
-		return (List<T>) this.getNamedParameterJdbcTemplate().query(sql,
+		for (int i = 0; i < columns.length; i++) {
+			String column = columns[i];
+			Object obj = objs[i];
+			paramMap.put(column, obj);
+		}
+
+		return this.getNamedParameterJdbcTemplate().query(sb.toString(),
 				paramMap, rowMapper);
 
 	}

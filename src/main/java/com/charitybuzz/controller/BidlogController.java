@@ -1,5 +1,7 @@
 package com.charitybuzz.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.charitybuzz.domain.Bidlog;
 import com.charitybuzz.service.BidlogService;
 
 @Controller
@@ -30,6 +33,11 @@ public class BidlogController {
 			HttpSession session, ModelAndView mav) {
 		log.debug("[itemId]/bidlog=" + itemId);
 		mav.setViewName("bidlog");
+		//TODO
+		Long bidderId = 1L;
+		List<Bidlog> bidlogs = bidlogService.findByBidderIdItemId(bidderId,itemId);
+		log.debug("[LOG]" + bidlogs.size());
+		mav.addObject("bidlogs", bidlogs);
 		return mav;
 	}
 

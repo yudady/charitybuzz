@@ -48,12 +48,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>courtney.manlove</td>
-					<td>WINNING</td>
-					<td>$4,750</td>
-					<td>Mon, 21 Jan 2013 11:30:14 PM EST</td>
-				</tr>
+				<c:forEach items="${bidlogs}" var="bidlog">
+					<tr>
+						<td>${bidlog.bidderId}</td>
+						<td></td>
+						<td>${bidlog.amount}</td>
+						<td>${bidlog.bidTime}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	

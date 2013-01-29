@@ -19,4 +19,6 @@ public interface BaseDao<T> {
 	public T findByColumns(String[] columns, Object[] objs);
 
 	public List<T> findListByColumn(String nameId,Long id);
+	
+	public List<T> findListByColumns(String[] nameId,Object[] objs);
 }
