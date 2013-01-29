@@ -38,6 +38,7 @@ public class Item {
 	 * (6 bids)umber of Bids:
 	 */
 	private int numberBids;
+
 	/**
 	 * 商品 開始日期 lotStart
 	 */
@@ -128,6 +129,10 @@ public class Item {
 		return numberBids;
 	}
 
+	void setNumberBids(int numberBids) {
+		this.numberBids = numberBids;
+	}
+
 	public Date getLotStart() {
 		return lotStart;
 	}
@@ -189,6 +194,7 @@ public class Item {
 	}
 
 	public void setBidlogs(List<Bidlog> bidlogs) {
+		this.setNumberBids(bidlogs.size());
 		this.bidlogs = bidlogs;
 	}
 

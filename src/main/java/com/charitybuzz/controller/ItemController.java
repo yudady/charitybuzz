@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.charitybuzz.domain.Bidder;
+import com.charitybuzz.domain.Bidlog;
 import com.charitybuzz.domain.Item;
 import com.charitybuzz.domain.ItemDetail;
 import com.charitybuzz.domain.Picture;
+import com.charitybuzz.service.BidlogService;
 import com.charitybuzz.service.ItemDetailService;
 import com.charitybuzz.service.ItemService;
 import com.charitybuzz.service.PictureService;
@@ -32,13 +34,21 @@ public class ItemController {
 	 */
 	@Resource
 	private ItemService itemService;
-
+	/**
+	 * 商品明細
+	 */
 	@Resource
 	private ItemDetailService itemDetailService;
-	
+	/**
+	 * 關注
+	 */
 	@Resource
 	private WatchingService watchingService;
-
+	/**
+	 * 商品log
+	 */
+	@Resource
+	private BidlogService bidlogService;
 	/**
 	 * 商品圖片
 	 */
@@ -50,36 +60,45 @@ public class ItemController {
 			HttpSession session, ModelAndView mav) {
 		log.debug("[itemId]=" + itemId);
 		Item item = itemService.findById(itemId);
+		
+
 		mav.setViewName("item");
 		if (item == null) {
 			log.warn("商品不存在");
 			return mav;
 		}
 		mav.addObject("item", item);
-
+		List<Bidlog> bidlogs = bidlogService.findByItemId(itemId);
+		item.setBidlogs(bidlogs);
+		
+		
 		ItemDetail itemDetail = itemDetailService.findByItemId(itemId);
 		if (itemDetail == null) {
 			log.warn("商品明細不存在");
 			return mav;
 		}
 		mav.addObject("itemDetail", itemDetail);
+		
+		//TODO
+		//auctionRuleId
 
-		List<Picture> pictures = pictureService.findByitemId(itemId);
-		if (pictures == null) {
-			log.warn("多張圖片不存在");
-			return mav;
-		}
-		item.setPictures(pictures);
+
 		if(session.getAttribute("bidder") != null){
 			Bidder bidder = (Bidder) session.getAttribute("bidder");
 			if (bidder != null) {
 				boolean isWatching = watchingService.isWatch(bidder.getId() , itemId);
 				mav.addObject("isWatching", isWatching);
 			}
+			
 		}
 		
-		//TODO
-		//auctionRuleId
+		
+		List<Picture> pictures = pictureService.findByitemId(itemId);
+		if (pictures == null) {
+			log.warn("多張圖片不存在");
+			return mav;
+		}
+		item.setPictures(pictures);
 		return mav;
 	}
 
