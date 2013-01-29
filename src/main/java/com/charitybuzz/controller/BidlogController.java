@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.charitybuzz.service.ItemDetailService;
-import com.charitybuzz.service.ItemService;
-import com.charitybuzz.service.PictureService;
-import com.charitybuzz.service.WatchingService;
+import com.charitybuzz.service.BidlogService;
 
 @Controller
 @RequestMapping("/item")
@@ -25,19 +22,8 @@ public class BidlogController {
 	 * 全部商品
 	 */
 	@Resource
-	private ItemService itemService;
+	private BidlogService bidlogService;
 
-	@Resource
-	private ItemDetailService itemDetailService;
-	
-	@Resource
-	private WatchingService watchingService;
-
-	/**
-	 * 商品圖片
-	 */
-	@Resource
-	private PictureService pictureService;
 
 	@RequestMapping(value = "/{itemId}/bidlog", method = RequestMethod.GET)
 	public ModelAndView bidderlog(@PathVariable Long itemId,

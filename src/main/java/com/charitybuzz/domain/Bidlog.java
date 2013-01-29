@@ -15,9 +15,13 @@ public class Bidlog {
 	 */
 	private Long id;
 	/**
-	 * Bidder
+	 * 競標者id
 	 */
-	private Bidder bidder;
+	private Long bidderId;
+	/**
+	 * 商品id
+	 */
+	private Long itemId;
 	/**
 	 * 價格
 	 */
@@ -35,12 +39,20 @@ public class Bidlog {
 		this.id = id;
 	}
 
-	public Bidder getBidder() {
-		return bidder;
+	public Long getBidderId() {
+		return bidderId;
 	}
 
-	public void setBidder(Bidder bidder) {
-		this.bidder = bidder;
+	public void setBidderId(Long bidderId) {
+		this.bidderId = bidderId;
+	}
+
+	public Long getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
 	}
 
 	public Double getAmount() {
