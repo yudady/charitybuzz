@@ -12,11 +12,12 @@
     	http://www.springframework.org/schema/security 
     	http://www.springframework.org/schema/security/spring-security-3.1.xsd
 		">
-	
+		
+	<security:http pattern="/resources/**/**" security="none" /> 
 	<security:http use-expressions="true" auto-config="true">
-		<security:intercept-url pattern="/item/*/1/2/3" access="hasRole('loginBidder')" />
+		<security:intercept-url pattern="/item/**" access="hasRole('loginBidder') OR hasRole('loginAdmin')" />
 		<security:intercept-url pattern="/admin/**" access="hasRole('loginAdmin')" />
-		<security:intercept-url pattern="/login" access="isAnonymous()" />
+		<security:intercept-url pattern="/login" access="isAnonymous()" requires-channel="https"/>
 		<security:intercept-url pattern="/**" access="permitAll" />
 		<security:form-login 
 			login-processing-url="/j_spring_security_check"
@@ -24,6 +25,8 @@
 			default-target-url="/"
 			authentication-failure-url="/login.jsp?error=1" />
 		<security:logout logout-url="/j_spring_security_logout" />
+		<!-- session超時後重定向的登陸頁面 -->  
+        <security:session-management invalid-session-url="/"/>
 	</security:http>
 	<security:authentication-manager>
 		<security:authentication-provider user-service-ref="securityManager"/>
