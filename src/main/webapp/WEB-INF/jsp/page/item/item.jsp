@@ -57,7 +57,7 @@
 						<div>
 							<div>Current Bid: 
 								<span id="currentPrice">${item.currentBid}</span> 
-								<span> ( <a href='<c:url value="/item/${item.id}/BiddingHistory" />'>${item.numberBids}</a> )</span>
+								<span> ( <a href='<c:url value="/item/${item.id}/bidderlog" />'>${item.numberBids}</a> )</span>
 							</div>
 							<div id="placedBy">
 								placed by: <b>jaimervelasco</b>

@@ -82,5 +82,12 @@ public class ItemController {
 		//auctionRuleId
 		return mav;
 	}
+	@RequestMapping(value = "/{itemId}/bidderlog", method = RequestMethod.GET)
+	public ModelAndView bidderlog(@PathVariable Long itemId,
+			HttpSession session, ModelAndView mav) {
+		log.debug("[itemId]/bidderlog=" + itemId);
+		mav.setViewName("bidderlog");
+		return mav;
+	}
 
 }
