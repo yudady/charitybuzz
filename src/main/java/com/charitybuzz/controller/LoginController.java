@@ -21,14 +21,14 @@ public class LoginController {
 		model.addAttribute("username", name);
 		model.addAttribute("message",
 				"Spring Security login + database example");
-		return "hello_demo";
+		return "hello";
 
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
 
-		return "login_demo";
+		return "login";
 
 	}
 
@@ -36,14 +36,14 @@ public class LoginController {
 	public String loginerror(ModelMap model) {
 
 		model.addAttribute("error", "true");
-		return "login_demo";
+		return "login";
 
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model) {
 
-		return "login_demo";
+		return "login";
 
 	}
 

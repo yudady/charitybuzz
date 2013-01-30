@@ -84,15 +84,4 @@
 	</definition>
 	
 	
-	
-	
-	<definition name="login_demo" extends="template-single">
-		<put-attribute name="title" value="login_demo" />
-		<put-attribute name="body" value="/WEB-INF/jsp/page/demo/login_demo.jsp" />
-	</definition>
-	<definition name="hello_demo" extends="template-single">
-		<put-attribute name="title" value="hello_demo" />
-		<put-attribute name="body" value="/WEB-INF/jsp/page/demo/hello_demo.jsp" />
-	</definition>
-	
 </tiles-definitions>
