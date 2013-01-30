@@ -12,7 +12,8 @@
 </sec:authorize>
 <sec:authorize access="hasRole('loginAdmin')">
 後臺管理者
-<a href="<c:url value="j_spring_security_logout" />" ><input type="button" value=" Logout"/></a>
+<a href="<c:url value="/admin" />" ><input type="button" value="後台管理連結"/></a>
+<a href="<c:url value="j_spring_security_logout" />" ><input type="button" value="Logout"/></a>
 </sec:authorize>
 
 
