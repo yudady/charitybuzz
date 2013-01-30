@@ -28,7 +28,7 @@ public class SecurityManager implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException, DataAccessException {
 
-		String sql = " select * from bidder where email = '111' ";
+		String sql = " select * from bidder ";
 		BeanPropertyRowMapper<Bidder> rowMapper = ParameterizedBeanPropertyRowMapper
 				.newInstance(Bidder.class);
 
@@ -36,10 +36,18 @@ public class SecurityManager implements UserDetailsService {
 
 		log.debug("[LOG][bidders size]" + bidders.size());
 
-		if (bidders.size() > 0) {
-			
-			Bidder bidder = bidders.get(0);
-			return new User(1, bidder.getEmail(), bidder.getPassWord());
+		for (int i = 0; i < bidders.size(); i++) {
+			Bidder bidder = bidders.get(i);
+			if(bidder.getEmail().equals(username)){
+				/**
+				 * 後台管理者 BD search
+				 * TODO fix 新增使用者有問題
+				 */
+				if ("222".equals(bidder.getFirstName())) {
+					return new User(2, bidder.getEmail(), bidder.getPassWord());
+				}
+				return new User(1, bidder.getEmail(), bidder.getPassWord());
+			}
 		}
 
 		throw new UsernameNotFoundException("User " + username

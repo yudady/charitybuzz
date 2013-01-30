@@ -34,7 +34,6 @@ public class User implements UserDetails {
 			grantedAuthorities.add(new SimpleGrantedAuthority("loginBidder"));
 			return grantedAuthorities;
 		case 2:
-			grantedAuthorities.add(new SimpleGrantedAuthority("loginBidder"));
 			grantedAuthorities.add(new SimpleGrantedAuthority("loginAdmin"));
 			return grantedAuthorities;
 		default:

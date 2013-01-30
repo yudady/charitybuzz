@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -65,15 +64,6 @@
 <title><tiles:getAsString name="title" /></title>
 </head>
 <body>
-<sec:authorize access="hasRole('loginBidder') OR hasRole('loginAdmin')">
-hasRole('loginBidder') OR hasRole('loginAdmin')
-</sec:authorize>
-<sec:authorize access="!hasRole('loginBidder') AND !hasRole('loginAdmin')">
-no login
-</sec:authorize>
-
-
-
 	<div id="container">
 		<div id="header">
 			<tiles:insertAttribute name="header" />

@@ -21,9 +21,9 @@
 		<security:intercept-url pattern="/**" access="permitAll" />
 		<security:form-login 
 			login-processing-url="/j_spring_security_check"
-			login-page="/loginPage" 
+			login-page="/" 
 			default-target-url="/"
-			authentication-failure-url="/login.jsp?error=1" />
+			authentication-failure-url="/" />
 		<security:logout logout-url="/j_spring_security_logout" />
 		<!-- session超時後重定向的登陸頁面 -->  
         <security:session-management invalid-session-url="/"/>
@@ -34,7 +34,7 @@
 	
 	
 	
-	<bean id="securityManager" class="com.charitybuzz.security.SecurityManager">
+	<bean id="securityManager" class="com.charitybuzz.security.SecurityManager" >
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
