@@ -14,6 +14,7 @@
 <script type="text/javascript" src='<c:url value="/resources/js/page/admin/adminBase.js"/>'></script>
 <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/smoothness/jquery-ui-1.10.0.custom.min.css"/>'/>
 <link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/admin/adminBase.css"/>'/>
+<script type="text/javascript" src='<c:url value="/resources/js/page/admin/adminIndex.js" />'></script>
 <title><tiles:getAsString name="title" /></title>
 </head>
 <body>

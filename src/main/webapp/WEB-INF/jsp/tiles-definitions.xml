@@ -17,6 +17,22 @@
 		<put-attribute name="title" value="adminIndex" />
 		<put-attribute name="adminBody" value="/WEB-INF/jsp/page/admin/adminIndex.jsp" />
 	</definition>
+	<definition name="adminCategory" extends="template-admin">
+		<put-attribute name="title" value="adminCategory" />
+		<put-attribute name="adminBody" value="/WEB-INF/jsp/page/admin/adminCategory.jsp" />
+	</definition>
+	<definition name="adminSubcategory" extends="template-admin">
+		<put-attribute name="title" value="adminSubcategory" />
+		<put-attribute name="adminBody" value="/WEB-INF/jsp/page/admin/adminSubcategory.jsp" />
+	</definition>
+	<definition name="adminItem" extends="template-admin">
+		<put-attribute name="title" value="adminItem" />
+		<put-attribute name="adminBody" value="/WEB-INF/jsp/page/admin/adminItem.jsp" />
+	</definition>
+	<definition name="adminAuctionRule" extends="template-admin">
+		<put-attribute name="title" value="adminAuctionRule" />
+		<put-attribute name="adminBody" value="/WEB-INF/jsp/page/admin/adminAuctionRule.jsp" />
+	</definition>
 
 
 
