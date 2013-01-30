@@ -5,8 +5,9 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <ul id="menu">
-	<li><a href='<c:url value="/admin/category" />'>category</a></li>
-	<li><a href='<c:url value="/admin/category" />'>subcategory</a></li>
-	<li><a href='<c:url value="/admin/category" />'>item</a></li>
+	<li><a href='<c:url value="/admin/adminCategory" />'>category</a></li>
+	<li><a href='<c:url value="/admin/adminSubcategory" />'>subcategory</a></li>
+	<li><a href='<c:url value="/admin/adminItem" />'>item</a></li>
+	<li><a href='<c:url value="/admin/adminAuctionRule" />'>adminAuctionRule</a></li>
 </ul>
 
