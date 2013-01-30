@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 12px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+#container {
+	margin: 0 auto;
+	text-align: left;
+	width: 988px;
+	margin-top: 20px;
+}
+
+#adminHeader {
+	height: 200px;
+	margin-bottom: 20px;
+	background-color: red;
+}
+
+#adminMenu {
+	width: 200px;
+	height: 500px;
+	float: left;
+	background-color: yellow;
+}
+
+#adminBody {
+	width: 750px;
+	height: 500px;
+	float: right;
+	background-color: gray;
+	margin-bottom: 20px;
+}
+
+#adminFooter {
+	clear: both;
+	height: 200px;
+	background-color: green;
+}

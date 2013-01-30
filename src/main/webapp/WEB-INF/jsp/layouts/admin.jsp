@@ -11,9 +11,25 @@
 <script type="text/javascript" src='<c:url value="/resources/js/jquery-1.9.0.min.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery-ui-1.10.0.custom.min.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/resources/js/jquery.log.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/resources/js/page/admin/adminBase.js"/>'></script>
+<link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/smoothness/jquery-ui-1.10.0.custom.min.css"/>'/>
+<link type="text/css" rel="stylesheet" href='<c:url value="/resources/css/admin/adminBase.css"/>'/>
 <title><tiles:getAsString name="title" /></title>
 </head>
 <body>
-<tiles:insertAttribute name="body" />
+<div id="container">
+	<div id="adminHeader">
+		<tiles:insertAttribute name="adminHeader" />
+	</div>
+	<div id="adminMenu">
+		<tiles:insertAttribute name="adminMenu" />
+	</div>
+	<div id="adminBody">
+		<tiles:insertAttribute name="adminBody" />
+	</div>
+	<div id="adminFooter">
+		<tiles:insertAttribute name="adminFooter" />
+	</div>
+</div>
 </body>
 </html>
