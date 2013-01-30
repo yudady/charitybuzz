@@ -23,18 +23,7 @@
     	http://www.springframework.org/schema/security 
     	http://www.springframework.org/schema/security/spring-security-3.1.xsd
 		">
-	<!-- 定義易受環境影響的變量 -->
-	<bean
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-		<property name="ignoreResourceNotFound" value="true" />
-		<property name="locations">
-			<list>
-				<!-- 標准配置 -->
-				<value>classpath*:/system.properties</value>
-			</list>
-		</property>
-	</bean>
+
 	
 	
 
@@ -44,38 +33,17 @@
 	<context:component-scan base-package="com.charitybuzz" />
 	
 	
-	<!-- 連線池 -->
-	<!-- 數據源配置, 使用應用中的DBCP數據庫連接池 -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
-		<!-- Connection Info -->
-		<property name="driverClassName" value="${jdbc.driver}" />
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
 
-		<!-- Connection Pooling Info -->
-		<property name="maxActive" value="2" />
-		<property name="maxIdle" value="2" />
-		<property name="defaultAutoCommit" value="true" />
-		<property name="timeBetweenEvictionRunsMillis" value="3600000" />
-		<property name="minEvictableIdleTimeMillis" value="3600000" />
-	</bean>
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	<tx:annotation-driven/>
 	
-	
-	
-	
-	
-	
 	<!-- spring 3.0 定時調度器-->
 	<task:annotation-driven />
 	<bean id="schedulerItem" class="com.charitybuzz.scheduler.SchedulerItem" >
-		<property name="open" value="${scheduler.open}"/>
+		<property name="open" value="false"/>
 	</bean>
 	<task:scheduled-tasks>
 	<!-- 

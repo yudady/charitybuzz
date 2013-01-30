@@ -65,13 +65,14 @@
 <title><tiles:getAsString name="title" /></title>
 </head>
 <body>
-	
 <sec:authorize access="hasRole('loginBidder') OR hasRole('loginAdmin')">
 hasRole('loginBidder') OR hasRole('loginAdmin')
 </sec:authorize>
 <sec:authorize access="!hasRole('loginBidder') AND !hasRole('loginAdmin')">
 no login
 </sec:authorize>
+
+
 
 	<div id="container">
 		<div id="header">

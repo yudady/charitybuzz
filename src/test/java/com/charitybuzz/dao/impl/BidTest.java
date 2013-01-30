@@ -75,5 +75,13 @@ public class BidTest {
 				"Impl", ""));
 
 	}
+	@Test
+	public void testClass1111111111() {
+		String numString = "0123456789";
+		int num = Integer.parseInt(numString.substring(1));
+		System.out.println("[LOG]"+num);
+		
+		
+	}
 
 }

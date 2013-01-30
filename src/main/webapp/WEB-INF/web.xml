@@ -11,6 +11,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
+        	classpath*:/spring/spring-database.xml,
         	classpath*:/spring/security-config.xml
         </param-value>
     </context-param>
